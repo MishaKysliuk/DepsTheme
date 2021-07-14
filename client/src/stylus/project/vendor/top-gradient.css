@@ -1,0 +1,7 @@
+
+
+@media (min-width: 1200px) {
+  .xl-gradient {
+    background-image: radial-gradient(circle at 70% 100%,#3679b5 0%,#080a33 30%,#090b34);
+  }
+}

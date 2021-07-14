@@ -1,0 +1,28 @@
+{% if features %}
+  <div class='features-medium pv-2'>
+    <h2 class='features-title tac mb-1'>{{ atts.title }}</h2>
+    {% if features_text %}
+      <div class="slide-container mt-1 taj">
+          {{ features_text }}
+      </div>
+    {% endif %}
+    <div class='features-medium__row'>
+      {% for feature in features %}
+        <div class='features-medium__el' style='background-color: {{ feature.color }}'>
+          <div class='features-medium__icon'>
+            {% if feature.image %}
+              <img class='features-medium__image' src="{{feature.image}}" alt="{{feature.alt}}">
+            {% endif %}
+            {% if feature['font-icon'] %}
+              <i class="{{feature['font-icon']}}"></i>
+            {% endif %}
+          </div>
+          <div class='features-medium__col'>
+            <span class='features-medium__title'>{{ feature.title }}</span>
+            <div class='slide-container slide-container--white'>{{ feature.text }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

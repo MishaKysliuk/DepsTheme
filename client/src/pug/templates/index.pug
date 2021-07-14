@@ -1,0 +1,52 @@
+extends base
+block content
+  main.main
+    .top-baner.xl-gradient.xs-tac.pt-2.pb-2.md-pv-4
+      .container
+        +b.top-content-row
+          +e.el
+            h1.h1 CasinoDeps: Deposit Guides & Top Casinos for Gambling
+            .slide-text-wrapper.mt-1
+              +b.slide-content--xl-h-auto(style="max-height:100px;")
+                p.blue-light.mb-1 Our team of expert have reviewed the best and most popular payment for players ti choose from. Keep reading to find out more on:
+                +b.UL.head-casino-list
+                  -for (let i = 1; i < 4; i++)
+                    +e.LI.item
+                      +e.DIV.img
+                        .img-wrap
+                          img(src=`./../static/img/l-${i}.png`, alt="dsd")
+                      +e.P.title Guides about the different online casino banking options available.
+              +b.BUTTON.js-all-text--xl-d-none(type="button", data-default="Read more", data-nodefault="Hide", data-click="true") Read
+            +b.btn-row.mt-1.xl-mt-2
+              +e.el
+                +b.A.main-btn--bg-green(href="#") Сheck Payment Methods
+              +e.el
+                +b.A.main-btn--bg-green(href="#") Start Deposit Quiz
+          +e.el--xs-d-none-xl
+            .img-wrap
+              img(data-src="./../static/img/bg-1.png", loading="lazy", alt="bg")
+    +b.block-wrapper--bg-white.pv-2.lg-pt-4.lg-pb-3
+      .container
+        h2.h2.tac CasinoDeps your guide to online casinos, bonuses & slots
+    +b.block-wrapper--bg-white.--lg-bg-pattern.--xl-white-shadow.pb-4.lg-pb-6
+      .container
+        +b.custom-row-flex
+          -for (let i = 1; i < 7; i++)
+            +e.el--col-sm-12.--col-lg-6
+              +b.casino-card.xs-tac
+                +e.row
+                  +e.img
+                    .img-wrap
+                      img(data-src=`./../static/img/card-${i}.png`, loading="lazy", alt="pay")
+                  +e.info
+                    +e.description
+                      +e.title
+                        h3.h3 Debit & Credit Card Casinos
+                      p.main-blue-text If you in a search for the good online casino as well as for the convenient way to make your deposit and withdrawals, you are probably already considering to use an e-wallet casino.
+                    +e.button--right
+                      +b.A.main-btn--xs-fz12.--sm-fz14.--xl-scaled(href="#", style="background-color:#0079bf;") Сheck Debit & Credit Card Casinos
+        +b.custom-row-flex.mt-2.xl-mt-3
+          +e.el--col-sm-12
+            +b.A.main-btn--bg-white-green(href="#") Check all payment Methods
+
+

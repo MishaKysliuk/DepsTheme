@@ -1,0 +1,8 @@
+
+{% if buttons %}
+  <div class="buttons-gtoup">
+    {% for button in buttons %}
+      {%  include '/templates/shortcodes/button.twig' with {'atts': button} %}
+    {% endfor %}
+  </div>
+{% endif %}

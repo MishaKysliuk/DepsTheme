@@ -1,0 +1,125 @@
+.blog-content
+  &__baner
+    border-radius: 5px
+    border: 2px solid #e5e5e5
+    background-color: #ffffff
+    margin-bottom 10px
+    +xl()
+
+      margin-bottom 20px
+  &__content
+    margin-top 35px
+    & > * + *
+      margin-top 20px
+    h2
+      @extend .blue-title, .blue-title--slashed
+      margin-top 35px
+    h3
+      @extend .h3
+    p
+      @extend .main-blue-text, .main-blue-text--xl-fz16
+    img
+      display block
+      max-width: 100%
+      margin auto
+      height auto
+    form
+      button
+        &:hover
+          cursor pointer
+        &:not(.main-btn)
+          border 0
+          background-color: transparent
+
+.email-wrapper
+  background-color $light-blue
+  padding 20px 10px
+  text-align center
+  +lg()
+    text-align left
+  +xl()
+    padding 40px 20px
+  &__row
+    display flex
+    justify-content space-between
+    &--column
+      flex-direction: column
+      align-items center
+    &--lg-row
+      +lg()
+        flex-direction: row
+  &__big,
+  &__small,
+  &__info
+    color $color-white
+  &__big
+    font-size 2.4rem
+    font-weight 700
+    margin-bottom 5px
+    +lg()
+      margin-bottom 15px
+    +xl()
+      font-size 3.6rem
+  &__small
+    font-size 1.8rem
+    font-weight 500
+    +xl()
+      font-size 3rem
+  &__info
+    font-size 1.2rem
+    margin-top 20px
+    +xl()
+      font-size 1.4rem
+    a
+      text-decoration: underline
+      color $yellow
+      &:hover
+        text-decoration none
+  &__img
+    height 100px
+    width 100px
+    +lg()
+      height 150px
+      width calc(50% - 15px)
+    +xl()
+      height 200px
+  &__left
+    +lg()
+      width 40%
+    &-titles
+      +lg()
+        width 50%
+  &__right
+    margin-top 20px
+    +lg()
+      margin-top 0
+      width calc(60% - 25px)
+  
+  &--
+    &additional-block
+      +lg()
+        padding 40px 40px
+      .email-wrapper
+        &__
+          &img
+            height 63px
+            width 63px
+          &left
+            +lg()
+              width 50%
+          &right
+            +lg()
+              width 50%
+          &left-titles 
+            width 100%
+            +lg()
+              padding 0 30px
+          &big
+            margin-top 10px
+            font-size 24px
+            +lg
+              margin-top 0
+            +xl()
+              font-size 30px
+          &small
+            font-size 16px

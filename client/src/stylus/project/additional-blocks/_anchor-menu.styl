@@ -1,0 +1,26 @@
+.anchor-menu
+  border-radius 5px
+  background-color $purple-2
+  &__
+    &items
+      display flex
+      justify-content center
+      flex-wrap wrap
+    &item
+      padding 10px
+      text-align center
+      +xl()
+        padding 15px 25px
+    &link
+      text-decoration none
+      transition 0.3s
+      border-bottom 1px dashed $color-white
+      color $color-white
+      opacity 0.99
+      font-weight 400
+      font-size 18px
+      +xl()
+        font-size 24px
+      &:hover
+        border-bottom 1px solid $color-white
+      

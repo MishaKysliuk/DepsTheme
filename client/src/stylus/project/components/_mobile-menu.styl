@@ -1,0 +1,50 @@
+.mobile-window
+  display none
+  background: $purple-dark-opacity
+  text-align: center
+  overflow-y: auto
+  height 100%
+  top 65px
+  left 0
+  width 100%
+  max-width 100%
+  position absolute
+  will-change: transform
+  transform: translateY(calc(-100% - 65px))
+  transition: all .5s ease
+  will-change: transform
+  z-index 5
+  &.active
+    transform: translateY(0%)
+    display block
+
+.mobile-menu
+  background-color: $purple-dark-2
+  &__
+    &item
+      height 60px
+      display flex
+      align-items center
+      justify-content space-between
+      padding 0 20px
+      color $color-white
+      &:not(:last-child)
+        border-bottom 1px solid $light-blue 
+    &link
+      color $color-white
+      font-size 20px
+      font-weight 400
+    &arrow
+      font-size 12px
+      
+.back-btn
+  color #ffde00
+  font-size 20px
+  align-items center
+  justify-content flex-start
+  height 60px
+  display flex
+  padding 0 20px
+  &__
+    &arrow
+      margin-right 10px

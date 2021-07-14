@@ -1,0 +1,87 @@
+{% set bonus = Post(bonus) %}
+{% set brand = Post(bonus.brand) %}
+<div class='brands-item brands-item--bonus-card'>
+  <div class='brands-item__header'>
+    <div class='brands-item__logo' style="background-color: {{ brand.background_color }}">
+      <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} - logo'">
+        <button class='brands-item__logo-link' type="submit" name="prgpattern" value="{{ bonus.id }}" target="_blank" >
+          <img class="brands-item__img" src="{{Image(brand.logo).src()}}">
+        </button>
+        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+      </form>
+    </div>
+    <div class='brands-item__info'>
+      <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} - title'" >
+        <button class='brands-item__title' type="submit" name="prgpattern" value="{{ bonus.id }}" target="_blank" >
+          {{ brand.title }}
+        </button>
+        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+      </form>
+      <div class='brands-item__stars'>
+        {% set voting_block = brand.meta('voting_block') %}
+        <stars 
+          :stars-number="{{voting_block.number_of_stars}}"
+          set-url="/wp-admin/admin-ajax.php?action=rating"
+          stars-type="bonuses" 
+          :counter="{{voting_block.users_voted}}" 
+          :stars-id="{{brand.id}}"
+        ></stars>
+      </div>
+    </div>
+  </div>
+  <span class='brands-item__bonuses'>
+    {{ fn('get_aff_key_main_feature', bonus.id, aff_key) }}
+  </span>
+  <div class='brands-item__tooltip-line'>
+    {% if bonus.meta('t&cs').text  %}
+      <div class='tooltip' v-open-tooltip="">
+        <span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+        <div class='tooltip__container js-tooltip'>
+          <span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
+          {% if bonus.meta('t&cs').title %}
+            <h3 class='tooltip__title'>{{ bonus.meta('t&cs').title }}</h3>
+          {% endif %}
+          <div class='tooltip__text'>{{ bonus.meta('t&cs').text }}</div>
+          {% if bonus.meta('t&cs').link %}
+            <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} -  T&Cs'">
+              <button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{bonus.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+              <input name='t&cs' type='hidden' value="">
+            </form>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  <div class='brands-item__body'>
+    <div class='brands-item__features-items'>
+      {% if  bonus.meta('features_left') %}
+        <ul class='brands-item__features'>
+        {% for feature in bonus.meta('features_left') %}
+          <li class='brands-item__feature'>{{feature.item}}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      {% if  bonus.meta('features_right') %}
+        <ul class='brands-item__features'>
+        {% for feature in bonus.meta('features_right') %}
+          <li class='brands-item__feature'>{{feature.item}}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <div class='brands-item__buttons'>
+      <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} - button'" >
+        <button class='main-btn main-btn--bg-orange main-btn--w100 main-btn--h50' type="submit" name="prgpattern" value="{{ bonus.id }}" target="_blank" >
+          {{ __('claim now', 'casino') }}
+        </button>
+        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+      </form>
+      <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} - website'" >
+        <button class='brands-item__site-name' type="submit" name="prgpattern" value="{{ bonus.id }}" target="_blank" >
+          {{ brand.meta('website_adress') }}
+        </button>
+        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+      </form>
+    </div>
+  </div>
+</div>

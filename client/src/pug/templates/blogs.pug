@@ -1,0 +1,33 @@
+extends base
+block content
+  main.main
+    +b.block-wrapper--bg-light-gray.pv-2
+      .container
+        h1.h2.tac.mb-2 BLOG
+        +b.custom-row-flex
+          -for(let i = 0; i < 3; i++)
+            +e.el--col-md-6.--col-xl-4
+              +b.blog-card
+                +e.img
+                  .img-wrap
+                    img(data-src="./../static/img/blog.jpg", loading="lazy", alt="news")
+                +e.content
+                  +e.H2.title Writing A Good Headline For Your visitors Advertisement  to hook.
+                  +e.description
+                    p This is a sample intro paragraph and can be used to hook visitors into reading your article. You can change the appearance of this by editing the style sheet. This is an example of a WordPress …
+                  +b.A.link-arrow(href="#") Continue reading
+                    +e.SPAN.img.icon-arrow
+          -for(let i = 3; i < 6; i++)
+            +e.el--col-md-6.--col-xl-4
+              +b.blog-card
+                +e.img
+                  .img-wrap
+                    img(data-src="./../static/img/blog.jpg", loading="lazy", alt="news")
+                +e.content
+                  +e.H2.title Writing A Good
+                  +e.description
+                    p This is a sample intro paragraph and can be used to hook visitors into reading your article. You can change the appearance of this by editing the style sheet. This is an example of a WordPress …
+                  +b.A.link-arrow(href="#") Continue reading
+                    +e.SPAN.img.icon-arrow
+
+

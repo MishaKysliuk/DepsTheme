@@ -1,0 +1,303 @@
+{% set additional_blocks = term.meta('additional_blocks') ? term.meta('additional_blocks') : post.meta('additional_blocks') %} 
+
+{% if additional_blocks %}
+
+  <div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+
+    {% for row in additional_blocks %}
+      {# Anchor menu #}
+      {% if row.acf_fc_layout == 'anchor_menu' %}
+        <div class="block-wrapper pv-1">
+          <div class="container">
+            {% include '/templates/parts/jump-to.twig' with {'items': row.items } %}
+          </div>
+        </div>
+      {% endif %}
+      {# Anchor end #}
+
+
+      {# Text block #}
+      {% if row.acf_fc_layout == 'text_block' %}
+        <div class="block-wrapper pv-1">
+          <div class="container">
+            <div class="" id="{{ row.anchor }}">
+              {% if row.title %}
+                <h2 class="blue-title blue-title--slashed">{{ fn('do_shortcode', row.title) }}
+                  <div class="slash {{ row.slash_color == 'red' ? 'slash--red' : '' }}"></div>
+                </h2>
+              {% endif %}
+              <div class="slide-container taj mt-1">
+                {{ row.text }}
+              </div>	
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {# Text block end #}
+
+
+      {# FAQ block #}
+      {% if row.acf_fc_layout == 'faq' %}
+        <div class="block-wrapper pv-1">
+          <div class="container">
+            <div itemscope itemtype="https://schema.org/FAQPage">
+              {% if row.title %}
+                <h2 class="blue-title blue-title--slashed mt-2" id="{{ row.anchor }}" itemprop="name">{{ fn('do_shortcode', row.title) }}
+                  <div class="slash"></div>
+                </h2>
+              {% endif %}
+              <ul class="list-accordion mt-2" data-hide="true" id="{{ row.anchor }}">
+                {% for item in row.questions %}
+                  <li class="list-accordion__item list-accordion__item--shadow list-accordion__item--margined" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                    <div class="list-accordion__question-wrapper list-accordion__question-wrapper--bg-white taj">
+                      <p class="list-accordion__title list-accordion__title--purple" itemprop="name">{{ fn('do_shortcode', item.question) }}</p>
+                    </div>
+                    <div class="list-accordion__answer-wrapper">
+                      <div class="list-accordion__content slide-container taj" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                        {{ item.answer }}
+                      </div>
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {# FAQ block end #}
+
+
+      {# Authors block #}
+      {% if row.acf_fc_layout == 'authors' %}
+        <div class="block-wrapper pv-1">
+          <div class="container">
+            <div id='authors'>
+              {% if row.title %}
+                <h2 class="blue-title tac" id="{{ row.anchor }}">{{ fn('do_shortcode', row.title) }}</h2>
+              {% endif %}
+              <div class="custom-row-flex mv-1">
+                {% for author in Post(row.authors) %}
+                  <div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4">
+                    <div class="author-card" id="{{ author.slug }}" itemscope itemprop="author" itemtype="https://schema.org/Person" itemid="{{ author.slug }}">
+                      <link itemprop="worksFor" href="#org">
+                      <div class="author-card__header">
+                        <img itemprop="image" class="author-card__photo" src="{{ Image(author.meta('photo')).src('medium') }}"  alt="bg">
+                        <span class="author-card__label">{{ __('article by:', 'casino') }}</span>
+                        <a class="author-card__name" href="{{ author.link }}"><span itemprop="name">{{ author.title }}</span></a>
+                        <div class="author-card__socials author-socials">
+                          {% if author.meta('linkedin') %}
+                            <a href='{{author.meta('linkedin')}}' rel='nofollow' target='_blank' class='author-socials__item author-socials__item--linkedin'><i class='icon icon-linkedin'></i></a>
+                          {% endif %}
+                          {% if author.meta('twitter') %}
+                            <a href='{{author.meta('twitter')}}' rel='nofollow' target='_blank' class='author-socials__item author-socials__item--twitter'><i class='icon icon-twitter'></i></a>
+                          {% endif %}
+                          {% if author.meta('mail') %}
+                            <a href='mailto:{{author.meta('mail')}}' class='author-socials__item author-socials__item--mail'><i class='icon icon-mail'></i></a>
+                          {% endif %}
+                        </div>
+                      </div>
+                      <div class="author-card__body">
+                        <p class="author-card__short_description tac" itemprop="description">{{ author.meta('short_description') }}</p>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {# Authors end #}
+
+
+      {# How to Section block #}
+      {% if row.acf_fc_layout == 'how_to_section' %}
+        <div class="block-wrapper block-wrapper--bg-light-blue pv-3" itemprop="HowTo" itemscope itemtype="http://schema.org/HowTo">
+          <meta itemprop="totalTime" content="PT5M">
+          <span itemprop="tool" itemscope itemtype="http://schema.org/HowToTool">
+            <meta itemprop="name" content="/">
+          </span>
+          <span itemprop="supply" itemscope itemtype="http://schema.org/HowToSupply">
+            <meta itemprop="name" content="/">
+          </span>
+          <div class="container">
+              {% if row.title %}
+                <h2 class="white-title tac" id="{{ row.anchor }}" itemprop="name">{{ fn('do_shortcode', row.title) }}</h2>
+              {% endif %}
+              <div class='slide-container slide-container--white mt-1 taj' itemprop="description">{{ row.text }}</div>
+              <div class='steps-header mv-2'>
+                <span class='steps-header__item'><span>Time Required: </span>{{row.time_required ? row.time_required : 'None'}}</span>
+                <span class='steps-header__item'><span>Tools Required: </span>{{row.tools_required ? row.tools_required : 'None'}}</span>
+                <span class='steps-header__item'><span>Supply Required: </span>{{row.supply_required ? row.supply_required : 'None'}}</span>
+              </div>
+              <div class="custom-row-flex custom-row-flex--sm">
+                {% for step in row.steps %}
+                  <div itemprop="step" itemscope itemtype="http://schema.org/HowToSection" class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4 custom-row-flex__el--col-xl-3">
+                    <meta itemprop='name' content="STEP {{ loop.index }}"> 
+                    <meta itemprop='position' content="{{ loop.index }}"> 
+                    <div class="step_card" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+                      <div class="step_header">
+                        <span class="step_card__index">STEP {{ loop.index }}</span>
+                        {% if step.image %}
+                          <img itemprop="image" class="step_card__photo" src="{{ Image(step.image).src('medium') }}"  alt="">
+                        {% else %}
+                          <img itemprop="image" class="step_card__photo" src="/wp-content/themes/Casino/build/static/img/layers.png"  alt="">
+                        {% endif %}
+                      </div>
+                      <div class="step_card__body">
+                        <meta itemprop="url" content="{{ post.link ? post.link : term.link }}"> 
+                        <h3 class="step_card__title tac" itemprop="name">{{ step.title }}</h3>
+                        <div class="slide-container tac" itemprop="text"><p>{{ step.text }}</p></div>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+        </div>
+      {% endif %}
+      {# How to Section end #}
+
+
+      {# E-mail block #}
+      {% if row.acf_fc_layout == 'e-mail' %}
+        {% set subscribe_default = fn('get_field', 'subscribe_form_additional_blocks', 'options') %}
+        <div class="block-wrapper pv-1">
+          <div class="container">
+            <div class="email-wrapper email-wrapper--additional-block">
+              <div class="email-wrapper__row email-wrapper__row--column email-wrapper__row--lg-row">
+                <div class="email-wrapper__left">
+                  <div class="email-wrapper__row email-wrapper__row--column email-wrapper__row--lg-row">
+                    <div class="email-wrapper__img">
+                      <div class="img-wrap"><img src="{{ theme.link }}/build/static/img/subscribe-icon.png" alt="ss">
+                      </div>
+                    </div>
+                    <div class="email-wrapper__left-titles">
+                      <h3 class="email-wrapper__big">{{ row.default_values ? subscribe_default.title : row.title  }}</h3>
+                      <p class="email-wrapper__small">{{ row.default_values ? subscribe_default.subtitle : row.subtitle }}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="email-wrapper__right">
+                  <subscribe path="{{ site.link }}/wp-admin/admin-ajax.php?action=subscribe"></subscribe>
+                  <div class="email-wrapper__info">{{ row.default_values ? subscribe_default.subscribe_descriptions : row.subscribe_descriptions }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {# E-mail end #}
+
+
+      {# Latest blog articles block #}
+      {% if row.acf_fc_layout == 'last_articles' %}
+        {% set latest_articles = fn('get_latest_articles', row) %}
+        <div class="block-wrapper block-wrapper--bg-light-gray pv-3">
+          <div class="container">
+            {% if row.title %}
+              <h2 class="blue-title mb-2" id="{{ row.anchor }}">{{ fn('do_shortcode', row.title) }}</h2>
+            {% endif %}
+            <div class="custom-row-flex custom-row-flex--sm">
+              {% for article in latest_articles %}
+                <div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4">
+                  {% include '/templates/parts/article-card.twig' %}
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {# Latest blog articles end #}
+
+
+      {# Mini reviews block #}
+      {% if row.acf_fc_layout == 'mini_reviews' %}
+        <div class="block-wrapper block-wrapper--bg-light-gray pv-3">
+          <div class="container">
+            {% if row.title %}
+              <h2 class="blue-title tac" id="{{ row.anchor }}">{{ fn('do_shortcode', row.title) }}</h2>
+            {% endif %}
+            {% if row.description %}
+              <div class="slide-container taj mt-1">{{ row.description }}</div>
+            {% endif %}
+            {% for review in row.mini_reviews %}
+              <div class='mini-reviews'>
+                <div class='mini-reviews__header'>
+                  <div class='mini-reviews__counter'>{{loop.index}}</div>
+                  <h3 class='mini-reviews__title' id="{{ review.anchor }}">{{ review.title }}</h3>
+                </div>
+                <div class="mini-reviews__body">
+                  {% set brand = Post(review.casino) %}
+                  {% if review.aff_key %}
+                    {% set aff_key = review.aff_key %}
+                  {% else %}
+                    {% set aff_key = fn('is_tax') ? term.meta('aff_key') : post.meta('aff_key') %}
+                  {% endif %}
+                  <div class='mini-reviews__card'>
+                    <div class='mini-reviews-card'>
+                      <form class='mini-reviews-card__logo' method="POST" target="_blank" v-send-gtag="'{{brand.title}} - logo-mini-review'">
+                        <button class='mini-reviews-card__logo-link' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
+                          <img class="mini-reviews-card__img" src="{{Image(brand.logo_for_rewiew_page).src()}}">
+                        </button>
+                        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+                      </form>
+                      <div class='mini-reviews-card__body'>
+                        {% set bonus = fn('get_aff_key_bonuses', brand.id, review.aff_key) %}
+                        <div class="mini-reviews-card__bonuses">
+                          <p class='mini-reviews-card__bonus_smal tac'>{{ bonus.bonus_percent }}</p>
+                          <p class='mini-reviews-card__bonus_big tac'>{{ bonus.bonus }}</p>
+                          <p class='mini-reviews-card__bonus_smal tac'>{{ bonus.additional_bonus }}</p>
+                        </div>
+                  
+                        <div class='mini-reviews-card__buttons'>
+                          <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - button-mini-review'">
+                            <button class='mini-reviews-card__btn main-btn main-btn--bg-green main-btn--w100 main-btn--h50' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
+                              {{ __('visit casino', 'casino') }}
+                            </button>
+                            {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %} 
+                          </form>
+                          <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - website-mini-review'">
+                            <button class='mini-reviews-card__site-name' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
+                              {{ brand.meta('website_adress') }}
+                            </button>
+                            {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %} 
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class='mini-reviews__text-column'>
+                    <div class='slide-container taj mt-1'>{{ review.top_text }}</div>
+                    <div class='mini-reviews__lists-wrapper'>
+                        <ul class='mini-reviews__list'>
+                          {% set pros = review.pros ? review.pros : brand.meta('pros') %}
+                          {% for el in pros %}
+                            <li class='mini-reviews__list-item mini-reviews__list-item--pros'>{{ el.item }}</li>
+                          {% endfor %}
+                        </ul>
+                        <ul class='mini-reviews__list'>
+                          {% set cons = review.cons ? review.cons : brand.meta('cons') %}
+                          {% for el in cons %}
+                            <li class='mini-reviews__list-item mini-reviews__list-item--cons'>{{ el.item }}</li>
+                          {% endfor %}
+                        </ul>
+                    </div>
+                    <div class='slide-container taj mt-1'>{{ review.bottom_text }}</div>
+                  </div>
+
+                </div>
+                
+                
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      {# Mini reviews end #}
+    {% endfor %}
+
+  </div>
+  
+{% endif %}

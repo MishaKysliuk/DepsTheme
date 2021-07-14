@@ -1,0 +1,25 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			<h1 class="h2 tac mb-2">Blog</h1>
+			<blog pagination="{{pagination}}">
+				<template>
+					<div class="custom-row-flex">
+            {% for article in Post(articles) %}
+							<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4">
+            		{% include '/templates/parts/article-card.twig' %}
+							</div>
+            {% endfor %}
+          </div>
+				</template>
+			</blog>
+		</div>
+	</div>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,190 @@
+.casino-card
+  background-color: $color-white
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.12)
+  border-radius 5px
+  padding 15px
+  position relative
+  +lg()
+    padding 30px 0 30px 15px
+    &--padding
+      +lg()
+        padding 30px 20px
+  &--pb100
+    padding-bottom 100px
+  &:focus-within
+    box-shadow: 0 0 20px rgba($light-blue, .8)
+  &:after
+    content: ''
+    position absolute
+    bottom -15px
+    left 50%
+    transform: translateX(-50%)
+    width 90%
+    border-bottom-right-radius: 5px
+    border-bottom-left-radius: 5px
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.10)
+    z-index 2
+    height 15px
+    background-color $color-white
+  &__row
+    display flex
+    flex-direction: column
+    align-items center
+    +lg()
+      flex-direction: row
+      justify-content space-between
+      align-items flex-start
+    &--column
+      +lg()
+        flex-direction: column
+        align-items center
+    &--jf-center
+      justify-content center
+      +lg()
+        justify-content center
+    &--p-relative
+      position relative
+  &__info
+    +lg()
+      width calc(100% - 145px)
+    &--w100
+      +lg()
+        width 100%
+  &__img
+    width 95px
+    height 95px
+  &__title
+    margin-bottom 25px
+    line-height 1
+  &__blue-title
+    font-weight 700
+    font-size 1.8rem
+    color $light-blue
+    text-decoration underline
+    &:hover
+      text-decoration none
+    +xl()
+      font-size 2.4rem
+  &__description
+    margin 20px 0
+    +lg()
+      margin-top 0
+    &--margined
+      +lg()
+        margin 20px 0
+  &__button
+    &--right
+      +lg()
+        & > *
+          width 100%
+        .main-btn
+          border-bottom-right-radius: 0px
+          border-top-right-radius: 0px
+          text-align left
+  &__question
+    font-size 1.8rem
+    font-weight 700
+    color #000
+    margin-bottom 15px
+    +lg()
+      font-size 3rem
+  &__check
+    font-size 1.6rem
+    font-size 400
+    color $light-blue
+    text-transform uppercase
+    +lg()
+      font-size 2rem
+  &__content
+    width 100%
+  &__answer
+    margin 10px 0
+    width 100%
+    +sm()
+      width 320px
+      mh auto
+    +lg()
+      margin: 0 10px
+      width 25%
+  &__btn-row
+    display flex
+    justify-content space-between
+    align-items center
+    width 100%
+    margin-bottom 30px
+    +lg()
+      margin-top 40px
+      margin-bottom 0
+      order 1
+      width 70%
+  &__big-btn
+    position absolute
+    left 0
+    bottom -85px
+    width 100%
+    +lg()
+      position static
+      margin 0 15px
+      
+
+
+.control-btn
+  font-size 2rem
+  font-weight 500
+  background-color: transparent
+  border 0
+  color $light-blue
+  position relative
+  padding-left 25px
+  &:hover
+    cursor pointer
+  &:before
+    position absolute
+    transform: translateY(-50%)
+    left 0
+    top 50%
+  &--arrow
+    &:before
+      content: ''
+      width 0
+      height 0
+      border-style solid
+      border-width: 10px 10px 10px 0
+      border-color: transparent $light-blue transparent transparent
+  &--restart
+    &:before
+      content: '\EA0B'
+      font-family: "svgfont"
+
+
+.dots-quiz
+  position absolute
+  left 0
+  bottom -50px
+  width 100%
+  display flex
+  flex 1
+  justify-content center
+  +lg()
+    position static
+  &__item
+    &:not(:last-child)
+      margin-right 20px
+    background-color $light-blue
+    width 14px
+    height 14px
+    border-radius 50%
+    position relative
+    &.active
+      &:before
+        content: ''
+        display inline-block
+        position absolute
+        width 25px
+        height 25px
+        border 1px solid $light-blue
+        border-radius 50%
+        transform: translate(-50%, -50%)
+        top 50%
+        left 50%
+

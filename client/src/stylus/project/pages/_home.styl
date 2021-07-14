@@ -1,0 +1,105 @@
+.head-casino-list
+  &__item
+    display flex
+    justify-content space-between
+    align-items center
+    &:not(:last-child)
+      margin-bottom 15px
+  &__title
+    font-weight 400
+    font-size 1.4rem
+    color $color-white
+    width calc(100% - 55px)
+    +xl()
+      font-size 1.8rem
+  &__img
+    width 40px
+    height 40px
+
+
+.top-content-row
+  display flex
+  flex-wrap wrap
+  justify-content space-between
+  &--
+    &justify
+      text-align justify
+      +md()
+        text-align left
+  &__el
+    width 100%
+    +xl()
+      width calc(50% - 15px)
+    &--xs-d-none-xl
+      display none
+      +xl()
+        display block
+
+.pos-r
+  position relative
+
+.voted
+  display block
+  +xl()
+    display flex
+    flex-wrap: wrap
+    align-items flex-end
+    justify-content flex-start
+  p
+    color $color-white
+    font-size 1.4rem
+  &--xl-stars-mr-10
+    & > .vue-star-rating,
+    p
+      +xl()
+        margin-right 10px
+  &--jc-start
+    justify-content flex-start
+  &--title-mt-10
+    p
+      margin-top 10px
+      +xl()
+        margin-top 0
+  .pos-absolute
+    margin 0 10px
+    position: absolute
+    transform: translateX(-50%)
+    left: 50%
+    width: 100%
+    bottom: -20px
+  &--blue-text
+    p
+      color $purple-light
+    .pos-absolute
+      position: static
+      transform: translateX(0)
+      width auto
+  &--jc-centr
+    justify-content center
+  &--xl-jc-center
+    +xl()
+      justify-content center
+  &--fs-italic
+    p
+      font-style italic
+      font-size 1.6rem
+
+.slide-enter-active
+  transition: all .8s ease
+.slide-leave-active
+  transition: all .8s ease
+.slide-enter,
+.slide-leave-to
+  transform translateX(-100%)
+  opacity 0
+
+
+.content-snip,
+.review-count,
+.schema-info,
+.schema-service
+  display none
+
+.pagination
+  display: none
+

@@ -1,0 +1,65 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main" itemscope itemtype="http://schema.org/BlogPosting" itemid="{{ fn('get_canonical_link') }}">
+	<meta itemprop="description" content="{{ post.preview.end('...').read_more('') }}">
+	<meta itemprop="url" content="{{ fn('get_canonical_link') }}">
+	<link itemprop="publisher" href="#org">
+	<meta itemprop="mainEntityOfPage" itemscope itemtype="http://schema.org/WebPage">
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			<meta itemprop="headline" content="{{ fn('do_shortcode', post.title) }}">
+			<h1 class="h2 mb-2 tac" itemprop="name">{{ fn('do_shortcode', post.title) }}</h1>
+			<div class="blog-content">
+				{% if post.thumbnail %}
+				<div class="blog-content__baner">
+					<div class="img-wrap"><img itemprop="image" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}" src="{{ post.thumbnail }}" alt="baner">
+					</div>
+				</div>
+				{% endif %}
+					{% include '/templates/parts/page-info.twig' with {'additional_class': 'page-info--articles'} %}
+				<div class="slide-container mt-1 taj" itemprop="articleBody">
+					{{ post.content }}
+				</div>
+			</div>
+		</div>
+		{% include '/templates/parts/additional-blocks.twig' %}
+	</div>
+	{% if blog %}
+		<div class="gray-line"></div>
+		<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+			<div class="container">
+				<div class="news-wrapper">
+					<h2 class="h2 mb-2">Similar articles</h2>
+					<div class="custom-row-flex">
+						{% for post in blog %}
+							<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-xl-4">
+								<div class="blog-card blog-card--small-xl">
+									<div class="blog-card__img blog-card__img--w30-xl">
+										<div class="img-wrap">
+											{% if post.thumbnail %}
+												<img src="{{ post.thumbnail | resize(320, 210) }}"  alt="news">
+											{% else %}
+												<img src="{{ theme.link }}/build/static/img/No-Foto.gif" />
+											{% endif %}
+										</div>
+									</div>
+									<div class="blog-card__content blog-card__content--w70-xl">
+										<a class="blog-card__title blog-card__title--underlined-xl blog-card__title--tac-xl blog-card__title--link" href="{{ post.link }}">{{ fn('do_shortcode', post.title) }}</a>
+										<div class="blog-card__description blog-card__description--d-none-xl">
+											<p>{{ post.preview.end('...').read_more('') }}</p>
+										</div>
+										<a class="link-arrow link-arrow--d-none-xl" href="{{ post.link }}">Continue reading<span class="link-arrow__img icon-arrow"></span></a>
+									</div>
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+</main>
+
+{% endblock %}

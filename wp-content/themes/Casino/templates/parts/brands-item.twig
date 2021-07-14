@@ -1,0 +1,66 @@
+{% set brand = Post(post) %}
+<div class='brands-item'>
+  <div class='brands-item__header'>
+    <div class='brands-item__logo' style="background-color: {{ brand.background_color }}">
+      <form method="POST" target="_blank"  v-send-gtag="'{{brand.title}} - logo-allreviews'">
+        <button class='brands-item__logo-link' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
+          <img class="brands-item__img" src="{{Image(brand.logo).src()}}">
+        </button>
+        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+      </form>
+    </div>
+    <div class='brands-item__info'>
+      <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - title-allreviews'" >
+        <button class='brands-item__title' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
+          {{ brand.title }}
+        </button>
+        {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+      </form>
+      <div class='brands-item__stars'>
+        {% set voting_block = brand.meta('voting_block') %}
+        <stars 
+          :stars-number="{{voting_block.number_of_stars}}"
+          set-url="/wp-admin/admin-ajax.php?action=rating"
+          stars-type="brands-table" 
+          :counter="{{voting_block.users_voted}}" 
+          :stars-id="{{brand.id}}"
+        ></stars>
+      </div>
+    </div>
+  </div>
+  <span class='brands-item__bonuses'>
+    {% set bonus_block = fn('get_aff_key_bonuses', brand.id, aff_key) %}
+    {{ bonus_block.bonus_percent }}   {{ bonus_block.bonus }}
+  </span>
+  <div class='brands-item__tooltip-line'>
+    {% if brand.meta('t&cs').text  %}
+      <div class='tooltip' v-open-tooltip="">
+        <span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+        <div class='tooltip__container js-tooltip'>
+          <span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
+          {% if brand.meta('t&cs').title %}
+            <h3 class='tooltip__title'>{{ brand.meta('t&cs').title }}</h3>
+          {% endif %}
+          <div class='tooltip__text'>{{ brand.meta('t&cs').text }}</div>
+          {% if brand.meta('t&cs').link %}
+            <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} -  T&Cs'">
+              <button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{brand.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+              <input name='t&cs' type='hidden' value="">
+            </form>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  <div class='brands-item__buttons'>
+    <a href="{{ brand.link }}" class='brands-item__btn--reviews main-btn main-btn main-btn--border-orange main-btn--w100 main-btn--h50'>
+      {{ __('Read Review', 'casino') }}
+    </a>
+    <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - button-allreviews'">
+      <button class='main-btn main-btn--bg-orange main-btn--w100 main-btn--h50' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
+        {{ __('Visit Site', 'casino') }}
+      </button>
+      {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+    </form>
+  </div>
+</div>

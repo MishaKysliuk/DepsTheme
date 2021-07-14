@@ -1,0 +1,63 @@
+<div class="admin-setting-page">
+  <table class='admin-setting-table'>
+    <caption>{{page_title}}</caption>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Casino name</td>
+        <td>Ref link</td>
+        <td>Rating</td>
+        <td>Hide from tables</td>
+        {% if page_type == 'brand' %}
+          <td>Hide from review page</td>
+          <td>Hide from Mobile</td>
+        {% endif %}
+    </tr>
+    </thead>
+      {% for item in Post(tables_items) %}
+        {% set rating = page_type == 'brand' ? item.meta('voting_block').rating : item.meta('rating') %}
+        <tr class='js-admin-line' data-type='{{page_type}}' data-changed='false'>
+          <td>
+            <a href='{{ item.edit_link }}' target='__blank' class='js-admin-item-id'>{{item.ID}}</a>
+          </td>
+          <td style='width: 200px'>
+            <input class='admin-setting-table__input js-admin-input' type='text' value='{{item.title}}' name='name'>
+          </td>
+          <td>
+            <input class='admin-setting-table__input js-admin-input' type='text' value='{{item.meta('ref_link')}}' name='ref_link'>
+          </td>
+          <td style='width: 80px'>
+            <input class='admin-setting-table__input js-admin-input' type='number' value='{{rating}}' name='rating'>
+          </td>
+          <td style='width: 80px'>
+            <input class='js-admin-input' type='checkbox' {{item.meta('hide_from_tables') ? 'checked' : ''}} name='hide_from_tables'>
+          </td>
+          {% if page_type == 'brand' %}
+            <td style='width: 80px'>
+              <input class='js-admin-input' type='checkbox' {{item.meta('hide_from_review_page') ? 'checked' : ''}} name='hide_from_review_page'>
+            </td>
+            <td style='width: 80px'>
+              <input class='js-admin-input' type='checkbox' {{item.meta('hide_from_mobile') ? 'checked' : ''}} name='hide_from_mobile'>
+            </td>
+          {% endif %}
+          <td style='width: 80px'>
+            <input class='admin-setting-table__save js-admin-save' type='button' disabled value='Save' name='save'>
+          </td>
+        </tr>
+      {% endfor %}
+      <tfooter>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>
+          <input class='admin-setting-table__save js-admin-save-all' type='button' disabled value='Save All' name='save_all'>
+          </td>
+        </tr>
+      </tfooter>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+
+{% if atts %}
+
+  <a class='shortcode-button' style="background-color: {{ atts.color }}" href="{{atts.link}}" target="{{atts.target}}">
+    {% if atts.image %}
+      <img class='shortcode-button__icon' src="{{atts.image}}" alt="{{atts.alt}}">
+    {% endif %}
+    {% if atts['font-icon'] %}
+      <i class="shortcode-button__icon {{atts['font-icon']}}"></i>
+    {% endif %}
+    <span class='shortcode-button__text'>{{atts.title}}</span>
+  </a>
+
+{% endif %}

@@ -1,0 +1,19 @@
+
+{% if bonuses %}
+  <div class='pv-2'>
+    <bonuses-shortcode
+      :shortcode-atts="{{ shortcode_atts|e }}"
+      pagination="{{pagination}}"
+    >
+      <template v-open-tooltip>
+        <div class="custom-row-flex">
+        {% for bonus in bonuses %}
+          <div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4">
+            {% include 'templates/parts/bonus-card.twig' %}
+          </div>
+        {% endfor %}
+      </div>
+      </template>
+    </bonuses-shortcode>
+  </div>
+{% endif %}

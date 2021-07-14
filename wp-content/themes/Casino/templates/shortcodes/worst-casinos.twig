@@ -1,0 +1,49 @@
+
+{% if worst_casinos.posts %}
+  <div class="all-worst-casinos-section mt-2">
+    
+    <div class="custom-row-flex">
+      {% for post in worst_casinos.posts %}
+        <div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4 custom-row-flex__el--col-xl-3">
+          
+            {% set worst_casino = Post(post) %}
+            <div class='brands-item brands-item--worst-casinos'>
+              <div class='brands-item__header'>
+                <div class='brands-item__logo' style="background-color: {{ worst_casino.background_color }}">
+                    <img class="brands-item__img" src="{{Image(worst_casino.logo).src()}}">
+                </div>
+                <div class='brands-item__info'>
+                  <div class='brands-item__title'>
+                    {{ worst_casino.title }}
+                  </div>
+                  <div class='brands-item__stars'>
+                    {% set voting_block = worst_casino.meta('voting_block') %}
+                    <stars 
+                      :stars-number="{{voting_block.number_of_stars}}"
+                      set-url="/wp-admin/admin-ajax.php?action=rating"
+                      stars-type="worst_casino" 
+                      :counter="{{voting_block.users_voted}}" 
+                      :stars-id="{{worst_casino.id}}"
+                    ></stars>
+                  </div>
+                </div>
+              </div>
+              <span class='brands-item__bonuses'>
+                {{ worst_casino.meta('main_feature') }}
+              </span>
+              <div class='brands-item__footer'>
+                <ul class='brands-item__features-list'>
+                  {% for item in worst_casino.meta('small_features') %}
+                    <li class='brands-item__featur'>{{item.features}}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+
+            </div>
+
+          
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

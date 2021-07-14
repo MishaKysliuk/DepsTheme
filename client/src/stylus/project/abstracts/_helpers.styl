@@ -1,0 +1,107 @@
+for i in (0..10)
+  .ph-{i}
+    ph i * 1em !important
+  .pv-{i}
+    pt i * 1em !important
+    pb i * 1em !important
+  .pt-{i}
+    pt i * 1em !important
+  .pb-{i}
+    pb i * 1em !important
+  .pa-{i}
+    pa i * 1em !important
+
+  .md-pl-{i}
+    +md()
+      pl i * 1em !important
+  .mt-{i}
+    mt i * 1em !important
+  .ml-{i}
+    ml i * 1em !important
+  .mr-{i}
+    mr i * 1em !important
+  .mh-{i}
+    mh i * 1em !important
+  .xs-ml-{i}
+    +xs()
+      ml i * 1em !important
+  .sm-mb-{i}
+    +sm()
+      mb i * 1em !important
+  .md-mh-{i}
+    +md()
+      ml i * 1em !important
+      mr i * 1em !important
+  
+  .md-mv-{i}
+    +md()
+      mt i * 1em !important
+      mb i * 1em !important
+  .md-mt-{i}
+    +md()
+      mt i * 1em !important
+  .md-mb-{i}
+    +md()
+      mb i * 1em !important
+  .md-ml-{i}
+    +md()
+      ml i * 1em !important
+  .xl-mt-{i}
+    +xl()
+      mt i * 1em !important
+  .mt-{i}
+    mt i * 1em !important
+  .mb-{i}
+    mb i * 1em !important
+  .md-pb-{i}
+    +md()
+      pb i * 1em !important
+  .md-pt-{i}
+    +md()
+      pt i * 1em !important
+
+  .mv-{i}
+    margin i * 1em 0 !important
+
+  .lg-pb-{i}
+    +lg()
+      pb i * 1em !important
+  .lg-pt-{i}
+    +lg()
+      pt i * 1em !important
+  .pl-{i}
+    pl i * 10px !important
+  .pb-{i}
+    pb i * 10px !important
+  .ph-{i}
+    pl i * 10px !important
+    pr i * 10px !important
+  .md-ph-{i}
+    +md()
+      pl i * 10px !important
+      pr i * 10px !important
+  .md-pv-{i}
+    +md()
+      pt i * 10px !important
+      pb i * 10px !important
+  .xl-pv-{i}
+    +xl()
+      pt i * 10px !important
+      pb i * 10px !important
+
+
+.d-flex
+  display flex
+  flex-wrap: wrap
+
+.ai-end
+  align-items flex-end
+
+.ai-start
+  align-items flex-end
+
+.jc-end
+  justify-content: flex-end
+
+.jc-start
+  justify-content: flex-start

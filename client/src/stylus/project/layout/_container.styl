@@ -1,0 +1,22 @@
+// Grid bootstrap property
+.container 
+  pos relative
+  mh auto
+  mh auto
+  ph 15px
+  w 100%
+  +sm()
+    w 100%
+    ph 15px
+  +md()
+    w 720px
+  +lg()
+    w 960px
+  +xl()
+    w 1170px
+
+  
+  &--
+    &full-on-mobail
+      +md-till()
+        padding 0

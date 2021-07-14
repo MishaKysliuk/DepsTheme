@@ -1,0 +1,57 @@
+.list-accordion
+  &__item
+    &:not(:last-child)
+      border-bottom 1px solid $purple-dark
+    &--shadow
+      box-shadow 0 0 10px rgba(0, 0, 0, 0.1)
+      &:not(:last-child)
+        border-bottom 0
+    &--margined
+      &:not(:last-child)
+        margin-bottom 20px
+  &__question-wrapper
+    padding 5px 15px
+    background-color $purple-light
+    display flex
+    align-items center
+    justify-content space-between
+    color $light-blue
+
+    &--bg-white
+      padding 20px
+      background-color $light-blue
+      .list-accordion__title--purple,
+      .list-accordion__plus--green
+        color $color-white
+  &__answer-wrapper
+    h3
+      @extend .h3
+    p
+      @extend .main-blue-text
+  &__content
+    padding 20px
+    background-color $color-white
+    a 
+      color $main-green
+      text-decoration underline
+      &:hover 
+        text-decoration none
+    ul
+      margin 10px 0
+      padding-left 20px
+      li 
+        @extend .main-blue-text
+        list-style disc
+  &__title
+    text-transform uppercase
+    color $color-white
+    font-size 1.4rem
+    font-weight 700
+    text-align left
+    &--purple
+      font-weight 500
+      font-size 1.6rem
+      color $purple-light
+      +xl()
+        font-size 2rem
+  

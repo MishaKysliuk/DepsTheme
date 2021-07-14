@@ -1,0 +1,52 @@
+.brand-general-information
+  border 0
+  width 100%
+  caption
+    color $color-white
+    font-size 24px
+    font-weight 700
+    line-height 24px
+    margin-bottom 30px
+    text-align center
+    +lg()
+      text-align left
+  tr
+    height 39px
+    border 0
+    &:nth-child(odd)
+      td
+        background-color $light-blue-2
+  td
+    background-color inherit
+    color $color-white
+    border 0
+    padding 10px 12px
+    font-size 16px
+    font-weight 400
+    vertical-align top
+    &:first-child
+      width 170px
+      font-weight 700
+  a
+    color $yellow
+
+
+.table-line-content
+  overflow hidden
+  &.is-slide
+    height 21px
+    position relative
+    padding-right 16px
+    &:after
+      @extend $icon
+      content $icon-subarrow
+      display inline-block
+      position absolute
+      right 4px
+      top 6px
+      font-size 10px
+      transform rotate(90deg)
+  &.is-open
+    height auto
+    &:after
+      transform rotate(-90deg)

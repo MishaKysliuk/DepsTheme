@@ -1,0 +1,101 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			<h1 class="h2 tac mb-2 tac">{{ post.title }}</h1>
+			<div class="blog-content">
+				<div class="blog-content__content">
+					{% if blog.found_posts %}
+						<h2>Blog</h2>
+						<div class="list-wrapper">
+							<ul class="list-unstyled">
+								{% for post in blog %}
+									{% if fn('check_page_noindex', post.ID) == false %}
+										<li><a href='{{ post.link }}'>{{ post.title }}</a> </li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+
+					{% if page.found_posts %}
+						<h2>Page</h2>
+						<div class="list-wrapper">
+							<ul class="list-unstyled">
+								{% for post in page %}
+									{% if fn('check_page_noindex', post.ID) == false %}
+										<li><a href='{{ post.link }}'>{{ post.title }}</a> </li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% if authors.found_posts %}
+						<h2>Authors</h2>
+						<div class="list-wrapper">
+							<ul class="list-unstyled">
+								{% for post in authors %}
+									{% if fn('check_page_noindex', post.ID) == false %}
+										<li><a href='{{ post.link }}'>{{ post.title }}</a> </li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+
+					{% if casinos.found_posts %}
+						<h2>Casino Post</h2>
+						<div class="list-wrapper">
+							<ul class="list-unstyled">
+								{% for post in casinos %}
+									{% if fn('check_page_noindex', post.ID) == false %}
+										<li><a href='{{ post.link }}'>{{ post.title }}</a> </li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+
+					{% if taxonomies_casino %}
+						<h2>Casino categories</h2>
+						{% for taxonomies in taxonomies_casino %}
+							<h3>{{ taxonomies.name }}</h3>
+							<div class="list-wrapper">
+								<ul class="list-unstyled">
+									{% for term in taxonomies.terms %}
+										{% if fn('check_page_noindex', term.term_id, 'term') == false %}
+											<li><a href='{{ fn('get_term_link', term.term_id) }}'>{{ term.name }}</a> </li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+							</div>
+						{% endfor %}
+					{% endif %}
+
+					{% if taxonomies_casino_bonuses %}
+						<h2>Bonuses categories</h2>
+						{% for taxonomies in taxonomies_casino_bonuses %}
+							<h3>{{ taxonomies.name }}</h3>
+							<div class="list-wrapper">
+								<ul class="list-unstyled">
+									{% for term in taxonomies.terms %}
+										{% if fn('check_page_noindex', term.term_id, 'term') == false %}
+											<li><a href='{{ fn('get_term_link', term.term_id) }}'>{{ term.name }}</a> </li>
+										{% endif %}
+									{% endfor %}
+								</ul>
+							</div>
+						{% endfor %}
+					{% endif %}
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+{% endblock %}

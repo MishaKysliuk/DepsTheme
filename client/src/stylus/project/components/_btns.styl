@@ -1,0 +1,206 @@
+.main-btn
+  font-size 1.6rem
+  font-weight 700
+  color $color-white
+  display inline-block
+  border 0
+  text-align center
+  border-radius 5px
+  padding 15px
+  text-transform uppercase
+  border 2px solid transparent
+  transition: all .3s ease
+  +xl()
+    font-size 1.66rem
+  &:hover
+    cursor pointer
+  &--bg-green
+    background-color $main-green
+    &:hover,
+    &:focus
+      color $main-green
+      border-color $main-green
+      background-color: $color-white
+  &--bg-orange
+    background-color $main-orange
+    &:hover,
+    &:focus
+      color $main-orange
+      border-color $main-orange
+      background-color: $color-white
+  &--border-orange
+    background-color $color-white
+    border-color $orange2
+    color $orange2
+    &:hover,
+    &:focus
+      color $color-white
+      background-color: $orange2
+  &--tooltip
+    font-size 12px
+    font-weight 500
+    padding 4px 18px
+    text-transform none
+  &--bg-blue
+    background-color $light-blue
+    &:hover,
+    &:focus
+      color $light-blue
+      border-color $light-blue
+      background-color: $color-white
+  &--xs-fz12
+    font-size 1.2rem
+  &--sm-fz14
+    +sm()
+      font-size 1.4rem
+  &--bg-white-green
+    background-color: $color-white
+    border-color $main-green
+    color $main-green
+    &:hover,
+    &:focus
+      color $color-white
+      border-color $color-white
+      background-color: $main-green
+  &--bg-white-red
+    background-color: $color-white
+    border-color $main-red
+    color $main-red
+    &:hover,
+    &:focus
+      color $color-white
+      border-color $color-white
+      background-color: $main-red
+  &--spiner
+    position relative
+    &:hover,
+    &:focus
+      &:before
+        transform: translateY(-50%) rotate(340deg)
+    &:before
+      content: '\EA0B'
+      font-family: "svgfont"
+      position absolute
+      transform: translateY(-50%) rotate(120deg)
+      top 50%
+      left 40px
+      will-change: transform
+      transition: transform .3s ease
+      +md()
+        left 65px
+  &--dflex
+    display flex
+    justify-content center
+    align-items center
+  &--w300
+    width 100%
+    max-width 260px
+    +md()
+      max-width 300px
+  &--xl-scaled
+    will-change: transform
+    &:hover,
+    &:focus
+      transform: scale(.95)
+  &--w100
+    width 100%
+  &--h100
+    height 100%
+  &--h50
+    height 50px
+    padding: 12px
+  &__logo-search
+    margin-right 15px
+    color #99f480
+
+
+.btn-row
+  display flex
+  flex-wrap: wrap
+  justify-content space-between
+  &__el
+    width 290px
+    margin: auto
+    margin-bottom 15px
+    +xl()
+      width calc(50% - 5px)
+    & > *
+      width 100%
+
+.malinky-load-more
+  text-align: center
+  margin-top 25px
+  +xl()
+    margin-top 50px
+  a
+    @extend .main-btn,
+    .main-btn--bg-white-green,
+    .main-btn--spiner,
+    .main-btn--w300
+
+
+.scroll-top-fixed
+  position fixed
+  right 30px
+  bottom 90px
+  z-index 999
+  &__link
+    display inline-flex
+    width 50px
+    height 50px
+    border 2px solid $light-blue
+    background-color $light-blue
+    border-radius 50%
+    cursor pointer
+    transition 0.3s
+    &:hover
+      background-color inherit
+      .icon-subarrow
+        &:before
+          color $light-blue
+
+  &__img
+    margin: auto
+    transform: rotate(-90deg)
+    color $color-white
+
+.link-arrow
+  display inline-flex
+  font-weight 700
+  font-size 1.4rem
+  color $main-green
+  align-items center
+  +xl()
+    font-size 1.7rem
+  &:hover,
+  &:focus
+    .link-arrow__img
+      transform: translateX(15px)
+  &__img
+    font-size 1.2rem
+    margin-left 20px
+    transition: transform .3s ease
+    will-change: transform
+  &--d-none-xl
+    display none
+    +xl()
+      display inline-flex
+
+.noLink
+  &:hover
+    cursor pointer
+  &:not(.main-btn)
+    border 0
+    background-color: transparent
+
+
+.btn-link-inline
+  color $yellow
+  background inherit
+  border 0
+  outlin 0
+  font-size 16px
+  font-weight 400
+  cursor pointer
+  &:hover
+    text-decoration underline

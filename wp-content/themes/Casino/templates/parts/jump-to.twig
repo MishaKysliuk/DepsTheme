@@ -1,0 +1,11 @@
+{% if items %}
+  <div class="anchor-menu">
+    <ul class="anchor-menu__items">
+      {% for item in items %}
+        <li class="anchor-menu__item">
+          <a class="anchor-menu__link js-smooth-link" href="#{{ item.item_anchor }}">{{ item.item_name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}

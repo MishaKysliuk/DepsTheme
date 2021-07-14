@@ -1,0 +1,85 @@
+{% set brand = Post(brand) %}
+
+<tr class="one-game__table-row"  data-key='{{ brand.id }}' :key='{{ brand.id }}'>
+	<td class="one-game__table-col">			
+		<div class="casino-logo" style="background-color: {{ brand.meta('background_color') }}">
+			<form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - logo'">
+				<button class="casino-logo__link" type="submit" name="prgpattern" :value="{{brand.id}}" target="_blank">
+					<div class="casino-logo__img">
+						<div class="img-wrap"><img src="{{brand.meta('logo')}}"></div>
+					</div>
+				</button>
+				{% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+			</form>
+			<div class="casino-logo__counter-wrapper">
+				<span class="casino-logo__counter">{{ loop.index }}</span>
+			</div>
+		</div>
+	</td>
+
+	<td class="one-game__table-col one-game__table-col--w2">
+		<form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - title'">
+			<button class="one-game__title" type="submit" name="prgpattern" :value="{{brand.id}}" target="_blank">{{ brand.title }}</button>
+			{% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+		</form>
+		<div class="one-game__stars">
+			{% set voting_block = brand.meta('voting_block') %}
+			<stars 
+				:stars-number="{{voting_block.number_of_stars}}" 
+				set-url="/wp-admin/admin-ajax.php?action=rating" 
+				stars-type="casinos" 
+				:counter="{{voting_block.users_voted}}" 
+				:stars-id="{{brand.id}}"
+			></stars>
+		</div>
+	</td>
+
+	<td class="one-game__table-col one-game__table-col--w3">
+		<div class="one-game__row one-game__row--column">
+			{% set bonuses = fn('get_aff_key_bonuses', brand.id, aff_key) %}
+			<span class="one-game__light">{{ bonuses.bonus_percent }}</span>
+			<span class="one-game__price">{{ bonuses.bonus }}</span>
+			<span class="one-game__light">{{ bonuses.additional_bonus }}</span>
+			{% if brand.meta('t&cs').text  %}
+				<div class='tooltip' v-open-tooltip="">
+					<span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+					<div class='tooltip__container js-tooltip'>
+						<span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
+						{% if brand.meta('t&cs').title %}
+							<h3 class='tooltip__title'>{{ brand.meta('t&cs').title }}</h3>
+						{% endif %}
+						<div class='tooltip__text'>{{ brand.meta('t&cs').text }}</div>
+						{% if brand.meta('t&cs').link %}
+							<form method="POST" target="_blank" v-send-gtag="'{{brand.title}} -  T&Cs'">
+								<button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{brand.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+								<input name='t&cs' type='hidden' value="">
+							</form>
+						{% endif %}
+					</div>
+				</div>
+			{% endif %}
+		</div>
+	</td>
+
+	<td class="one-game__table-col one-game__table-col--w3">
+		<ul class="marks-list">
+			{% set featur = brand.meta('feature_block') %}
+			<li class="marks-list__item">{{ featur.feature_1 }}</li>
+			<li class="marks-list__item">{{ featur.feature_2 }}</li>
+			<li class="marks-list__item">{{ featur.feature_3 }}</li>
+		</ul>
+	</td>
+
+	<td class="one-game__table-col one-game__table-col--btn">
+		<div class="one-game__row one-game__row--column one-game__row--btn-side">
+			<form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - button'">
+				<button class="main-btn main-btn--bg-green main-btn--w100" type="submit" name="prgpattern" :value="{{brand.id}}" target="_blank">Play now</button>
+				{% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+			</form>
+			<form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - website'">
+				<button class="one-game__link" type="submit" name="prgpattern" :value="{{brand.id}}">{{ brand.website_adress }}</button>
+				{% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
+			</form>
+		</div>
+	</td>
+</tr>

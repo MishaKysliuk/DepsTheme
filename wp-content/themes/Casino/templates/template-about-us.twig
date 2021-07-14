@@ -1,0 +1,91 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper md-tac md-pv-4">
+		<div class="container container--full-on-mobail">
+			<div class="intro intro--br intro--about-us" style="background-color:{{ post.meta('header_block').header_color }}">
+				<div class="intro__containe intro__containe--w50">
+					<h1 class="h1 intro__title intro__title--white">{{ post.meta('header_block').page_title }}</h1>
+					<div class="intro__text intro__text--about">{{ post.meta('header_block').page_description }}</div>
+				</div>
+				<div class="intro__containe intro__containe--w50">
+					<img class="intro__image intro__image--static" src="{{ post.meta('header_block').image }}"  alt="bg">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% if post.meta('text_block') %}
+		<div class="block-wrapper">
+			<div class="container">
+				<div class="slide-container" id="why_to_work_with_us">
+					{{ post.meta('text_block') }}
+				</div>	
+			</div>
+		</div>
+	{% endif %}
+
+	{% if post.meta('principles') %}
+		<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+			<div class="container">
+				<div class="principles">
+					<div class="principles__body">
+						<div class="principles__header">
+							<h2 class="principles__title">{{ __('Our Principles:', 'casino') }}</h2>
+						</div>
+						{% for principle in post.meta('principles') %}
+							<div class="principles__block-title js-open-principles {{ loop.first ? 'is-active' : '' }}">
+								<h3 class="principles__caption">{{ principle.title }}</h3>
+							</div>
+							<div class="principles__block js-principles {{ loop.first ? 'is-open' : '' }}">
+								<ul class="principles__list">
+									{% for item in principle.items %}
+										<li class="principles__item">{{ item.item }}</li>
+									{% endfor %}
+								</li>
+							</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+
+	{% include '/templates/parts/additional-blocks.twig' %}
+	
+	{% set contact_block = post.meta('contact_block') %}
+
+	<div class="block-wrapper block-wrapper--bg-light-blue pv-2 tac">
+		<div class="container">
+			<div class="about-us-contact">
+				<h2 class="white-title tac pv-1">{{ contact_block.title }}</h2>
+				<p class="about-us-contact__text">{{ contact_block.Text }}</p>
+
+				<div class="custom-row-flex">
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-4">
+						<div class="about-us-contact__item">
+							<img class="about-us-contact__icon" src="{{contact_block.email.icon}}" alt=''>
+							<p class="about-us-contact__text about-us-contact__text--small">{{ contact_block.email.caption }}</p>
+						</div>
+					</div>
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-4">
+						<div class="about-us-contact__item">
+							<img class="about-us-contact__icon" src="{{contact_block.address.icon}}" alt=''>
+							<p class="about-us-contact__text about-us-contact__text--small">{{ contact_block.address.caption }}</p>
+						</div>
+					</div>
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-4">
+						<div class="about-us-contact__item">
+							<img class="about-us-contact__icon" src="{{contact_block.contact_form.icon}}" alt=''>
+							<p class="about-us-contact__text about-us-contact__text--small">{{ contact_block.contact_form.caption }}</p>
+						</div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+</main>
+
+{% endblock %}

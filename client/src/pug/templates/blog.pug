@@ -1,0 +1,62 @@
+extends base
+block content
+  main.main
+    +b.block-wrapper--bg-light-gray.pv-2
+      .container
+        h1.h2.mb-2.tac Top tips for choosing a casino bonus
+        +b.blog-content
+          +e.baner
+            .img-wrap
+              img(src="./../static/img/blog-baner.jpg", alt="baner")
+          +e.content
+            p Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui beatae labore excepturi eaque tenetur provident voluptatem blanditiis itaque recusandae amet, explicabo vel eum dignissimos maiores facilis error placeat omnis! Animi.
+            img(src="./../static/img/blog-baner.jpg", alt="dd")
+            h2 Choose a no deposit bonus
+            p Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus magni quibusdam illo molestias saepe, rem cum veniam nisi, laudantium impedit doloribus accusantium! Explicabo, cumque tempora! Fuga voluptate nemo enim corporis!
+            h3 Check the bonus terms and conditions
+            p Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ratione quo illo quae aliquid cupiditate tenetur quas, numquam repellendus libero illum, a omnis tempore cumque nam iste! Eveniet, illum in.
+            h2 Title
+            table
+              tr
+                -for(let i = 0; i < 8; i++)
+                  th Header
+              tr
+                -for(let i = 0; i < 8; i++)
+                  td Value
+              tr
+                -for(let i = 0; i < 8; i++)
+                  td Property
+
+        +b.email-wrapper
+          +e.row--column.--lg-row
+            +e.left
+              +e.row--column.--lg-row
+                +e.img
+                  .img-wrap
+                    img(src="./../static/img/plane.png", alt="ss")
+                +e.left-titles
+                  +e.P.big No Spam!
+                  +e.P.small Only Top Offers Once a Week
+            +e.right
+              my-form(path="")
+              +e.P.info By subscribing you confirm that you are at least 18 years old and are not breaching any laws in your local jurisdiction. Subscription to our newsletter indicated you have reviewed and accepted our Privacy policy and Term of service
+                a(href="#") Privacy policy
+    .gray-line
+    +b.block-wrapper--bg-light-gray.pv-2
+      .container
+        .news-wrapper
+          h2.h2.mb-2 Similar articles
+          +b.custom-row-flex
+            -for(let i = 0; i < 3; i++)
+              +e.el.--col-sm-12.--col-xl-4
+                +b.blog-card--small-xl
+                  +e.img--w30-xl
+                    .img-wrap
+                      img(data-src="./../static/img/blog.jpg", loading="lazy", alt="news")
+                  +e.content--w70-xl
+                    +e.A.title--underlined-xl(href="#") Writing A Good Headline For Your visitors Advertisement  to hook.
+                    +e.description--d-none-xl
+                      p This is a sample intro paragraph and can be used to hook visitors into reading your article. You can change the appearance of this by editing the style sheet. This is an example of a WordPress …
+                    +b.A.link-arrow--d-none-xl(href="#") Continue reading
+                      +e.SPAN.img.icon-arrow
+

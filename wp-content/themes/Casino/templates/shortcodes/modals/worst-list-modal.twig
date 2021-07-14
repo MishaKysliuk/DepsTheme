@@ -1,0 +1,27 @@
+
+<div class='sites-list-modal'>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Sites</span>
+    <span class="sites-list dropdown"></span>
+  </div>
+
+  <input type="hidden" name='sites' id='sites-list'>
+
+</div>
+
+<link rel="stylesheet" href="/wp-content/themes/Casino/admin-assets/shortcodes/sites-list-admin.css" type="text/css">
+
+<script src='/wp-content/themes/Casino/admin-assets/select-pure.min.js'></script>
+
+<script>
+  new SelectPure(".sites-list", {
+    options: {{ sites_list }},
+    autocomplete: true,
+    multiple: true,
+    onChange: value => { 
+      document.getElementById('sites-list').value = value
+    }
+	});
+
+</script>

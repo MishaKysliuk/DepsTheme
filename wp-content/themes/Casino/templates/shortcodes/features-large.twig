@@ -1,0 +1,29 @@
+{% if features %}
+  <div class='features-large pv-2'>
+    <h2 class='features-title tac mb-1'>{{ atts.title }}</h2>
+    {% if features_text %}
+    <div class="slide-container mt-1 taj">
+        {{ features_text }}
+    </div>
+    {% endif %}
+    <div class='features-large__row'>
+      {% for feature in features %}
+        {% set style = feature.color ? 'box-shadow: 0 0 15px rgba(0, 0, 0, 0.12), inset 0 -3px 0' ~ feature.color : '' %}
+        <div class='features-large__el' style='{{ style }}'>
+          <div class='features-large__header mb-1'>
+            <div class='features-large__icon' style='color: {{ feature.color }}'>
+              {% if feature.image and not feature['font-icon']%}
+                <img class='features-large__image' src="{{feature.image}}" alt="{{feature.alt}}">
+              {% endif %}
+              {% if feature['font-icon'] %}
+                <i class="{{feature['font-icon']}}"></i>
+              {% endif %}
+            </div>
+            <span class='features-large__title'>{{ feature.title }}</span>
+          </div>
+          <div class='slide-container taj'>{{ feature.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

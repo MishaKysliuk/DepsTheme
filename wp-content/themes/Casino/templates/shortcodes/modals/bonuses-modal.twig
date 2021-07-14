@@ -1,0 +1,46 @@
+
+<div class='sites-list-modal'>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Bonuses</span>
+    <span class="bonuses dropdown"></span>
+  </div>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Casino id</span>
+    <span class="casinos dropdown"></span>
+  </div>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Aff key</span>
+    <input class="sites-list-modal__innput select-pure__select" name='aff_key' id='aff_key'>
+  </div>
+
+  <input type="hidden" name='bonuses' id='bonuses'>
+  <input type="hidden" name='casino_id' id='casino_id'>
+
+</div>
+
+<link rel="stylesheet" href="/wp-content/themes/Casino/admin-assets/shortcodes/sites-list-admin.css" type="text/css">
+
+<script src='/wp-content/themes/Casino/admin-assets/select-pure.min.js'></script>
+
+<script>
+  new SelectPure(".bonuses", {
+    options: {{ bonuses_list }},
+    autocomplete: true,
+    multiple: true,
+    onChange: value => { 
+      document.getElementById('bonuses').value = value
+    }
+	});
+  new SelectPure(".casinos", {
+    options: {{ casinos_list }},
+    autocomplete: true,
+    multiple: false,
+    onChange: value => { 
+      document.getElementById('casino_id').value = value
+    }
+	});
+
+</script>

@@ -1,0 +1,151 @@
+.submenu
+  display none
+  &--second
+    display none
+    position absolute
+    right -187px
+    top 0
+    width 187px
+    background-color $purple-dark
+    .submenu
+      &__item
+        border-left 2px solid $main-green
+        background-color $purple-dark
+        &:not(:last-child)
+          border-bottom 1px solid $main-green
+  &--xl-p-absolute
+    +xl()
+      display none
+      position absolute
+      top 86px
+      left -2px
+      width calc(100% + 40px)
+      z-index 2
+    &.is-active
+      display block
+  &__item
+    display flex
+    align-items center
+    position relative
+    justify-content space-between
+    padding 10px 15px 
+    background-color $purple-dark
+    box-sizing border-box
+    transition 0.3s
+    &:hover
+      background-color $main-green
+      color: inherit
+      & > .submenu
+        &--second
+          display block
+    +xl()
+      padding: 10px
+      border-left 2px solid $light-blue
+      background-color $purple-light
+      
+    &:not(:last-child)
+      border-bottom 1px solid $purple-light
+      +xl()
+        border-bottom 1px solid $light-blue
+  &__link
+    color $color-white
+    font-size 1.3rem
+    font-weight 700
+    flex 1
+    text-align left
+    +lg()
+      transition: color .3s ease
+      position relative
+    &--
+      &arrow
+        &:after
+          @extend $icon
+          content $icon-menu-arrow
+          display: inline-block
+          color $color-white
+          position absolute
+          right 0
+          top 2px
+
+.main-menu
+  +xl()
+    display flex
+    flex-wrap: wrap
+  &__item
+    height 64px
+    +xl()
+      height 88px
+      display flex
+      align-items center
+      justify-content space-between
+      max-width 155px
+      position relative
+      padding 0 10px
+      border-left 2px solid transparent
+      transition: background-color .3s ease
+      position relative
+      &:hover
+        background-color $purple-light
+        border-left-color $light-blue
+        .submenu--xl-p-absolute
+          display block
+        .main-menu__text
+          color $light-blue
+      &:focus-within
+        background-color $purple-light
+        border-left-color $light-blue
+        .submenu--xl-p-absolute
+          display block
+        .main-menu__text
+          color $light-blue
+  &__parent-link
+    +lg()
+      &:hover,
+      &:focus
+        color $light-blue
+        & ~ .submenu--xl-p-absolute
+          display block
+    +xl()
+      color $color-white
+      font-size 1.3rem
+      font-weight 400
+      width calc(100% - 45px)
+      transition: color .3s ease
+  &__img
+    +xl()
+      width 30px
+      height 30px
+
+.socials-list
+  justify-content center
+  +xl()
+    justify-content flex-end
+  &__item
+    &:not(:last-child)
+      margin-right 10px
+  &__link
+    color $light-blue
+    font-size 25px
+    display inline-block
+    +lg()
+      &:hover
+        box-shadow 0 0 10px rgb(0 0 0 / 50%)
+  span
+    will-change: transform
+    transition: transform .3s ease
+
+.arrow-list
+  &__item
+    position relative
+    padding-left 20px
+    &:not(:last-child)
+      margin-bottom 10px
+    &:before
+      content: ''
+      position absolute
+      transform: translateY(-50%)
+      left 0
+      top 50%
+      border-style solid
+      border-width: 5px 0px 5px 5px
+      border-color: transparent transparent transparent $color-white

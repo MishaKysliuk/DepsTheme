@@ -1,0 +1,45 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			<h1 class="h2 mb-2 tac">{{ post.title }}</h1>
+      
+      <section class="contact-info mb-4">
+        <div class="contact-info__item">
+          <div class='contact-info__icon'>
+            <i class='icon-marker'></i>
+          </div>
+          <div class='contact-info__text'>
+            <p>{{ post.meta('address') }}</p>
+          </div>
+        </div>
+        <div class="contact-info__item">
+          <div class='contact-info__icon'>
+            <i class='icon-email'></i>
+          </div>
+          <div class='contact-info__text'>
+            <p>EMAIL</p>
+            <a class='contact-info__link' href="mailto:{{ post.meta('email') }}"> {{ post.meta('email') }}</a>
+          </div>
+        </div>
+			</section>
+
+      <section class="contact-section">
+          <div class="contact-section__contact-form">
+            {{ fn("do_shortcode", post.meta('contact_form_shortcode') ) }}
+          </div>
+          <div class="contact-section__map">
+            {{ post.meta('map') }}
+          </div>
+			</section>
+		</div>
+    
+    {% include '/templates/parts/additional-blocks.twig' %}
+
+	</div>
+</main>
+
+{% endblock %}

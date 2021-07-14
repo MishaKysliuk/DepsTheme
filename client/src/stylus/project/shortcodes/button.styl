@@ -1,0 +1,38 @@
+.buttons-gtoup
+  display flex
+  align-items center
+  flex-direction column
+  +md()
+    justify-content center
+    flex-direction row
+
+.shortcode-button
+  width 100%
+  max-width 340px
+  height 60px
+  border-radius 5px
+  background-color $secondary-orange
+  display flex
+  align-items center
+  justify-content center
+  margin 10px 0
+  transition 0.3s
+  +md()
+    margin 10px 10px
+  &__
+    &icon
+      margin 0 10px 0 0 !important
+      font-size 34px
+      color $color-white
+      margin-right 10px
+    &text
+      color $color-white
+      font-size 14px
+      font-weight 700
+      line-height 24px
+      text-transform uppercase
+    +md()
+      font-size 18px
+
+  &:hover
+    box-shadow 0 0 10px rgba(0, 0, 0, 0.5)

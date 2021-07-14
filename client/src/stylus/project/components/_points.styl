@@ -1,0 +1,218 @@
+
+.points
+  margin-bottom 50px
+  &__
+    &header
+      box-shadow 0 -3px 0 $light-blue
+      border-radius 5px
+      background-color $color-white
+      padding 27px 20px
+      margin-bottom 10px
+      +md()
+        display flex
+    &icon
+      width 90px
+      height 90px
+      object-fit contain
+      margin 0 auto
+      +md()
+        margin 0 25px 0 0
+      +xl()
+        margin 0 50px 0 0
+    &title
+      text-transform uppercase
+      color $purple-light
+      font-size 24px
+      font-weight 500
+      line-height 36px
+      margin-bottom 15px
+    &text
+      color $purple-light
+      font-size 16px
+      font-weight 400
+      line-height 24px
+
+.accordion
+  margin-bottom 10px
+  transition 0.3s
+  border-radius 5px
+  border 1px solid #e1e1e1
+  overflow hidden
+  transition 0.3s
+  background-color inherit
+  &__
+    &header
+      transition 0.3s
+      border-radius 5px
+      height auto
+      padding 20px 30px
+      +md()
+        display flex
+        align-items center
+        justify-content space-between
+    &icon
+      display none
+      height 60px
+      width 60px
+      margin-right 20px
+      +md()
+        display block
+    &title
+      font-weight 700
+      line-height 23px
+      display inline-block
+      transition 0.3s
+      font-size 18px
+      color $purple-light
+      +md()
+        font-size 24px
+    &text
+      color $purple-light
+      font-size 16px
+      font-weight 400
+      line-height 24px
+      padding 10px
+      +md()
+        padding 10px 30px 30px
+      p,
+      ul
+        margin-bottom 15px
+        li::before
+          @extend $icon
+          display inline-block
+          content $icon-cheked
+          color $color-checked
+          font-size 13px
+          margin-right 10px
+          margin-bottom 15px
+    &btn
+      width 126px
+      height 40px
+      border-radius: 5px
+      border 2px solid $light-blue
+      background-color $light-blue
+      color $color-white
+      font-size 14px
+      font-weight 400
+      text-align center
+      cursor pointer
+      transition 0.3s
+      display none
+      i
+        transition 0.3s
+        font-size 13px
+      +md()
+        display block
+      &:hover
+        +md()
+          background-color $color-white
+          color $light-blue
+      &--
+        &mobail
+          display block
+          margin: 0 auto
+          margin-bottom: 15px
+          +md()
+            display none
+    &apply-btn
+      width 100%
+      max-width 300px
+      height 50px
+      border-radius 5px
+      margin 0 auto
+      font-size 18px
+      font-weight 700
+      color $color-white
+      display flex
+      background-color $main-green
+      color $color-white
+      align-items center
+      justify-content center
+      border 2px solid $main-green
+      transition 0.3s
+      &:hover
+        background-color initial
+        color $main-green
+        
+    &btn-name
+      margin-right 5px
+      &--
+        &close
+          display none
+  &--
+    &vacancies
+      .accordion
+        &__
+          &header
+            background-color inherit
+            padding 10px
+            +md()
+              padding 20px
+          &header-block
+            width 100%
+            text-align center
+            +md()
+              text-align left
+          &subtitle-list
+            display none
+            margin-top 10px
+            +md()
+              display block
+            &--
+              &mobail
+                margin-top 0
+                margin-bottom 15px
+                display flex
+                flex-direction column
+                +md()
+                  display none
+          &subtitle-item
+            margin-right 30px
+            color: $purple-light-2
+            font-size: 16px
+            font-weight: 400
+          &title
+            font-weight 400
+            color $light-blue
+            border-bottom 1px dashed
+            transition 0.3s
+            cursor pointer
+            &:hover
+              border-bottom none
+
+          &text
+            display none
+            padding 0 10px 10px
+            color $main-gray
+            +md()
+              padding 20px
+
+      &.is-open
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.15), inset 0 5px 0 $main-green
+        .accordion
+          &__
+            &title
+              color $main-gray
+              border-bottom none
+            &header-block
+              text-align left
+
+  &.is-open
+  
+    .accordion
+      &__
+        &btn
+          border none
+          background-color inherit !important
+          color $main-red
+          i
+            transform rotate(180deg)
+
+        &btn-name
+          &--
+            &read-more
+              display none
+            &close
+              display inline
+
+

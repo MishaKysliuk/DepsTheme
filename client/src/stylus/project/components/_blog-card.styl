@@ -1,0 +1,96 @@
+.blog-card
+  background-color $color-white
+  padding 10px
+  width 100%
+  color $purple-light
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.12)
+  border-radius 5px
+  &:focus-within
+    box-shadow: 0 0 20px rgba($light-blue, .8)
+  +lg()
+    padding 20px
+  &--small-xl
+    display flex
+    flex-wrap: wrap
+    padding 0
+    box-shadow: none
+    +xl()
+      display block
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.12)
+  &__img
+    background-color #ccc
+    &--w30-xl
+      width 30%
+      margin-right 10px
+      +xl()
+        width 100%
+        margin-right 0
+  &__content
+    display flex
+    flex-direction: column
+    margin 15px 0
+    &--w70-xl
+      width calc(70% - 10px)
+      height auto
+      +xl()
+        width 100%
+  &__stars-wrap
+    display flex
+    justify-content flex-start
+    margin 25px 0
+    position relative
+    .pos-absolute
+      position absolute
+      transform: translateX(-50%)
+      left 50%
+      width 100%
+      bottom -20px
+    &--ordered-xl
+      order 1
+      +xl()
+        order unset
+  &__title
+    flex 1 1 auto
+    font-weight 700
+    font-size 1.4rem
+    color inherit
+    min-height 60px
+    +xl()
+      font-size 1.8rem
+    &--underlined-xl
+      text-decoration underline
+      +xl()
+        text-decoration none
+    &--tac-xl
+      +xl()
+        text-align center
+    &--link
+      &:hover
+        text-decoration underline
+  &__description
+    margin 15px 0
+    &--d-none-xl
+      display none
+      +xl()
+        display block
+  p
+    font-size 1.4rem
+    +xl()
+      font-size 1.5rem
+
+
+.gray-line
+  +sm()
+    height: 2px
+    background-color: #e7e7e7
+    width 100%
+
+.news-wrapper
+  padding 20px
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.07)
+  border-radius: 5px
+  background-color: #ffffff
+  +xl()
+    padding 0
+    box-shadow: none
+    background-color: transparent

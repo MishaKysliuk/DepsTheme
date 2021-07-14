@@ -1,0 +1,25 @@
+<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+  <div class="container">
+    <div class="email-wrapper">
+      <div class="email-wrapper__row email-wrapper__row--column email-wrapper__row--lg-row">
+        <div class="email-wrapper__left">
+          <div class="email-wrapper__row email-wrapper__row--column email-wrapper__row--lg-row">
+            <div class="email-wrapper__img">
+              <div class="img-wrap"><img src="{{ theme.link }}/build/static/img/plane.png" alt="ss">
+              </div>
+            </div>
+            <div class="email-wrapper__left-titles">
+              <h3 class="email-wrapper__big">No Spam!</h3>
+              <p class="email-wrapper__small">Only Top Offers Once a Week</p>
+            </div>
+          </div>
+        </div>
+        <div class="email-wrapper__right">
+          
+          <subscribe path="{{ site.link }}/wp-admin/admin-ajax.php?action=subscribe"></subscribe>
+          <div class="email-wrapper__info">{{ subscribe_form.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

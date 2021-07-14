@@ -1,0 +1,46 @@
+.features-large
+  &__
+    &row
+      display flex
+      justify-content center
+      flex-wrap wrap
+      flex-direction column
+      +md()
+        margin 0 -20px
+        flex-direction row
+    &el
+      width 100%
+      border-radius 5px
+      background-color $color-white
+      padding 15px
+      margin 10px 0
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.12), inset 0 -3px 0 $secondary-orange
+      +md()
+        width calc(50% - 30px)
+        margin 15px
+      +lg()
+        padding 30px
+        width calc(33% - 30px)
+    &icon
+      font-size 60px
+      margin-right 30px
+      color $secondary-orange
+    &image
+      width 60px
+    &header
+      display flex
+      align-items center
+    &title
+      font-size 18px
+      font-weight 700
+      color $purple-light
+      a 
+        text-decoration underline
+        color inherit
+        &:hover
+          text-decoration none
+    &text
+      font-size 14px
+      font-weight 400
+      color $purple-light
+      line-height 24px

@@ -1,0 +1,214 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main" itemscope itemtype="http://schema.org/Review" itemid="{{ fn('get_canonical_link') }}">
+	<meta itemprop="url" content="{{ fn('get_canonical_link') }}">
+	<link itemprop="publisher" href="#org">
+		<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+			<meta itemprop="bestRating" content="5">
+			<meta itemprop="ratingValue" content="{{ post.meta('voting_block').number_of_stars }}">
+		</span>
+	<div class="block-wrapper pt-2 pb-2 md-pv-3" style="background-color:{{ post.meta('header_color') }}">
+		<div class="container">
+			<div class="brand-reviews-header">
+			
+				{% include '/templates/parts/page-info.twig' %}
+
+				<div class="brand-info">
+					<span  itemprop="itemReviewed" itemscope itemtype="http://schema.org/Game">
+						<h1 class="h2 brand-info-title" itemprop='name'>{{ fn('do_shortcode', post.title) }}</h1>
+					</span>
+					<div class="custom-row-flex custom-row-flex--align_top custom-row-flex--sm">
+						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-3">
+							<div calss='d-flex'>
+								<form method="POST" target="_blank" v-send-gtag="'{{post.title}} - logo-review'">
+									<button class="noLink" type="submit" name="prgpattern" value="{{ post.ID }}">
+										<div class="brand-info-logo">
+											<img class="brand-info-logo__img" src="{{ post.meta('logo_for_rewiew_page') ? post.meta('logo_for_rewiew_page') : post.meta('logo') }}">
+										</div>
+									</button>
+									<input name='aff_key' type='hidden' value="review">
+								</form>
+								<div class="one-game__stars">
+									<fetcher url="{{ fn('get_rating_api_link', 'page', post.ID) }}">
+										<div slot='stars' slot-scope='slotProps'>
+											<stars 
+												stars-type="page" 
+												:stars-number="slotProps.context.number_of_stars" 
+												:stars-id="slotProps.context.stars_id" 
+												:set-url="slotProps.context.action_url" 
+												:counter="slotProps.context.users_voted">
+											</stars>
+											<div slot='loading' v-if='!slotProps'><p>...loading</p></div>
+										</div>
+									</fetcher>
+								</div>
+							</div>
+						</div>
+						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-3">
+							<div class="brend-suggestions brend-suggestions--pros">
+								<h3 class="brend-suggestions__title">{{ __("What we like", 'casino') }}</h3>
+								<ul class="brend-suggestions__items">
+									{% for item in post.meta('pros') %}
+										<li class="brend-suggestions__item">{{ item.item }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-3">
+							<div class="brend-suggestions brend-suggestions--cons">
+								<h3 class="brend-suggestions__title">{{ __("What we Don't like", 'casino') }}</h3>
+								<ul class="brend-suggestions__items">
+									{% for item in post.meta('cons') %}
+										<li class="brend-suggestions__item">{{ item.item }}</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-3">
+							<div class="brand-bonuses">
+									<span class="one-game__light">{{ post.meta('casino_bonus_block').bonus_percent }}</span>
+									<p class="one-game__price">{{ post.meta('casino_bonus_block').bonus }}</p>
+									<span class="one-game__light">{{ post.meta('casino_bonus_block').additional_bonus }}</span>
+									{% if post.meta('t&cs').text  %}
+										<div class='tooltip'>
+											<span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+											<div class='tooltip__container js-tooltip'>
+												<span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
+												{% if post.meta('t&cs').title %}
+													<h3 class='tooltip__title'>{{ post.meta('t&cs').title }}</h3>
+												{% endif %}
+												<div class='tooltip__text'>{{ post.meta('t&cs').text }}</div>
+												{% if post.meta('t&cs').link %}
+													<form method="POST" target="_blank" v-send-gtag="'{{post.title}} -  T&Cs'">
+														<button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{post.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+														<input name='t&cs' type='hidden' value="">
+													</form>
+												{% endif %}
+											</div>
+										</div>
+									{% endif %}
+									<form method="POST" target="_blank" v-send-gtag="'{{post.title}} - button-review'">
+										<button class="noLink main-btn main-btn--bg-green main-btn--w100" type="submit" name="prgpattern" value="{{ post.ID }}">Play now</button>
+										<input name='aff_key' type='hidden' value="review">
+									</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<table class='brand-general-information'>
+				<caption>{{ __('General Information', 'casino') }}</caption>
+				
+				{% if post.meta('website_adress') %}
+					<tr>
+						<td>{{ __('Site:', 'casino') }}</td>
+						<td>
+								<form method="POST" target="_blank" v-send-gtag="'{{post.title}} - website-review'">
+									<button class="btn-link-inline" type="submit" name="prgpattern" value="{{ post.ID }}">{{ post.meta('website_adress') }}</button>
+								</form>
+						</td>
+					</tr>
+				{% endif %}
+			
+				{% if post.meta('general_information').launched_in %}
+					<tr>
+						<td>{{ __('Launched in:', 'casino') }}</td>
+						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').launched_in }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% if post.meta('general_information').minimum_deposit %}
+					<tr>
+						<td>{{ __('Minimum Deposit:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').minimum_deposit }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% if post.meta('general_information').payout_rate %}
+					<tr>
+						<td>{{ __('Payout Rate:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').payout_rate }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% if post.meta('general_information').withdrawal_times %}
+					<tr>
+						<td>{{ __('Withdrawal Times:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').withdrawal_times }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% set casino_games = post.meta('general_information').casino_games ? post.meta('general_information').casino_games : post.terms( {query:{taxonomy:'casino-games', orderby:'name', order: 'ASC'}} )|join(', ') %}
+				{% if casino_games %}
+					<tr>
+						<td>{{ __('Casino Games:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ casino_games }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% set deposit_methods = post.meta('general_information').deposit_methods ? post.meta('general_information').deposit_methods : post.terms( {query:{taxonomy:'payment-methods', orderby:'name', order: 'ASC'}} )|join(', ') %}
+				{% if deposit_methods %}
+					<tr>
+						<td>{{ __('Deposit Methods:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ deposit_methods }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% set software_providers = post.meta('general_information').software_providers ? post.meta('general_information').software_providers : post.terms( {query:{taxonomy:'casino-softwares', orderby:'name', order: 'ASC'}} )|join(', ') %}
+				{% if software_providers %}
+					<tr>
+						<td>{{ __('Software Providers:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ software_providers }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% set currencies = post.meta('general_information').currencies ? post.meta('general_information').currencies : post.terms( {query:{taxonomy:'currencies', orderby:'name', order: 'ASC'}} )|join(', ') %}
+				{% if currencies %}
+					<tr>
+						<td>{{ __('Currencies:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ currencies }}</div></td>
+					</tr>
+				{% endif %}
+
+				{% if post.meta('general_information').casino_owner %}
+					<tr>
+						<td>{{ __('Casino Owner:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').casino_owner }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% if post.meta('general_information').gambling_licences %}
+					<tr>
+						<td>{{ __('Gambling Licences:', 'casino') }} </td>
+						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').gambling_licences }}</div></td>
+					</tr>
+				{% endif %}
+				
+				{% if post.meta('additional_items_to_general_information') %}
+					{% for item in post.meta('additional_items_to_general_information') %}
+						<tr>
+							<td>{{ item.item }}</td>
+							<td><div class='table-line-content js-line-content'>{{ item.value }}</div></td>
+						</tr>
+					{% endfor %}
+				{% endif %}
+
+			</table>
+	
+		</div>
+	</div>
+
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			{% include '/templates/parts/jump-to.twig' with {'items': post.meta('jump_to') } %}
+    </div>
+	</div>
+	
+	{% include '/templates/parts/additional-blocks.twig' %}
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,109 @@
+.main-row-flex
+  display flex
+  flex-wrap: wrap
+
+
+.custom-row-flex
+  display flex
+  flex-wrap wrap
+  justify-content center
+  margin -15px 0
+  +sm()
+    margin -15px
+  &--
+    &align_
+      &top
+        align-items flex-start
+    &sm
+      margin -10px !important
+      .custom-row-flex
+        &__el
+          &--col-lg-3
+            +lg()
+              width 100%
+              margin 10px !important
+              flex 0 0 calc((100% - 20px * 4) / 4)
+              max-width calc((100% - 20px * 4) / 4)
+  &__el
+    width 290px
+    display flex
+    margin 15px
+    &--col-sm-12
+      +sm()
+        width 100%
+        flex 0 0 calc((100% - 30px * 1) / 1)
+        max-width: calc((100% - 30px * 1) / 1)
+    &--col-lg-6
+      +lg()
+        width 100%
+        flex 0 0 calc((100% - 30px * 2) / 2)
+        max-width: calc((100% - 30px * 2) / 2)
+    &--col-md-6
+      +md()
+        width 100%
+        flex 0 0 calc((100% - 30px * 2) / 2)
+        max-width calc((100% - 30px * 2) / 2)
+    &--col-xl-5
+      +xl()
+        width 100%
+        flex 0 0 calc((100% - 30px * 2.4) / 2.4)
+        max-width calc((100% - 30px * 2.4) / 2.4)
+    &--col-xl-2
+      +xl()
+        width 100%
+        flex 0 0 calc((100% - 30px * 6) / 6)
+        max-width calc((100% - 30px * 6) / 6)
+    &--col-xl-3
+      +xl()
+        width 100%
+        flex 0 0 calc((100% - 30px * 4) / 4)
+        max-width calc((100% - 30px * 4) / 4)
+    &--col-lg-3
+      +lg()
+        width 100%
+        flex 0 0 calc((100% - 30px * 4) / 4)
+        max-width calc((100% - 30px * 4) / 4)
+    &--col-md-6
+      +md()
+        width 100%
+        flex 0 0 calc((100% - 30px * 2) / 2)
+        max-width calc((100% - 30px * 2) / 2)
+    &--col-xl-6
+      +xl()
+        width 100%
+        flex 0 0 calc((100% - 30px * 2) / 2)
+        max-width calc((100% - 30px * 2) / 2)
+    &--col-xl-4
+      +xl()
+        width 100%
+        flex 0 0 calc((100% - 30px * 3) / 3)
+        max-width calc((100% - 30px * 3) / 3)
+    &--col-md-3
+      +md()
+        width 100%
+        flex 0 0 calc((100% - 30px * 4) / 4)
+        max-width calc((100% - 30px * 4) / 4)
+    &--col-md-4
+      +md()
+        width 100%
+        flex 0 0 calc((100% - 30px * 3) / 3)
+        max-width calc((100% - 30px * 3) / 3)
+    &--col-md-8
+      +md()
+        width 100%
+        flex 0 0 calc((100% - 30px * 1.5) / 1.5)
+        max-width calc((100% - 30px * 1.5) / 1.5)
+    &--col-lg-4
+      +lg()
+        width 100%
+        flex 0 0 calc((100% - 30px * 3) / 3)
+        max-width calc((100% - 30px * 3) / 3)
+    &--md-ordered
+      +md()
+        order 1
+    &--xl-no-order
+      +xl()
+        order unset
+    & > *
+        margin: 0 auto
+  

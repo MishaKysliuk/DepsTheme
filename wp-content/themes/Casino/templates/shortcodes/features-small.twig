@@ -1,0 +1,29 @@
+{% if features %}
+  <div class='features-small pv-2'>
+    <div class='features-small__title-line mb-1' style='background: {{ atts.color }}'>
+      <h2 class='features-small__title-white features-title tac'>{{ atts.title }}</h2>
+    </div>
+    {% if features_text %}
+      <div class="slide-container mt-1 taj">
+          {{ features_text }}
+      </div>
+    {% endif %}
+    <div class='features-small__row'>
+      {% for feature in features %}
+        <div class='features-small__el'>
+          <div class='features-small__icon' style='color: {{ feature.color }}'>
+            {% if feature.image %}
+              <img class='features-small__image' src="{{feature.image}}" alt="{{feature.alt}}">
+            {% endif %}
+            {% if feature['font-icon'] %}
+              <i class="{{feature['font-icon']}}"></i>
+            {% endif %}
+          </div>
+          <span class='features-small__title'>
+            {{ feature.title }}
+          </span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

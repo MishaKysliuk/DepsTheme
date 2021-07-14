@@ -1,0 +1,37 @@
+.page-info
+  color $color-white
+  font-size 18px
+  font-weight 400
+  display flex
+  align-items center
+  flex-direction column
+  margin-top 10px
+  +md()
+    display block
+  &__
+    &separeta
+      margin 0 5px
+      transform rotate(90deg)
+      +md()
+        transform rotate(0)
+    &author-line
+      color $yellow
+      font-weight 500
+    &author
+      color $yellow
+      text-decoration underline
+      &:hover
+        text-decoration none
+  &--
+    &border 
+      border-bottom: 1px solid $color-white
+      padding-bottom: 20px
+    &articles
+      border-bottom: 1px solid $purple-light
+      padding-bottom: 20px
+      color $purple-light
+      .page-info
+        &__
+          &author-line,
+          &author
+            color $purple-light

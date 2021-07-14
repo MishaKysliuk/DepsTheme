@@ -1,0 +1,97 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="top-baner xl-gradient xs-tac pt-2 pb-2 md-pv-4">
+		<div class="container">
+			
+			<div class="top-content-row">
+				<div class="top-content-row__el">
+					<h1 class="h1 xs-tac">{{ fn('do_shortcode', post.meta('header').title) }}</h1>
+					<div class="mt-1">
+						<p class="blue-light mb-1">{{ fn('do_shortcode', post.meta('header').subtitle) }}</p>
+							<ul class="head-casino-list">
+								<li class="head-casino-list__item">
+									<div class="head-casino-list__img">
+										<div class="img-wrap"><img src="{{ Image(post.meta('header').item_1.icon).src }}" alt="{{ Image(post.meta('header').item_1.icon).alt }}"></div>
+									</div>
+									<p class="head-casino-list__title">{{ post.meta('header').item_1.text }}</p>
+								</li>
+								<li class="head-casino-list__item">
+									<div class="head-casino-list__img">
+										<div class="img-wrap"><img src="{{ Image(post.meta('header').item_2.icon).src }}" alt="{{ Image(post.meta('header').item_2.icon).alt }}">
+										</div>
+									</div>
+									<p class="head-casino-list__title">{{ post.meta('header').item_2.text }}</p>
+								</li>
+								<li class="head-casino-list__item">
+									<div class="head-casino-list__img">
+										<div class="img-wrap"><img src="{{ Image(post.meta('header').item_3.icon).src }}" alt="{{ Image(post.meta('header').item_3.icon).alt }}">
+										</div>
+									</div>
+									<p class="head-casino-list__title">{{ post.meta('header').item_3.text }}</p>
+								</li>
+							</ul>
+					</div>
+					<div class="btn-row mt-1 xl-mt-2">
+						{% if post.meta('header').button_1 %}
+							<div class="btn-row__el">
+								<a class="main-btn main-btn--bg-green" target="{{ post.meta('header').button_1.target }}" href="{{ post.meta('header').button_1.url }}">{{ post.meta('header').button_1.title }}</a>
+							</div>
+						{% endif %}
+						{% if post.meta('header').button_2 %}
+							<div class="btn-row__el">
+								<a class="main-btn main-btn--bg-green" target="{{ post.meta('header').button_1.target }}" href="{{ post.meta('header').button_2.url }}">{{ post.meta('header').button_2.title }}</a>
+							</div>
+						{% endif %}
+					</div>
+				</div>
+				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
+					<div class="img-wrap"><img src="{{ Image(post.meta('header').header_image).src }}" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}"  alt="{{ Image(post.meta('header').header_image).alt }}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="block-wrapper block-wrapper--bg-white pv-2 lg-pt-4 lg-pb-3">
+		<div class="container">
+			<h2 class="h2 tac">{{ post.meta('casinos_types_title') }}</h2>
+		</div>
+	</div>
+	<div class="block-wrapper block-wrapper--bg-white block-wrapper--xl-bg-pattern block-wrapper--xl-white-shadow pb-4 lg-pb-6">
+		<div class="container">
+			<div class="custom-row-flex">
+				{% for item in post.meta('casinos_types') %}
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-lg-6">
+						<div class="casino-card xs-tac">
+							<div class="casino-card__row">
+								<div class="casino-card__img">
+									<div class="img-wrap">
+										<img src="{{ Image(item.icon).src }}"  alt="pay">
+									</div>
+								</div>
+								<div class="casino-card__info">
+									<div class="casino-card__description">
+										<div class="casino-card__title">
+											<h3 class="h3">{{ item.title }}</h3>
+										</div>
+										<p class="main-blue-text">{{ item.short_descriptions }}</p>
+									</div>
+									<div class="casino-card__button casino-card__button--right">
+										<a class="main-btn main-btn--xs-fz12 main-btn--sm-fz14 main-btn--xl-scaled" href="{{ Term(item.button_link).link }}" style="background-color:{{ item.button_color }}">{{ item.button_name }}</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="custom-row-flex mt-2 xl-mt-3">
+				<div class="custom-row-flex__el custom-row-flex__el--col-sm-12"><a	class="main-btn main-btn--bg-white-green" href="{{ post.meta('check_all') }}">Check all payment Methods</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+
+{% endblock %}

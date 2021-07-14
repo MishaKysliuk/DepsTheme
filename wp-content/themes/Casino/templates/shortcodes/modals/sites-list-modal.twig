@@ -1,0 +1,45 @@
+
+<div class='sites-list-modal'>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Sites</span>
+    <span class="sites-list-main dropdown"></span>
+  </div>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Custom table</span>
+    <span class="custom-table dropdown"></span>
+  </div>
+
+  <div class='sites-list-modal__item'>
+    <span class="sites-list-modal__label">Aff key</span>
+    <input class="sites-list-modal__innput select-pure__select" name='aff_key' id='aff_key'>
+  </div>
+
+  <input type="hidden" name='custom_table' id='custom_table'>
+  <input type="hidden" name='sites' id='sites-list-main'>
+
+</div>
+
+<link rel="stylesheet" href="/wp-content/themes/Casino/admin-assets/shortcodes/sites-list-admin.css" type="text/css">
+
+<script src='/wp-content/themes/Casino/admin-assets/select-pure.min.js'></script>
+
+<script>
+  new SelectPure(".sites-list-main", {
+    options: {{ sites_list }},
+    autocomplete: true,
+    multiple: true,
+    onChange: value => { 
+      document.getElementById('sites-list-main').value = value
+    }
+	});
+
+  new SelectPure(".custom-table", {
+    options: {{ custom_tables }},
+    autocomplete: true,
+    onChange: value => { 
+      document.getElementById('custom_table').value = value
+    }
+	});
+</script>

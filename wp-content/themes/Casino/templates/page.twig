@@ -1,0 +1,28 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			<h1 class="h2 mb-2 tac">{{ fn('do_shortcode', post.title) }}</h1>
+			<div class="blog-content">
+				{% if post.thumbnail %}
+				<div class="blog-content__baner">
+					<div class="img-wrap"><img src="{{ post.thumbnail | resize(1136, 320, 'center') }}" alt="baner">
+					</div>
+				</div>
+				{% endif %}
+				<div class="blog-content__content slide-container">
+					{{ post.content }}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% include '/templates/parts/additional-blocks.twig' %}
+	
+
+</main>
+
+{% endblock %}

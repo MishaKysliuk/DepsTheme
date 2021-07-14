@@ -1,0 +1,72 @@
+.rank-best-section 
+  z-index 9
+  position relative
+
+.rank-best
+  display flex
+  flex-wrap wrap
+  justify-content center
+  position relative
+  &__
+    &item
+      color $purple-light
+      display flex
+      align-items center
+      font-weight 400
+      margin 5px 4px
+      font-size 13px
+      +md()
+        margin 8px 6px
+        font-size 14px
+      +xl()
+        margin 10px 20px
+        font-size 18px
+    &title
+      white-space nowrap
+
+      &--
+        &tooltip
+          cursor pointer
+          +md()
+            position relative
+          &:hover
+            .rank-best
+              &__
+                &tooltip
+                  display block
+    &icon
+      margin-right 5px
+      height 17px
+      +xl()
+        margin-right 10px
+        height 25px
+    &tooltip
+      position absolute
+      width 100%
+      top -10px
+      left 0
+      background $color-white
+      border 2px solid $light-blue
+      border-radius 5px
+      color #000
+      font-size 12px
+      line-height 24px
+      display none
+      z-index 10
+      padding 5px 10px
+      +md()
+        width 200px
+        top 35px
+        left -30px
+      +xl()
+        padding 19px
+        width 380px
+        top 45px
+      &::before
+        +md()
+          content ''
+          position absolute
+          left 20px
+          top -27px
+          border 17px solid transparent
+          border-bottom 9px solid $light-blue

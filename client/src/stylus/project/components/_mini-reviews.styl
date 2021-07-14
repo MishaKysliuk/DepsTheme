@@ -1,0 +1,145 @@
+$list-icon
+  @extend $icon
+  display inline-block
+  font-size 14px
+  position absolute
+  left 0
+  top 8px
+  +lg()
+    font-size 18px
+
+
+.mini-reviews
+  box-shadow 0 0 15px rgba(0, 0, 0, 0.12)
+  border-radius 5px
+  background-color $color-white
+  margin-top 30px
+  &__
+    &header
+      width 100%
+      height 50px 
+      border-radius 5px 5px 0 0 
+      overflow hidden
+      background-color $purple-light
+      display flex
+      color $color-white
+    &counter
+      width 60px
+      background $main-orange
+      display flex
+      align-items center
+      justify-content center
+      font-size 20px
+      font-weight 700
+      +lg()
+        font-size 24px
+    &title
+      display flex
+      align-items center
+      padding 0 20px
+      font-weight 700
+      font-size 20px
+      +lg()
+        font-size 24px
+    &body
+      padding 10px
+      +lg()
+        display flex
+        padding 20px
+    &card
+      width 100%
+      height 100%
+      display flex
+      +md()
+        margin 0 auto
+        width 280px
+        min-width 280px
+        +lg()
+          margin 0 20px 0 0
+    &text-column
+      margin 20px 0
+      +lg()
+        margin 0
+
+    &lists-wrapper
+      +md()
+        margin 30px -20px
+        display flex
+    &list
+      margin 15px 0
+      +md()
+        margin 0 15px
+        width 50%
+    &list-item
+      color $purple-light
+      font-weight 400
+      line-height 30px
+      position relative
+      padding-left 25px
+      margin 5px 0
+      font-size 14px
+      +lg()
+        font-size 18px
+      &--
+        &pros
+          &:before
+            @extend $list-icon
+            content $icon-checkmark-outline
+            color $main-green
+        &cons
+          &:before
+            @extend $list-icon
+            content $icon-x-circle
+            color $main-red
+
+
+.mini-reviews-card
+  height 100%
+  width 100%
+  border-radius 5px
+  border 2px solid $green-opacity
+  background-color $color-white
+  display flex
+  flex-direction column
+  &__
+    &logo
+      width 100%
+      height 140px
+      overflow hidden
+      border-radius 5px
+    &logo-link
+      width 100%
+      height 100%
+      border 0
+      outline 0
+      background inherit
+      cursor pointer
+    &img
+      width 100%
+      height 100%
+      object-fit contain
+      object-position center
+    &bonuses
+      padding 10px 0
+      color $purple-light
+    &bonus_smal
+      font-size 17px
+      font-weight 400
+    &bonus_big
+      font-size 35px
+      font-weight 700
+    &site-name
+      color $light-blue
+      font-size 15px
+      font-weight 400
+      background inherit
+      border 0
+      width 100%
+      text-decoration underline
+      cursor pointer
+      &:hover
+        text-decoration none
+    &body 
+      padding 20px
+    &btn
+      margin 20px 0 10px 0

@@ -1,0 +1,55 @@
+.features-xl
+  &__
+    &row
+      display flex
+      justify-content center
+      flex-wrap wrap
+      flex-direction column
+      +md()
+        margin 0 -20px
+        flex-direction row
+    &el
+      width 100%
+      border-radius 5px
+      background-color $color-white
+      padding 15px
+      margin 10px 0
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.12)
+      display flex
+      flex-direction column
+      align-items center
+      +md()
+        width calc(50% - 30px)
+        margin 15px
+      +lg()
+        padding 30px
+        width calc(33% - 30px)
+    &icon
+      font-size 60px
+      margin-right 30px
+      color $secondary-orange
+      width 190px
+      height 190px
+      margin 0 auto
+    &image
+      width 100%
+      height 100%
+      margin: 0 auto
+      object-fit contein
+    &header
+      display flex
+      align-items center
+    &title
+      font-size 18px
+      font-weight 700
+      color $light-blue-2
+      a 
+        text-decoration underline
+        color inherit
+        &:hover
+          text-decoration none
+    &text
+      font-size 14px
+      font-weight 400
+      color $purple-light-2
+      line-height 24px

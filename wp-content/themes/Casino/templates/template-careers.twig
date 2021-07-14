@@ -1,0 +1,74 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper md-tac md-pv-4">
+		<div class="container container--full-on-mobail">
+			<div class="intro intro--br" style="background-color:{{ post.meta('header_block').header_color }}">
+				<div class="intro__containe intro__containe--w50">
+					<h1 class="h1 intro__title intro__title--white">{{ post.meta('header_block').page_title }}</h1>
+					<div class="intro__text intro__text--about">{{ post.meta('header_block').page_description }}</div>
+				</div>
+				<img class="intro__image" src="{{ post.meta('header_block').image }}"  alt="bg">
+			</div>
+		</div>
+	</div>
+
+	{% if post.meta('text_block') %}
+		<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+			<div class="container">
+				<div class="slide-container" id="why_to_work_with_us">
+					{{ post.meta('text_block') }}
+				</div>	
+			</div>
+		</div>
+	{% endif %}
+
+	{% if post.meta('vacancies') %}
+		<div class="block-wrapper pv-4">
+			<div class="container">
+				<h2 class='blue-title tac mb-1'>{{ __('Why to Work with Us?', 'casinos') }}</h2>
+				{% for item in post.meta('vacancies') %}
+					<div class="accordion accordion--vacancies js-accordion">
+						<div class="accordion__header">
+							<img class="accordion__icon" src="{{theme.link}}/build/static/img/vacancies_icon.png"  alt="bg">
+							<div class='accordion__header-block'>
+								<h3 class="accordion__title js-open-accordion">{{ item.title }}</h3>
+								<div class='accordion__subtitle-list'>
+									<span class='accordion__subtitle-item'>{{ __('Department', 'casino') }}: {{ item.department }}</span>
+									<span class='accordion__subtitle-item'>{{ __('Experience', 'casino') }}: {{ item.experience }}</span>
+									<span class='accordion__subtitle-item'>{{ __('Salary', 'casino') }}: {{ item.salary }}</span>
+								</div>	
+							</div>
+							<button class='accordion__btn js-open-accordion'>
+								<span class='accordion__btn-name accordion__btn-name--read-more'>{{ __('View Job', 'casino') }}</span>
+								<span class='accordion__btn-name accordion__btn-name--close'>{{ __('Close', 'casino') }}</span>
+								<i class="fas fa-chevron-down"></i>
+							</button>
+						</div>
+						<div class="accordion__text js-accordion-text">
+							<div class='accordion__subtitle-list accordion__subtitle-list--mobail'>
+								<span class='accordion__subtitle-item'>{{ __('Department', 'casino') }}: {{ item.department }}</span>
+								<span class='accordion__subtitle-item'>{{ __('Experience', 'casino') }}: {{ item.experience }}</span>
+								<span class='accordion__subtitle-item'>{{ __('Salary', 'casino') }}: {{ item.salary }}</span>
+							</div>
+							{{ item.text }}
+							<a class='accordion__apply-btn' href='mailto:{{item.mailto}}'>{{ __('APPLY FOR THIS ROLE', 'casino') }}</a>
+						</div>
+						<button class='accordion__btn accordion__btn--mobail js-open-accordion'>
+							<span class='accordion__btn-name accordion__btn-name--read-more'>{{ __('Read more', 'casino') }}</span>
+							<span class='accordion__btn-name accordion__btn-name--close'>{{ __('Close', 'casino') }}</span>
+							<i class="fas fa-chevron-down"></i>
+						</button>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+
+	{% include '/templates/parts/additional-blocks.twig' %}
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,152 @@
+user-date-icon()
+  @extend $icon
+  color $grey-2
+  position absolute
+  top 10px
+  left 0
+  height 60px
+  width 60px
+  z-index 1
+  font-size 22px
+  display flex
+  align-items center
+  justify-content center
+
+.wpcf7-form
+  color $color-white
+
+  .form-title
+    font-size 30px
+    font-weight 700
+    line-height 36px
+  
+  .form-description
+    font-size 16px
+    font-weight 400
+    line-height 24px
+    margin 20px 0
+
+  .wpcf7-form-control-wrap
+    display inline-block
+    width 100%
+    margin 10px 0
+
+  .wpcf7-form-control
+    &:not(.wpcf7-acceptance)
+      width 100%
+      height 60px
+      border-radius 5px
+      background-color $color-white
+      outline none
+      border 0
+      padding 0 15px
+      color $placeholder
+      font-size 16px
+      font-weight 300
+      &.wpcf7-textarea
+        padding 15px 15px
+        height 130px
+
+    &.wpcf7-submit
+      background $main-green 
+      color $color-white
+      font-size 24px
+      font-weight 500
+      cursor pointer
+      width 100%
+      margin 10px 0
+      +md()
+        margin 0
+        width 230px
+      &:disabled,
+      &[disabled]
+        cursor not-allowed
+        background $grey
+    
+    &.g-recaptcha.wpcf7-recaptcha
+      background-color unset
+      padding 0
+        
+
+  .two-column
+    margin-top 10px
+    position relative
+    +md()
+      align-items center
+      display flex
+    &--
+      &user
+        margin 0 -10px
+
+    .user-name,
+    .user-email
+      margin 0 10px
+      position relative
+      .wpcf7-form-control
+        padding-left 60px
+    .user-name
+      &:before
+        content $icon-user
+        font-size 30px
+        user-date-icon()
+    .user-email
+      &:before
+        content $icon-email
+        user-date-icon()
+    
+  .wpcf7-list-item
+    margin-left 0
+    margin-right 10px
+
+  .wpcf7-list-item-label
+    font-size 14px
+    font-weight 300
+    a 
+      color inherit
+      text-decoration underline
+    :hover
+      text-decoration none
+
+.wpcf7 .ajax-loader
+  margin 0
+  position absolute
+  top -45px
+  right 4px
+
+.wpcf7-not-valid-tip
+  font-size 12px
+  position absolute
+
+
+.acceptance-terms
+  label
+    position relative
+    padding-left 5px
+    .false-checkbox
+      width 15px
+      height 15px
+      border-radius 2px
+      background-color $color-white
+      position absolute
+      display block
+      left 0
+      top 3px
+      &:after
+        @extend $icon
+        content $icon-check
+        color $red
+        position absolute
+        top 4px
+        left 2px
+        width 15px
+        height 15px
+        z-index 1
+        font-size 8px
+        display none
+
+    input[type="checkbox"]
+      visibility hidden
+    input:checked ~ .wpcf7-list-item-label
+      .false-checkbox
+        &:after
+          display block

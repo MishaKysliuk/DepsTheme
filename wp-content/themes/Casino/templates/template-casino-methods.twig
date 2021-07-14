@@ -1,0 +1,68 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper xs-tac pt-2 pb-2 md-pv-4" style="background-color:{{ post.meta('header_color') }}">
+		<div class="container">
+			<div class="top-content-row">
+				<div class="top-content-row__el">
+					<h1 class="h1 xs-tac">{{ fn('do_shortcode',  post.title) }}</h1>
+						{% include '/templates/parts/page-info.twig' with {'additional_class': 'page-info--border'} %}
+						<div class="img-wrap-mobail"><img src="{{ Image(post.meta('logo')).src }}" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}"  alt="bg"></div>
+						<div class="white-text taj mt-1">{{ post.meta('descriptions') }}</div>
+						{% if post.meta('list') %}
+							<ul class="arrow-list mt-2">
+								{% for item in post.meta('list') %}
+									<li class="arrow-list__item">
+										<p class="white-text">{{ fn('do_shortcode',  item.item) }}</p>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+				</div>
+				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
+					<div class="img-wrap"><img src="{{ Image(post.meta('logo')).src }}" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}"  alt="bg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2 lg-pt-4 lg-pb-3" id='casino-title'>
+		<div class="container">
+			<h2 class="h2 tac mb-2">{{ fn('do_shortcode', post.meta('casino_title')) }}</h2>
+			<div class="custom-row-flex" id="payments">
+				{% if taxonomy_metod %}
+					{% for term_id in taxonomy_metod %}
+						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-xl-4">
+							<div class="casino-card casino-card--padding tac">
+								<div class="casino-card__row casino-card__row--column">
+									<div class="casino-card__img">
+										<div class="img-wrap">
+											<img src="{{ Image(Term(term_id).meta('small_logo')).src }}"  width='95px' height='73px' alt="pay">
+										</div>
+									</div>
+									<div class="casino-card__info casino-card__info--w100">
+										<div class="casino-card__description casino-card__description--margined">
+											<div class="casino-card__title">
+												<a href="{{ Term(term_id).link }}" class="casino-card__blue-title">{{ Term(term_id).name }}</a>
+											</div>
+											<p class="main-blue-text">{{ Term(term_id).meta('short_descriptions') }}</p>
+										</div>
+										<div class="casino-card__button">
+											<a class="main-btn main-btn--bg-green main-btn--w100" href="{{ Term(term_id).link }}">VIEW ALL {{ Term(term_id).meta('short_name') }} CASINOS</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	
+	{% include '/templates/parts/additional-blocks.twig' %}
+
+</main>
+
+{% endblock %}

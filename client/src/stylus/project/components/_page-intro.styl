@@ -1,0 +1,85 @@
+.intro
+  position relative
+  z-index 1
+  height 100%
+  min-height: 480px
+  +md()
+    min-height: unset
+  &--
+    &br
+      +md()
+        border-radius 5px
+        overflow unset
+    &about-us
+      +lg()
+        display flex
+        align-items center
+        overflow auto
+      .intro 
+        &__
+          &containe
+            &--
+              &w50
+                +md()
+                  width 100%
+                +lg()
+                  width 50%
+  &__
+    &containe
+      padding 15px
+      +md()
+        height 100%
+        display flex
+        flex-direction column
+        justify-content center
+        align-items flex-start
+        padding 15px 10px
+        width 60%
+      +lg()
+        padding 20px 30px
+      +xl()
+        padding 30px 30px
+      &--
+        &w50
+          +md()
+            width 50%
+
+    &title
+      color $purple-light
+      line-height 46px
+      font-size 3rem !important
+      &--
+        &white
+          color $color-white
+    &text
+      color $purple-light
+      font-size 18px
+      font-weight 700
+      line-height 36px
+      p 
+        margin-top 20px
+      &--
+        &about
+          font-weight 400
+          line-height 30px
+          font-size 16px
+          color $color-white
+    &image
+      width 100%
+      margin-top 30px
+      object-fit cover
+      height 150px
+      object-position right
+      +md()
+        object-position center
+        margin-top 0
+        height 100% !important
+        position absolute
+        top 0
+        left 0
+        z-index -1
+      &--
+        &static
+          height auto
+          +md()
+            position static

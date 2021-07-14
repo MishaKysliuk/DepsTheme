@@ -1,0 +1,111 @@
+<footer class="footer">
+	<section class="footer-top-section">
+		<div class="container">
+			<div class="custom-row-flex">
+				<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-xl-3 xs-tac footer-advice">
+					<div class='footer-logo-block'>
+						<h4 class='footer-logo-block__title'>{{ footer_images_block_left.title }}</h4>
+						<div class='footer-logo-block__items'>
+							{% for item in footer_images_block_left.images %}
+								<div class='footer-logo-block__item'>
+									{% if item.link %}
+										<a class='footer-logo-block__link' href='{{ item.link }}' {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"></a>
+									{% endif %}
+									<img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}">
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-4 custom-row-flex__el--col-xl-2 xs-tac">
+					{% if footer_menu_aditional_1 %}
+						<nav class="footer-nav">
+							<h4 class="footer-nav__title">{{ footer_menu_aditional_1.title }}</h4>
+							<ul class="footer-nav__list">
+								{% for item in footer_menu_aditional_1.items %}
+									<li class="footer-nav__item"><a class="footer-nav__link" href="{{ item.link }}">{{ item.name }}</a></li>							
+								{% endfor %}
+							</ul>
+						</nav>
+					{% endif %}
+				</div>
+				<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-4 custom-row-flex__el--col-xl-2 xs-tac">
+					{% if footer_menu_aditional_2 %}
+						<nav class="footer-nav">
+							<h4 class="footer-nav__title">{{ footer_menu_aditional_2.title }}</h4>
+							<ul class="footer-nav__list">
+									{% for item in footer_menu_aditional_2.items %}
+									<li class="footer-nav__item"><a class="footer-nav__link" href="{{ item.link }}">{{ item.name }}</a></li>							
+								{% endfor %}
+							</ul>
+						</nav>
+					{% endif %}
+				</div>
+				<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-4 custom-row-flex__el--col-xl-2 xs-tac">
+					{% if footer_menu_aditional_3 %}
+						<nav class="footer-nav">
+							<h4 class="footer-nav__title">{{ footer_menu_aditional_3.title }}</h4>
+							<ul class="footer-nav__list">
+									{% for item in footer_menu_aditional_3.items %}
+									<li class="footer-nav__item"><a class="footer-nav__link" href="{{ item.link }}">{{ item.name }}</a></li>							
+								{% endfor %}
+							</ul>
+						</nav>
+					{% endif %}
+				</div>
+				<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-xl-3 xs-tac footer-media">
+					<div class='footer-logo-block'>
+						<h4 class='footer-logo-block__title'>{{ footer_images_block_right.title }}</h4>
+						<div class='footer-logo-block__items'>
+							{% for item in footer_images_block_right.images %}
+								<div class='footer-logo-block__item footer-logo-block__item--bg'>
+									{% if item.link %}
+										<a class='footer-logo-block__link' href='{{ item.link }}' {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"></a>
+									{% endif %}
+									<img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}">
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="footer-text">
+					<p class="white-small-text tac">{{ footer_descriptions }}</p>
+			</div>
+		</div>
+	</section>
+	
+	<section class="footer-bottom-section xs-tac">
+		<div class="container">
+			<div class="foot-row">
+				<div class="custom-row-flex">
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-12 custom-row-flex__el--col-xl-3 copyrigth">
+						<p class="white-small-text">CasinoDeps {{ now|date('Y') }} - All Rights Reserved</p>
+					</div>
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-12 custom-row-flex__el--col-xl-3">
+						<div class="footer-adds">
+							<ul class="socials-list d-flex ">
+								{% for item in social_networks %}
+									{% if item.link and item.icon %}
+										<li class="socials-list__item"><a class="socials-list__link" href="{{ item.link }}"  {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"><div class="img-wrap"><img src="{{ Image(item.icon).src }}" alt="soc"></div></a></li>
+									{% endif %}
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+					<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-12 custom-row-flex__el--col-xl-6">
+						<nav class="footer-nav">
+							<ul class="footer-nav__list d-flex">
+								{% for item in footer_menu.items %}
+									<li class="footer-nav__item footer-nav__item--second-menu">
+										<a class="footer-nav__link" href="{{ item.link }}">{{ item.name }}</a>
+									</li>
+								{% endfor %}
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</footer>

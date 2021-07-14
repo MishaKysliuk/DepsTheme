@@ -1,0 +1,35 @@
+include ./../mixins/index
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=no")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title Casino
+    link(rel="shortcut icon", href="./../static/img/favicon.ico")
+    link(rel="stylesheet", href="./../static/css/style.css")
+
+    link(rel="preload" href="styles.css" as="style")
+    link(rel="preload" href="ui.js" as="script")
+  body
+    #app.page-content
+      block header
+        +createHeader('')
+      .content-snip(itemscope itemtype="http://schema.org/Organization")
+        span.schema-info(itemprop="name") site name
+        a.schema-info(itemprop="url", href='site_url') 
+        span.schema-info(itemprop="logo", content="logo_url")
+        span.schema-info(itemprop='sameAs', href="facebook_url") Facebook
+        span.schema-info(itemprop="telephone") phone_number 
+
+
+      block content
+        main.main
+      block footer
+        +createFooter('')
+      modals-container
+    +b.scroll-top-fixed
+      +e.A.link.js-smooth-link(href="#header")
+        +e.SPAN.img.icon-subarrow
+    script(src="./../static/js/vendor.js")
+    script(src="./../static/js/main.js")

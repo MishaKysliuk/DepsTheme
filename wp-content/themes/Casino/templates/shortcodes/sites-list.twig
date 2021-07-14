@@ -1,0 +1,38 @@
+
+<casinos
+  :shortcode-atts="{{ shortcode_atts|e }}"
+  :q-args="{{q_args|e}}"
+  pagination="{{pagination}}"
+  get-sites-list="/wp-admin/admin-ajax.php?action=get_sites_list"
+>
+  <template v-open-tooltip>
+    
+    {% if show_thead %}
+      <thead>
+        <tr class="one-game__table-row">
+          <td class="one-game__table-col one-game__table-col--w1">
+            Logo
+          </td>
+          <td class="one-game__table-col one-game__table-col--w2">
+            Name
+          </td>
+          <td class="one-game__table-col one-game__table-col--w3">
+            Bonus
+          </td>
+          <td class="one-game__table-col one-game__table-col--w3">
+            Features
+          </td>
+          <td class="one-game__table-col one-game__table-col--w3">
+            Safe Link
+          </td>
+        </tr>
+      </thead>
+    {% endif %}
+
+    <tbody>
+      {% for brand in sites_list.items %}
+        {% include 'templates/parts/casino-item.twig' %}
+      {% endfor %}
+    </tbody>
+  </template>
+</casinos>

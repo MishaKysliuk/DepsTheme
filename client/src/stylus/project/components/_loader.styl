@@ -1,0 +1,29 @@
+.loader-wrapper
+  height 60px
+  position relative
+  .loader
+    left 0
+
+.loader
+  position absolute
+  width 100%
+  height 100%
+  display inline-flex
+  &:before
+    content: ''
+    border-radius 50%
+    border-bottom: 3px solid #0079bf
+    border-top 3px solid #0079bf
+    border-left 3px solid transparent
+    border-right 3px solid transparent
+    width 30px
+    height 30px
+    display block
+    margin: auto
+    animation: spin 2s linear infinite
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)

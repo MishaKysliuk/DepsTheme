@@ -1,0 +1,23 @@
+{% if fn('is_tax') %}
+  {% set post_modified = term.meta('last_modified') %}
+  {% set page_authors = term.meta('page_authors') %}
+{% else %}
+  <meta itemprop="datePublished" content="{{ fn('get_the_date', 'c') }}">
+  {% set post_modified = post.post_modified|date("d M Y") %}
+  {% set page_authors = post.meta('page_authors') %}
+{% endif %}
+
+<div class="page-info {{ additional_class }}">
+  <span class='page-info__last-update' itemprop="dateModified" content="{{ post_modified }}">{{ __('Last Updated on', 'casino') ~ ' ' ~ post_modified }}  </span>
+  {% if page_authors %}
+    <span class='page-info__separeta'>|</span>
+    <span class='page-info__author-line'>{{ __('by', 'casino')}}
+      {% for author in Post(page_authors) %}
+        <a class='page-info__author js-smooth-link' href="{{ link_type == 'link' ? author.link : '#'~ author.slug  }}"> {{ author.name }}</a>
+        {% if loop.length > 1 and not loop.last %}
+          ,
+        {% endif %}
+      {% endfor %}
+    </span>
+  {% endif %}
+</div>

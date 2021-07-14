@@ -1,0 +1,26 @@
+{% if breadcrumbs %}
+  <div class="breadcrumbs-wrapper">
+    <div class="container">
+      <div id="breadcrumbs" itemid="#breadcrumbs" class="breadcrumbs" itemscope itemtype="https://schema.org/BreadcrumbList">
+        {% for item in breadcrumbs %}
+          {% if not loop.last %}
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+              <a itemprop="item" class="breadcrumbs-link" href="{{ item.link }}" title="{{ item.title }}">
+                <span itemprop="name">{{ item.title }}</span>
+              </a>
+              <meta itemprop="position" content="{{ loop.index }}">
+            </span>
+            <span class="breadcrumb-sep"><i class='icon-caret-right'></i></span>
+          {% else %}
+            <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem" class="breadcrumbs-current">
+              <span itemprop="name" title="{{ item.title }}">{{ item.title }}</span>
+              <meta itemprop="item" content="{{ item.link }}">
+              <meta itemprop="position" content="{{ loop.index }}">
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endif %}

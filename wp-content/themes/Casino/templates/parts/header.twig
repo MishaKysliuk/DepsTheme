@@ -1,0 +1,101 @@
+<header class="header" id="header">
+	<div class="container">
+		<div class="header-row">
+			<div class="header-row__search">
+				<search action="{{ site.link }}/wp-admin/admin-ajax.php?action=ajax_search"></search>
+			</div>
+			<div class="header-row__logo">
+				<div class="main-logo main-logo--small" itemscope itemtype="http://schema.org/Organization" itemid="#org">
+					<meta itemprop="name" content="{{ site.name }}">
+					<a class="main-logo main-logo--small" itemprop="url" href="{{ site.link }}">
+						<div class="img-wrap" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+							<img src="{{ Image(site_logo).src | resize(130, 52) }}" width="130px" height="52px" alt="logo" itemprop="url">
+							<meta itemprop="width" content="130">
+							<meta itemprop="height" content="50">
+							<meta itemprop="name" content="{{ site.name}}">
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="header-row__menu">
+				{% if main_menu.items %}
+					<nav class="desktop-menu">
+						<ul class="main-menu">
+							{% for item in main_menu.items %}
+							<li class="main-menu__item">
+								{% if item.meta('icon') %}
+									<div class="main-menu__img">
+										<div class="img-wrap"><img src="{{ Image(item.meta('icon')).src }}" width="30px" height="30px" alt="{{ Image(item.meta('icon')).alt }}"></div>
+									</div>
+								{% endif %}
+								<a class="main-menu__parent-link" href="{{ item.link }}" >{{ item.title }}</a>
+								{% if item.children %}
+									<ul class="submenu submenu--xl-p-absolute">
+										{% for child in item.children %}
+											{% if child.children %}
+												<li class="submenu__item">
+														<a class="submenu__link submenu__link--arrow" href="{{ child.link }}">
+															{{ child.title }}
+														</a>
+														<ul class="submenu submenu--second">
+															{% for lvl2 in child.children %}
+																{% if lvl2.children %}
+																	<li class="submenu__item">
+																		<a class="submenu__link submenu__link--arrow" href="{{ lvl2.link }}">
+																			{{ lvl2.title }}
+																		</a>
+																		<ul class="submenu submenu--second submenu--third">
+																			{% for lvl3 in lvl2.children %}
+																				<li class="submenu__item">
+																					<a class="submenu__link" href="{{ lvl3.link }}">
+																						{{ lvl3.title }}
+																					</a>
+																				</li>
+																			{% endfor %}
+																	</li>
+																	</ul>
+																{% else %}
+																	<li class="submenu__item">
+																		<a class="submenu__link" href="{{ lvl2.link }}">
+																			{{ lvl2.title }}
+																		</a>
+																	</li>
+																{% endif %}
+															{% endfor %}
+														</ul>
+												</li>
+											{% else %}
+												<li class="submenu__item">
+													<a class="submenu__link" href="{{ child.link }}">
+														{{ child.title }}
+													</a>
+												</li>
+											{% endif %}
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</li>
+							{% endfor %}
+						</ul>
+					</nav>
+				{% endif %}
+			</div>
+			<div class="header-row__btn">
+				<div class="hamburger-wrapper">
+					<button class="hamburger hamburger--spin" type="button">
+						<span class="hamburger-box"><span class="hamburger-inner"></span></span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+<div class="mobile-window">
+	<div class="content-wrapper">
+		{% if main_menu.items %}
+			<nav class="mobile-menu">
+				<main-menu-mobail :menu-items="{{ main_menu_mobail|e }}"></main-menu-mobail>
+			</nav>
+		{% endif %}
+	</div>
+</div>

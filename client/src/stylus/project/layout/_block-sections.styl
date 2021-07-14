@@ -1,0 +1,43 @@
+.top-baner
+  background-color $purple-dark
+
+.block-wrapper
+  position relative
+  &--bg-whtie
+    background-color $color-white
+  &--lg-bg-pattern
+    +lg()
+      background-image url('./../img/pattern@2x.png')
+  &--bg-light-gray
+    background-color #fafafa
+  &--bg-light-blue
+    background-color $light-blue
+  &--xl-white-shadow
+    +xl()
+      &:before,
+      &:after
+        content: ''
+        position absolute
+        left 0
+        width 100%
+        height 100px
+        background linear-gradient(180deg, rgba(255, 255, 255, 1) 40%, rgba(255, 255, 255, 0) 100%)
+      &:before
+        top 0
+      &:after
+        bottom 0
+        transform: scale(-1)
+  &--f-grow1
+    flex-grow: 1
+  &--d-flex
+    display flex
+
+.test
+  background-color blue
+
+
+.content-center
+  display flex
+  flex-direction: column
+  justify-content center
+  height 100%

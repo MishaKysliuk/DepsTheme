@@ -1,0 +1,21 @@
+{% if features %}
+  <div class='features-xl pv-2'>
+    <h2 class='features-title tac mb-1'>{{ atts.title }}</h2>
+    {% if features_text %}
+      <div class="slide-container mt-1 taj">
+          {{ features_text }}
+      </div>
+    {% endif %}
+    <div class='features-xl__row'>
+      {% for feature in features %}
+        <div class='features-xl__el'>
+          <div class='features-xl__icon'>
+            <img class='features-xl__image' src="{{feature.image}}">
+          </div>
+          <span class='features-xl__title tac pv-1'>{{ feature.title }}</span>
+          <div class='slide-container taj'>{{ feature.text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

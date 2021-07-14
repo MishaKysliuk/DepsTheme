@@ -1,0 +1,18 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main main--flex-column">
+	<div class="block-wrapper--f-grow1 block-wrapper--d-flex pv-4 xl-pv-7" style="background-image:url('{{ theme.link }}/build/static/img/bgquiz.jpg');">
+		<div class="container">
+			<div class="content-center">
+				<h1 class="h1 mb-2 tac">{{ post.title }}</h1>
+				<quiz first-link="{{ fn('get_api_link', '79', null) }}"></quiz>
+			</div>
+		</div>
+	</div>
+</main>
+
+	{% block subscribe %}{% endblock %}
+
+{% endblock %}

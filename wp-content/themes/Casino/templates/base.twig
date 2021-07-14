@@ -1,0 +1,64 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+
+<head>
+	<head>
+		<meta charset="{{ site.charset }}">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<link rel="canonical" href="{{ fn('get_canonical_link') }}" />
+
+		<link rel="preload" as="font" type="font/woff" crossorigin="anonymous" href="{{ theme.link }}/build/static/css/svgfont.woff">
+		<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="{{ theme.link }}/build/static/css/svgfont.woff2">
+		
+	</head>
+	{{ fn('wp_head') }}
+	{{ site_scripts.header }}
+
+	{% block critical_style %}{% endblock %}
+
+</head>
+
+<body>
+	{{ site_scripts.body }}
+	<div id="app" class="page-content">
+		
+
+		{% block bredcrumbs %}
+			{% include 'templates/parts/header.twig' %}
+		{% endblock %}
+		
+		{% block breadcrumb %}
+			{% include 'templates/parts/breadcrumbs.twig' %}
+		{% endblock %}
+
+		{% block content %}{% endblock %}
+
+		{% block subscribe %}
+			{% if not (fn('get_field', 'hide_default_email_form')) %}
+				{% include '/templates/parts/subscribe.twig'%}
+			{% endif %}
+		{% endblock %}
+		
+		{% block footer %}
+			{% include 'templates/parts/footer.twig' %}
+		{% endblock %}
+
+		<modals-container></modals-container>
+	</div>
+	
+	<div class="scroll-top-fixed">
+		<a class="scroll-top-fixed__link js-smooth-link" href="#header"><span class="scroll-top-fixed__img icon-subarrow"></span></a>
+    </div>
+
+	<div class="popup">
+		<div class="popup__content"></div>
+		<div class="popup__overflower"></div>
+	</div>
+	
+	{{ fn('wp_footer') }}
+
+	{{ site_scripts.footer }}
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main" itemscope itemtype="http://schema.org/WebPage" itemid="#page">
+	<link itemprop="publisher" href="#org">
+	<meta itemprop="url" content="{{ term.link }}">
+	<div itemprop="isPartOf" itemscope itemtype="http://schema.org/WebSite">
+		<meta itemprop="url" content="{{ site.link }}">
+		<meta itemprop="name" content="{{ site.name }}">
+	</div>
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2" style="background-color:{{ term.meta('header_color') }}">
+		<div class="container">
+			<div class="top-content-row">
+				<div class="top-content-row__el">
+					<h1 class="h1 xs-tac" itemprop="name">{{ fn('do_shortcode', term.meta('full_name')) }}</h1>
+
+						{% include '/templates/parts/page-info.twig' with {'additional_class': 'page-info--border'} %}
+
+					<div class="img-wrap-mobail"><img src="{{ Image(term.meta('big_logo')).src }}" width="435px" height="303px"  alt="{{ Image(term.meta('big_logo')).alt }}"></div>
+						<div class="white-text taj mt-1">{{ fn('do_shortcode', descriptions) }}</div>
+							{% if term.meta('descriptions_list') %}
+							<ul class="arrow-list mt-2">
+								{% for item in term.meta('descriptions_list') %}
+									<li class="arrow-list__item">
+										<p class="white-text">{{ fn('do_shortcode', item.item) }}</p>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+				
+				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
+					<div class="img-wrap"><img src="{{ Image(term.meta('big_logo')).src }}" width="{{ term.meta('image_width') }}" height="{{ term.meta('image_height') }}"  alt="{{ Image(term.meta('big_logo')).alt }}"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+		<div class="container">
+			{% if display_options != 'None' %}
+
+				{% include '/templates/parts/rank-best-casinos.twig' with {'title': term.meta('casino_title'), 'anchor': term.meta('casino_list_anchor'), 'rank_best': term.meta('table_header')}  %}
+			
+				{{ fn('do_shortcode', shortcode_args) }}
+			
+			{% endif %}
+		</div>
+	</div>
+	
+	{% include '/templates/parts/additional-blocks.twig' %}
+
+</main>
+
+{% endblock %}

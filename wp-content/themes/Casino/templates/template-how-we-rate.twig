@@ -1,0 +1,56 @@
+{% extends "templates/base.twig" %}
+
+{% block critical_style %}
+
+{% endblock %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper md-tac md-pv-4" style="background-color:{{ post.meta('header_block').header_color }}">
+		<div class="container container--full-on-mobail">
+			<div class="intro">
+				<div class="intro__containe">
+					<h1 class="h1 intro__title">{{ post.meta('header_block').page_title }}</h1>
+					<div class="intro__text">{{ post.meta('header_block').page_description }}</div>
+				</div>
+				<img class="intro__image" src="{{ post.meta('header_block').image }}" width="1140px" height="244px"  alt="bg">
+			</div>
+		</div>
+	</div>
+
+	{% if post.meta('points') %}
+		<div class="block-wrapper md-tac pt-2 pb-2 md-pv-4">
+			<div class="container">
+				{% for points in post.meta('points') %}
+					<div class="points">
+						<div class="points__header">
+							<img class="points__icon" src="{{ points.icon }}"  alt="bg">
+							<div>
+								<h2 class="points__title">{{ points.title }}</h2>
+								<div class="points__text">{{ points.text }}</div>
+							</div>
+						</div>
+
+						{% for sub_point in points.sub_point %}
+							<div class='accordion'>
+								<div class='accordion__header'>
+									<h3 class='accordion__title'>{{ sub_point.title }}</h3>
+							
+								</div>
+								<div class="accordion__text">{{ sub_point.text }}</div>
+							</div>
+
+						{% endfor %}
+
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endif %}
+
+	{% include '/templates/parts/additional-blocks.twig' %}
+
+</main>
+
+{% endblock %}

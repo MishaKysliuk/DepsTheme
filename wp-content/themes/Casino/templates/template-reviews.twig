@@ -1,0 +1,72 @@
+{% extends "templates/base.twig" %}
+
+{% block content %}
+
+<main class="main">
+	<div class="block-wrapper block-wrapper--bg-light-gray pv-2" style="background-color:{{ post.meta('header_block').header_color }}">
+		<div class="container">
+			<div class="top-content-row">
+				<div class="top-content-row__el">
+					<h1 class="h1 xs-tac">{{ post.meta('header_block').page_title }}</h1>
+
+					{% include '/templates/parts/page-info.twig' with {'additional_class': 'page-info--border'} %}
+
+					<div class="img-wrap-mobail"><img src="{{ post.meta('header_block').image }}" width="435px" height="303px"  alt="bg"></div>
+						<div class="white-text mt-1 taj">{{ post.meta('header_block').page_description }}</div>
+						{% if post.meta('header_block').list %}
+							<ul class="arrow-list mt-2">
+								{% for item in post.meta('header_block').list %}
+									<li class="arrow-list__item">
+										<p class="white-text">{{ item.item }}</p>
+									</li>
+								{% endfor %}
+							</ul>
+						{% endif %}
+					</div>
+		
+				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
+					<div class="img-wrap"><img src="{{ post.meta('header_block').image }}" width="{{ post.meta('header_block').image_width }}" height="{{ post.meta('header_block').image_height }}"  alt="bg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+		<div class="block-wrapper block-wrapper--bg-light-gray pv-2">
+			<div class="container">
+				{% if post.meta('jump_to') %}
+					{% include '/templates/parts/jump-to.twig' with {'items': post.meta('jump_to') } %}
+				{% endif %}
+				
+				{% set rank_best_casinos = post.meta('rank_the_best_casinos') %}
+				{% include '/templates/parts/rank-best-casinos.twig' with {'title': rank_best_casinos.title, 'anchor': rank_best_casinos.anchor, 'rank_best': rank_best_casinos}  %}
+
+				{% set brands = fn('get_all_brands', {'posts_per_page': post.meta('casinos_per_page')}) %}
+				{% if brands %}
+					<div class="all-brands-section mt-2">
+						<div class="custom-row-flex">
+							<all-brands 
+								items-per-page="{{post.meta('casinos_per_page')}}"
+								pagination="{{brands.pagination}}"
+								get-brands="/wp-admin/admin-ajax.php?action=get_brands" 
+							>
+								<template #default="">
+									{% for post in brands.items %}
+										<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-4 custom-row-flex__el--col-xl-3">
+											{% include 'templates/parts/brands-item.twig' %}
+										</div>
+									{% endfor %}
+								</template>
+							</all-brands>
+						</div>
+					</div>
+				{% endif %}
+				
+			</div>
+		</div>
+
+    
+	{% include '/templates/parts/additional-blocks.twig' %}
+
+</main>
+
+{% endblock %}

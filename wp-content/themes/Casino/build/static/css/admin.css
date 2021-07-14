@@ -1,0 +1,87 @@
+#edittag {
+  max-width: 100%;
+}
+.acf-fields.-left > .acf-field > .acf-input {
+  width: calc(100% - 15px);
+}
+.copyListID {
+  cursor: pointer;
+}
+.admin-setting-page {
+  padding: 20px 0;
+}
+.admin-setting-table {
+  text-align: center;
+  width: 100%;
+}
+.admin-setting-table caption {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 500;
+}
+.admin-setting-table thead {
+  font-weight: 500;
+}
+.admin-setting-table td {
+  padding: 5px;
+}
+.admin-setting-table__input {
+  width: 100%;
+}
+.admin-setting-table__save {
+  color: #fff;
+  background: #5aac44;
+  outline: 0;
+  border: 0;
+  border-radius: 3px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.admin-setting-table__save:disabled {
+  background: #ccc;
+  color: rgba(44,51,56,0.5);
+  cursor: not-allowed;
+}
+.acf-relationship .list {
+  max-height: 550px;
+  height: auto !important;
+}
+.shortcode-admin-popup {
+  display: none;
+  background: rgba(0,0,0,0.471);
+  width: calc(100% - 160px);
+  padding-left: 160px;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+.shortcode-admin-popup .mce-container.mce-panel.mce-floatpanel.mce-window.mce-in {
+  margin: 200px auto 0 auto;
+}
+.shortcode-admin-popup .mce-window .mce-window-head {
+  position: relative;
+}
+.shortcode-admin-popup .mce-window .mce-window-head button {
+  position: absolute;
+}
+.shortcode-admin-popup .mce-window .mce-window-head button .mce-ico.mce-i-remove {
+  position: absolute;
+}
+.shortcode-admin-popup .mce-button-group {
+  text-align: right;
+}
+.shortcode-admin-popup .mce-button-group button {
+  height: 32px;
+  margin: 0 5px;
+  background: #eee;
+  border: 1px #ccc;
+  padding: 0 10px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+.shortcode-admin-popup .mce-button-group button:hover {
+  background: #ccc;
+}

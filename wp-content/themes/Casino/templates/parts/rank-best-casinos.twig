@@ -1,0 +1,23 @@
+
+{% if rank_best %}
+  <div class="rank-best-section pt-2 {{ additional_class }}">
+    {% if title %}
+      <h2 class="blue-title mb-1 tac" id="{{ anchor }}">{{ fn('do_shortcode', title) }}</h2>
+    {% endif %}
+    <div class='rank-best'>
+      {% for item in rank_best.use_default_items ? default_value_for_rank_rating.items : rank_best.items %}
+        <div class='rank-best__item {{ item.tooltip ? 'rank-best__item--tooltip' }}'>
+          {% if item.icon %}
+            <img class="rank-best__icon"  width="25px" height="25px" src="{{ item.icon }}">
+          {% endif %}
+          {% if item.item_name %}
+            <span class="rank-best__title">{{ item.item_name }}</span>
+          {% endif %}
+          {% if item.tooltip %}
+            <div class='rank-best__tooltip'>{{ item.tooltip }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,96 @@
+mixin createHeader(className)
+  header.header(id="header", class=className)
+    .container
+      +b.header-row
+        +e.search
+          search(action="dsadsad")
+        +e.logo
+          +b.A.main-logo--small(href="./index.html")
+            .img-wrap
+              img(data-src="./../static/img/Asset3-mob.svg", loading="lazy", alt="logo")
+        +e.menu
+          NAV.desktop-menu
+            +b.UL.main-menu
+              -for (let t = 1; t < 7; t++)
+                +e.LI.item
+                  +e.img
+                    .img-wrap
+                      img(src=`./../static/img/Asset ${t}.svg`, alt="dsd")
+                  +e.A.parent-link(href="#") E-Wallet Casinos
+                  +b.UL.submenu--xl-p-absolute
+                    -for (let j = 0; j < 6; j++)
+                      +e.LI.item
+                        +e.A.link(href="#") List your casino
+        +e.btn
+          .hamburger-wrapper
+            button.hamburger.hamburger--spin(type="button")
+              span.hamburger-box
+                span.hamburger-inner
+  .mobile-window
+    .content-wrapper
+      NAV.mobile-menu
+        +b.UL.list-accordion
+          -for (let i = 0; i<6; i++)
+            +e.LI.item
+              +e.question-wrapper.js-item
+                +e.A.title(href="#") Prepaid card casinos
+                +e.plus-wrapper
+                  +e.SPAN.plus.icon-plus-thin.visible
+                  +e.SPAN.plus.icon-minus-thin.disabled
+              +e.answer-wrapper
+                +b.UL.submenu
+                  -for (let j = 0; j < 6; j++)
+                    +e.LI.item
+                      +e.A.link(href="#") List your casino
+
+mixin createFooter(className)
+  footer.footer(class=className)
+    .container
+      section.footer-top-section
+        +b.custom-row-flex
+          +e.el--col-sm-12.--col-md-6.--col-xl-5
+            +b.footer-logo-text
+              +e.A.img(href="./index.html")
+                .img-wrap
+                  img(data-src="./../static/img/Asset 3@2x.png.png", loading="lazy", alt="logo")
+              +e.info
+                p.white-small-text Finally, all best online casinos and casino games and are gathered in one place! Casino DEPS offers a wide range of free casino games of any taste. Here you can choose to play free slots, online roulette, blackjack, baccarat, craps, scratch cards and video poker games without download or registration. Also, we provide a wide choice of UK online casinos with latest casino bonuses to make your real money gambling more enjoyable.
+          +e.el--col-sm-12.--col-md-6.--col-xl-2.xs-tac
+            +b.NAV.footer-nav
+              +e.P.title Useful Articles
+              +e.UL.list
+                -for(let i = 0; i < 3; i++)
+                  +e.LI.item
+                    +e.A.link(href="#") Guide #1
+          +e.el--col-sm-12.--col-md-6.--col-xl-2.--md-ordered.--xl-no-order.xs-tac
+            +b.NAV.footer-nav
+              +e.P.title Useful Articles
+              +e.UL.list
+                -for(let i = 0; i < 3; i++)
+                  +e.LI.item
+                    +e.A.link(href="#") Guide #1
+          +e.el--col-sm-12.--col-md-6.--col-xl-3.xs-tac
+            +b.SECTION.footer-adds.d-flex
+              +e.top
+                +e.row.d-flex
+                  +e.el
+                    .img-wrap
+                      img(data-src="./../static/img/shield.png", loading="lazy", alt="d")
+              +e.bottom
+                +b.UL.socials-list.d-flex
+                  -for(let i = 0; i < 4; i++)
+                    +e.LI.item
+                      +e.A.link(href="#", target="_blank")
+                        .img-wrap
+                          img(src="./../static/img/fb.png", alt="soc")
+    section.footer-bottom-section.xs-tac
+      .container
+        +b.foot-row
+          +e.nav
+            +b.NAV.footer-nav
+              +e.UL.list--jc-center.d-flex
+                -for(let i = 0; i < 3; i++)
+                  +e.LI.item--m-right
+                    +e.A.link(href="#") Sitemap
+          +e.copy
+            p.white-small-text CasinoDeps 2019 - All Rights Reserved
