@@ -286,6 +286,12 @@ function hide_editor()
     }
 }
 
+add_action('init', 'remove_acf_wpautop');
+function remove_acf_wpautop() {
+    // отключение <p> и <br> для ACF
+    remove_filter('acf_the_content', 'wpautop');
+}
+
 // Updating the taxonomy last modified date
 add_action('init', 'get_custom_taxonomy');
 function get_custom_taxonomy()
@@ -393,8 +399,7 @@ remove_filter('term_description', 'wpautop');
 remove_filter('term_description', 'wptexturize');
 
 remove_filter('term_description', 'wpautop');
-// отключение <p> и <br> для ACF
-remove_filter('acf_the_content', 'wpautop');
+
 
 function render_field_edit($tag, $taxonomy)
 {
