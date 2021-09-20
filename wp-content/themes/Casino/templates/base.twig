@@ -2,16 +2,14 @@
 <html {{ site.language_attributes }}>
 
 <head>
-	<head>
-		<meta charset="{{ site.charset }}">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<link rel="canonical" href="{{ fn('get_canonical_link') }}" />
+	<meta charset="{{ site.charset }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="canonical" href="{{ fn('get_canonical_link') }}" />
 
-		<link rel="preload" as="font" type="font/woff" crossorigin="anonymous" href="{{ theme.link }}/build/static/css/svgfont.woff">
-		<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="{{ theme.link }}/build/static/css/svgfont.woff2">
+	<link rel="preload" as="font" type="font/woff" crossorigin="anonymous" href="{{ theme.link }}/build/static/css/svgfont.woff">
+	<link rel="preload" as="font" type="font/woff2" crossorigin="anonymous" href="{{ theme.link }}/build/static/css/svgfont.woff2">
 		
-	</head>
 	{{ fn('wp_head') }}
 	{{ site_scripts.header }}
 
