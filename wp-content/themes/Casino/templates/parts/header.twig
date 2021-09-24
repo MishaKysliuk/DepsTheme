@@ -5,14 +5,15 @@
 				<search action="{{ site.link }}/wp-admin/admin-ajax.php?action=ajax_search"></search>
 			</div>
 			<div class="header-row__logo">
-				<div class="main-logo main-logo--small" itemscope itemtype="http://schema.org/Organization" itemid="#org">
+				<div id="org" class="main-logo main-logo--small" itemscope itemtype="http://schema.org/Organization" itemid="#org">
 					<meta itemprop="name" content="{{ site.name }}">
+					<meta itemprop="sameAs" content="https://twitter.com/casinodepsnz/">
 					<a class="main-logo main-logo--small" itemprop="url" href="{{ site.link }}">
-						<div class="img-wrap" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-							<img src="{{ Image(site_logo).src | resize(130, 52) }}" width="130px" height="52px" alt="logo" itemprop="url">
-							<meta itemprop="width" content="130">
-							<meta itemprop="height" content="50">
-							<meta itemprop="name" content="{{ site.name}}">
+						<div id="logo" class="img-wrap" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject" itemid="#logo">
+							<img src="{{ Image(site_logo).src | resize(130, 52) }}" width="130px" height="52px" alt="logo" itemprop="url contentUrl">
+							<meta itemprop="width" content="300">
+							<meta itemprop="height" content="118">
+							<meta itemprop="caption" content="{{ site.name }} Logo">
 						</div>
 					</a>
 				</div>
