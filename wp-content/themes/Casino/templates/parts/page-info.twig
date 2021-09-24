@@ -1,14 +1,27 @@
 {% if fn('is_tax') %}
   {% set post_modified = term.meta('last_modified') %}
+  {% set post_modified_full = post_modified|date("Y-m-d") %}
+  {% set page_url = term.link %}
   {% set page_authors = term.meta('page_authors') %}
 {% else %}
   <meta itemprop="datePublished" content="{{ fn('get_the_date', 'c') }}">
   {% set post_modified = post.post_modified|date("d M Y") %}
+  {% set post_modified_full = fn('get_the_modified_date', 'c') %}
+  {% set page_url = post.link %}
   {% set page_authors = post.meta('page_authors') %}
 {% endif %}
 
+<meta itemprop="inLanguage" content="en-NZ">
+<div itemprop="isPartOf" itemscope itemtype="http://schema.org/WebSite">
+<meta itemprop="url" content="{{ site.link }}">
+<meta itemprop="name" content="{{ site.name }}">
+</div>
+<link itemprop="publisher" href="#org">
+<meta itemprop="url" content="{{ page_url }}">
 <div class="page-info {{ additional_class }}">
-  <span class='page-info__last-update' itemprop="dateModified" content="{{ post_modified }}">{{ __('Last Updated on', 'casino') ~ ' ' ~ post_modified }}  </span>
+  <span class='page-info__last-update'>{{ __('Last Updated on', 'casino') ~ ' ' }}
+    <time itemprop="dateModified" datetime="{{ post_modified_full }}">{{ post_modified }}</time>
+  </span>
   {% if page_authors %}
     <span class='page-info__separeta'>|</span>
     <span class='page-info__author-line'>{{ __('by', 'casino')}}

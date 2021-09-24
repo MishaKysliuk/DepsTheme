@@ -2,13 +2,7 @@
 
 {% block content %}
 
-<main class="main" itemscope itemtype="http://schema.org/WebPage" itemid="#page">
-	<link itemprop="publisher" href="#org">
-	<meta itemprop="url" content="{{ term.link }}">
-	<div itemprop="isPartOf" itemscope itemtype="http://schema.org/WebSite">
-		<meta itemprop="url" content="{{ site.link }}">
-		<meta itemprop="name" content="{{ site.name }}">
-	</div>
+<main id="page" class="main" itemscope itemtype="http://schema.org/WebPage" itemid="#page">
 	<div class="block-wrapper block-wrapper--bg-light-gray pv-2" style="background-color:{{ term.meta('header_color') }}">
 		<div class="container">
 			<div class="top-content-row">
@@ -31,7 +25,7 @@
 					</div>
 				
 				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
-					<div class="img-wrap"><img src="{{ Image(term.meta('big_logo')).src }}" width="{{ term.meta('image_width') }}" height="{{ term.meta('image_height') }}"  alt="{{ Image(term.meta('big_logo')).alt }}"></div>
+					<div class="img-wrap"><img src="{{ Image(term.meta('big_logo')).src }}" itemprop="primaryImageOfPage thumbnailUrl" width="{{ term.meta('image_width') }}" height="{{ term.meta('image_height') }}"  alt="{{ Image(term.meta('big_logo')).alt }}"></div>
 				</div>
 			</div>
 		</div>
