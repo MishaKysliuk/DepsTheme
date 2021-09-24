@@ -2,13 +2,12 @@
 
 {% block content %}
 
-<main class="main" itemscope itemtype="http://schema.org/Review" itemid="{{ fn('get_canonical_link') }}">
-	<meta itemprop="url" content="{{ fn('get_canonical_link') }}">
-	<link itemprop="publisher" href="#org">
-		<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
-			<meta itemprop="bestRating" content="5">
-			<meta itemprop="ratingValue" content="{{ post.meta('voting_block').number_of_stars }}">
-		</span>
+<main id="review" class="main" itemscope itemtype="http://schema.org/Review" itemid="#review">
+	<span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+		<meta itemprop="worstRating" content="1">
+		<meta itemprop="bestRating" content="5">
+		<meta itemprop="ratingValue" content="{{ post.meta('voting_block').number_of_stars }}">
+	</span>
 	<div class="block-wrapper pt-2 pb-2 md-pv-3" style="background-color:{{ post.meta('header_color') }}">
 		<div class="container">
 			<div class="brand-reviews-header">
@@ -25,7 +24,7 @@
 								<form method="POST" target="_blank" v-send-gtag="'{{post.title}} - logo-review'">
 									<button class="noLink" type="submit" name="prgpattern" value="{{ post.ID }}">
 										<div class="brand-info-logo">
-											<img class="brand-info-logo__img" src="{{ post.meta('logo_for_rewiew_page') ? post.meta('logo_for_rewiew_page') : post.meta('logo') }}">
+											<img class="brand-info-logo__img" itemprop="image thumbnailUrl" src="{{ post.meta('logo_for_rewiew_page') ? post.meta('logo_for_rewiew_page') : post.meta('logo') }}">
 										</div>
 									</button>
 									<input name='aff_key' type='hidden' value="review">

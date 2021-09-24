@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<main class="main">
+<main id="page" class="main" itemscope itemtype="http://schema.org/WebPage" itemid="#page">
 	<div class="block-wrapper block-wrapper--bg-light-gray pv-2" style="background-color:{{ post.meta('header_block').header_color }}">
 		<div class="container">
 			<div class="top-content-row">
 				<div class="top-content-row__el">
-					<h1 class="h1 xs-tac">{{ post.meta('header_block').page_title }}</h1>
+					<h1 class="h1 xs-tac" itemprop="name">{{ post.meta('header_block').page_title }}</h1>
 
 					{% include '/templates/parts/page-info.twig' with {'additional_class': 'page-info--border'} %}
 
@@ -25,7 +25,7 @@
 					</div>
 		
 				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
-					<div class="img-wrap"><img src="{{ post.meta('header_block').image }}" width="{{ post.meta('header_block').image_width }}" height="{{ post.meta('header_block').image_height }}"  alt="bg"></div>
+					<div class="img-wrap"><img src="{{ post.meta('header_block').image }}" itemprop="primaryImageOfPage thumbnailUrl" width="{{ post.meta('header_block').image_width }}" height="{{ post.meta('header_block').image_height }}"  alt="bg"></div>
 				</div>
 			</div>
 		</div>
