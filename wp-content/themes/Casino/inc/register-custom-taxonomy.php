@@ -245,7 +245,7 @@ function create_main_bonus_types_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
 		'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -275,7 +275,7 @@ function create_welcome_match_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
 		'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -305,7 +305,7 @@ function create_no_deposit_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -335,7 +335,7 @@ function create_free_spins_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -365,7 +365,7 @@ function create_minimum_deposit_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -395,7 +395,7 @@ function create_software_bonuses_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -425,7 +425,7 @@ function create_game_bonuses_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -455,7 +455,7 @@ function create_pokies_bonuses_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));
@@ -485,7 +485,7 @@ function create_wagering_requirements_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
-      'slug' => 'casino-bonuses',
+      'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
   ));

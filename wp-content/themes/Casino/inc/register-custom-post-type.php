@@ -209,7 +209,7 @@ function casino_bonuses() {
 			'custom-fields',
 		),
 		'rewrite'             => array(
-			'slug' => 'casino-bonuses',
+			'slug' => 'best-casino-bonuses',
 			'with_front' => false
 		),
 );
