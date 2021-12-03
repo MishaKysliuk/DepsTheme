@@ -12,12 +12,12 @@
 					{% include '/templates/parts/page-info.twig' with {'additional_class': 'page-info--border'} %}
 
 					<div class="img-wrap-mobail"><img src="{{ Image(image).src }}" width="{{ term.meta('image_width') ? term.meta('image_width') : post.meta('image_width') }}" height="{{ term.meta('image_height') ? term.meta('image_height') : post.meta('image_height') }}"  alt="bg"></div>
-					<div class="white-text taj mt-1">{{ descriptions }}</div>
+					<div class="white-text taj mt-1">{{ fn('do_shortcode', descriptions) }}</div>
 						{% if list %}
 							<ul class="arrow-list mt-2">
 								{% for item in list %}
 									<li class="arrow-list__item">
-										<p class="white-text">{{ item.item }}</p>
+										<p class="white-text">{{ fn('do_shortcode', item.item) }}</p>
 									</li>
 								{% endfor %}
 							</ul>
@@ -33,7 +33,7 @@
 	
 	<div class="block-wrapper pv-2 lg-pt-4 lg-pb-3" id='filters'>
 		<div class="container">
-			<h2 id="bonuses_filtres_title" class="h2 tac mb-2">{{ bonuses_filtres_title }}</h2>
+			<h2 id="bonuses_filtres_title" class="h2 tac mb-2">{{ fn('do_shortcode', bonuses_filtres_title) }}</h2>
 			<bonuses-filter 
 				:filters-data="{{ filters_list|e }}" 
 				:active-filters="{{ active_filters|e }}" 

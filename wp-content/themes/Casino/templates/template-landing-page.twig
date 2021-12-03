@@ -18,7 +18,7 @@
 						<ul class="arrow-list mt-2">
 							{% for item in post.meta('descriptions_list') %}
 								<li class="arrow-list__item">
-									<p class="white-text">{{ item.item }}</p>
+									<p class="white-text">{{ fn('do_shortcode', item.item) }}</p>
 								</li>
 							{% endfor %}
 						</ul>
