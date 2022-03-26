@@ -14,7 +14,7 @@
 			<div class="blog-content">
 				{% if post.thumbnail %}
 				<div class="blog-content__baner">
-					<div class="img-wrap"><img itemprop="image" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}" src="{{ post.thumbnail }}" alt="baner">
+					<div class="img-wrap"><img itemprop="image" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}" src="{{ post.thumbnail }}" alt="{{ post.thumbnail.alt }}">
 					</div>
 				</div>
 				{% endif %}
