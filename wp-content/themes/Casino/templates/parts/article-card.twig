@@ -1,15 +1,15 @@
 {% set article = Post(article) %}
 
 <div class="article-card">
-    <a class="article-card__link" href='{{article.link}}'>
-    </a>
   <div class="article-card__header">
     {% if article.thumbnail %}
-      <img class="article-card__image" src="{{ article.thumbnail.src('large') }}"  alt="">
+      <img class="article-card__image" src="{{ article.thumbnail.src('large') }}"  alt="{{ article.thumbnail.alt }}">
     {% endif %}
   </div>
   <div class="article-card__body">
-      <h3 class="article-card__title">{{ article.title }}</h3>
+    <a href='{{article.link}}'>
+      <span class="article-card__title">{{ article.title }}</span>
+    </a>
   </div>
   <div class="article-card__footer">
     <div class='article-card__footer-el'>
