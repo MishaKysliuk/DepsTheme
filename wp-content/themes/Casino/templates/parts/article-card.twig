@@ -18,15 +18,12 @@
     </div>
     <div class='article-card__footer-el'>
       <i class='article-card__icon icon-user-circle'></i>
-      <span>
+      <div>
       {% set page_authors = article.meta('page_authors') %}
       {% for author in Post(page_authors) %}
-      <a class='article-card__author' href="{{author.link}}"> {{ author.name }}</a>
-      {% if loop.length > 1 and not loop.last %}
-        ,
-      {% endif %}
+      <span class='article-card__author'>{{ author.name }}</span>{% if loop.length > 1 and not loop.last %}, {% endif %}
       {% endfor %}
-      </span>
+      </div>
     </div>
   </div>
 </div>
