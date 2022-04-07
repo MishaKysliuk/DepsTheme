@@ -19,8 +19,8 @@ function get_breadcrumb()
     if (is_archive() || is_tax()) {
         if (is_post_type_archive('blog')) {
             $breadcrumb[] = [
-                'link'  => get_permalink($blog_id),
-                'title' => get_the_title($blog_id),
+                'link'  => '/blog/',
+                'title' => __('Blog', 'casino')
             ];
         }
 
