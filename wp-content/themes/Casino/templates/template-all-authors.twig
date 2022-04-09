@@ -8,11 +8,11 @@
 			<div class="top-content-row">
 				<div class="top-content-row__el">
 					<h1 class="h1 xs-tac">{{ post.meta('title') }}</h1>
-					<div class="img-wrap-mobail"><img src="{{ post.meta('image') }}" width="435px" height="303px"  alt="bg"></div>
+					<div class="img-wrap-mobail"><img src="{{ Image(post.meta('image')).src }}" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}"  alt="{{ Image(post.meta('image')).alt }}"></div>
 					<div class="white-text taj mt-1">{{ post.meta('page_description') }}</div>
 				</div>
 				<div class="top-content-row__el top-content-row__el--xs-d-none-xl">
-					<div class="img-wrap"><img src="{{ post.meta('image') }}" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}"  alt="bg"></div>
+					<div class="img-wrap"><img src="{{ Image(post.meta('image')).src }}" width="{{ post.meta('image_width') }}" height="{{ post.meta('image_height') }}"  alt="{{ Image(post.meta('image')).alt }}"></div>
 				</div>
 			</div>
 		</div>

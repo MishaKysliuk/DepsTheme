@@ -24,7 +24,7 @@
 								<form method="POST" target="_blank" v-send-gtag="'{{post.title}} - logo-review'">
 									<button class="noLink" type="submit" name="prgpattern" value="{{ post.ID }}">
 										<div class="brand-info-logo">
-											<img class="brand-info-logo__img" itemprop="image thumbnailUrl" src="{{ post.meta('logo_for_rewiew_page') ? post.meta('logo_for_rewiew_page') : post.meta('logo') }}">
+											<img class="brand-info-logo__img" itemprop="image thumbnailUrl" src="{{ post.meta('logo_for_rewiew_page') ? post.meta('logo_for_rewiew_page') : post.meta('logo') }}" alt="{{ Image(post.logo_for_rewiew_page).alt }}">
 										</div>
 									</button>
 									<input name='aff_key' type='hidden' value="review">

@@ -4,7 +4,7 @@
     <div class='brands-item__logo' style="background-color: {{ brand.background_color }}">
       <form method="POST" target="_blank"  v-send-gtag="'{{brand.title}} - logo-allreviews'">
         <button class='brands-item__logo-link' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
-          <img class="brands-item__img" src="{{Image(brand.logo).src()}}">
+          <img class="brands-item__img" src="{{Image(brand.logo).src()}}" alt="{{Image(brand.logo).alt}}">
         </button>
         {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
       </form>

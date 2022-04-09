@@ -82,7 +82,7 @@
                     <div class="author-card" id="{{ author.slug }}" itemscope itemprop="author" itemtype="https://schema.org/Person" itemid="{{ author.slug }}">
                       <link itemprop="worksFor" href="#org">
                       <div class="author-card__header">
-                        <img itemprop="image" class="author-card__photo" src="{{ Image(author.meta('photo')).src('medium') }}"  alt="bg">
+                        <img itemprop="image" class="author-card__photo" src="{{ Image(author.meta('photo')).src('medium') }}"  alt="{{ Image(author.photo).alt }}">
                         <span class="author-card__label">{{ __('article by:', 'casino') }}</span>
                         <a class="author-card__name" href="{{ author.link }}"><span itemprop="name">{{ author.title }}</span></a>
                         <div class="author-card__socials author-socials">
@@ -239,7 +239,7 @@
                     <div class='mini-reviews-card'>
                       <form class='mini-reviews-card__logo' method="POST" target="_blank" v-send-gtag="'{{brand.title}} - logo-mini-review'">
                         <button class='mini-reviews-card__logo-link' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
-                          <img class="mini-reviews-card__img" src="{{Image(brand.logo_for_rewiew_page).src()}}">
+                          <img class="mini-reviews-card__img" src="{{Image(brand.logo_for_rewiew_page).src()}}" alt="{{ Image(brand.logo_for_rewiew_page).alt }}">
                         </button>
                         {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
                       </form>

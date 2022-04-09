@@ -6,7 +6,7 @@
 			<form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - logo'">
 				<button class="casino-logo__link" type="submit" name="prgpattern" :value="{{brand.id}}" target="_blank">
 					<div class="casino-logo__img">
-						<div class="img-wrap"><img src="{{brand.meta('logo')}}"></div>
+						<div class="img-wrap"><img src="{{brand.meta('logo')}}" alt="{{ Image(brand.logo).alt }}"></div>
 					</div>
 				</button>
 				{% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
