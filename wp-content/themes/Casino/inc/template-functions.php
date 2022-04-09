@@ -12,6 +12,7 @@ function add_to_context($context)
     $context['footer_menu_aditional_3']       = new \Timber\Menu('footer-menu-aditional-3');
     $context['site_logo']                     = get_field('logo', 'option');
     $context['footer_descriptions']           = get_field('footer_descriptions', 'option');
+    $context['footer_copyright']              = do_shortcode(get_field('footer_copyright', 'option'));
     $context['footer_images_block_left']      = get_field('footer_images_block_left', 'option');
     $context['footer_images_block_right']     = get_field('footer_images_block_right', 'option');
     $context['social_networks']               = get_field('social_networks', 'option');
