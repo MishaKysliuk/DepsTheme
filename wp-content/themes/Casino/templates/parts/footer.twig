@@ -9,9 +9,12 @@
 							{% for item in footer_images_block_left.images %}
 								<div class='footer-logo-block__item'>
 									{% if item.link %}
-										<a class='footer-logo-block__link' href='{{ item.link }}' {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"></a>
+										<a class='footer-logo-block__link' href='{{ item.link }}' {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank">
+										    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}" alt="{{ Image(item.image).alt }}">
+										</a>
+									{% else %}
+									    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}">
 									{% endif %}
-									<img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}">
 								</div>
 							{% endfor %}
 						</div>
@@ -60,9 +63,12 @@
 							{% for item in footer_images_block_right.images %}
 								<div class='footer-logo-block__item footer-logo-block__item--bg'>
 									{% if item.link %}
-										<a class='footer-logo-block__link' href='{{ item.link }}' {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"></a>
+										<a class='footer-logo-block__link' href='{{ item.link }}' {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank">
+										    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}" alt="{{ Image(item.image).alt }}">
+										</a>
+									{% else %}
+									    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}" alt="{{ Image(item.image).alt }}">
 									{% endif %}
-									<img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}">
 								</div>
 							{% endfor %}
 						</div>
@@ -87,7 +93,7 @@
 							<ul class="socials-list d-flex ">
 								{% for item in social_networks %}
 									{% if item.link and item.icon %}
-										<li class="socials-list__item"><a class="socials-list__link" href="{{ item.link }}"  {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"><div class="img-wrap"><img src="{{ Image(item.icon).src }}" alt="soc"></div></a></li>
+										<li class="socials-list__item"><a class="socials-list__link" href="{{ item.link }}"  {{ item.add_nofollow ? "rel='nofollow'" }} target="_blank"><div class="img-wrap"><img src="{{ Image(item.icon).src }}" alt="{{ Image(item.icon).alt }}"></div></a></li>
 									{% endif %}
 								{% endfor %}
 							</ul>
