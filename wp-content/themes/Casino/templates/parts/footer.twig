@@ -13,7 +13,7 @@
 										    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}" alt="{{ Image(item.image).alt }}">
 										</a>
 									{% else %}
-									    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}">
+									    <img class='footer-logo-block__logo' src="{{ Image(item.image).src('large') }}" alt="{{ Image(item.image).alt }}">
 									{% endif %}
 								</div>
 							{% endfor %}
