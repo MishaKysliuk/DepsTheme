@@ -220,6 +220,33 @@ function create_owners_taxonomy() {
   ));
 }
 
+// taxonomy Sister Sites
+add_action( 'init', 'create_sister_sites_taxonomy');
+function create_sister_sites_taxonomy() {
+
+  $labels = array(
+    'name' => __( 'Sister Sites' ),
+    'singular_name' => __( 'Sister Sites' ),
+    'search_items' =>  __( 'Search Sister Sites' ),
+    'all_items' => __( 'All Sister Sites' ),
+    'parent_item' => __( 'Parent Sister Sites' ),
+    'parent_item_colon' => __( 'Parent Sister Sites:' ),
+    'edit_item' => __( 'Edit Sister Sites' ),
+    'update_item' => __( 'Update Sister Sites' ),
+    'add_new_item' => __( 'Add New Sister Sites' ),
+    'new_item_name' => __( 'New Sister Sites Name' ),
+  );
+
+  register_taxonomy('sister-sites', array('casinos'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+	'rewrite' => array( 'with_front' => false ),
+  ));
+}
+
 
 // taxonomy Main Bonus Types
 add_action( 'init', 'create_main_bonus_types_taxonomy');
@@ -485,6 +512,36 @@ function create_wagering_requirements_taxonomy() {
     'show_admin_column' => true,
     'query_var' => true,
     'rewrite' => array( 
+      'slug' => 'best-casino-bonuses',
+      'with_front' => true,
+    ),
+  ));
+}
+
+// taxonomy Brands Bonuses
+add_action( 'init', 'create_brands_bonuses_taxonomy');
+function create_brands_bonuses_taxonomy() {
+
+  $labels = array(
+    'name' => __( 'Brands Bonuses' ),
+    'singular_name' => __( 'Brands Bonuses' ),
+    'search_items' =>  __( 'Search Brands Bonuses' ),
+    'all_items' => __( 'All Brands Bonuses' ),
+    'parent_item' => __( 'Parent Brands Bonuses' ),
+    'parent_item_colon' => __( 'Parent Brands Bonuses:' ),
+    'edit_item' => __( 'Edit Brands Bonuses' ),
+    'update_item' => __( 'Update Brands Bonuses' ),
+    'add_new_item' => __( 'Add New Brands Bonuses' ),
+    'new_item_name' => __( 'New Brands Name Bonuses' ),
+  );
+
+  register_taxonomy('brands-bonuses', array('casino-bonuses'), array(
+    'hierarchical' => true,
+    'labels' => $labels,
+    'show_ui' => true,
+    'show_admin_column' => true,
+    'query_var' => true,
+    'rewrite' => array(
       'slug' => 'best-casino-bonuses',
       'with_front' => true,
     ),
