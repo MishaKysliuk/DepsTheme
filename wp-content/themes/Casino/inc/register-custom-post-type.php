@@ -51,6 +51,9 @@ function quiz_post() {
 add_action( 'init', 'online_casinos' );
 function online_casinos() {
 
+    $reviews_page_id = get_field('review_page', 'option');
+    $casino_slug = $reviews_page_id ? get_post_field('post_name', $reviews_page_id) : 'reviews';
+
 	$labels = array(
 		'name'               => __( 'Casino', 'casino' ),
 		'singular_name'      => __( 'Casino', 'casino' ),
@@ -98,7 +101,7 @@ function online_casinos() {
 			'custom-fields',
 		),
 		'rewrite'             => array(
-			'slug' => 'reviews',
+			'slug' => $casino_slug,
 			'with_front' => false
 		),
 );
@@ -171,6 +174,9 @@ function online_worst_casinos() {
 add_action( 'init', 'casino_bonuses' );
 function casino_bonuses() {
 
+    $bonuses_page_id = get_field('casino_bonuses_page', 'option');
+    $bonus_slug = $bonuses_page_id ? get_post_field('post_name', $bonuses_page_id) : 'best-casino-bonuses';
+
 	$labels = array(
 		'name'               => __( 'Casino Bonuses', 'casino' ),
 		'singular_name'      => __( 'Casino Bonuses', 'casino' ),
@@ -209,7 +215,7 @@ function casino_bonuses() {
 			'custom-fields',
 		),
 		'rewrite'             => array(
-			'slug' => 'best-casino-bonuses',
+			'slug' => $bonus_slug,
 			'with_front' => false
 		),
 );
@@ -316,6 +322,9 @@ add_action( 'init', 'register_custom_tables' );
 add_action( 'init', 'refister_author' );
 function refister_author() {
 
+    $authors_page_id = get_field('authors_page', 'option');
+    $author_slug = $authors_page_id ? get_post_field('post_name', $authors_page_id) : 'authors';
+
 	$labels = array(
 		'name'               => __( 'Authors', 'casino' ),
 		'singular_name'      => __( 'Author', 'casino' ),
@@ -354,7 +363,7 @@ function refister_author() {
 			'custom-fields',
 		),
 		'rewrite'             => array(
-			'slug' => 'authors',
+			'slug' => $author_slug,
 			'with_front' => false
 		),
 );
