@@ -102,3 +102,5 @@ require_once get_template_directory() . '/inc/shortcodes/year-and-month.php';
 require_once get_template_directory() . '/inc/shortcodes/bonuses.php';
 require_once get_template_directory() . '/inc/shortcodes/register-shortcodes-in-text-editor.php';
 
+//Add EXIF metadata to images
+require_once get_template_directory() . '/inc/add-exif-on-upload.php';
