@@ -7,7 +7,7 @@
       +e.group--lg-w70
         +e.INPUT.input(
           name="email"
-          placeholder="Enter your email",
+          :placeholder="$getTranslation('Enter your email')",
           v-validate='"required|email"',
           v-model='ClientEmail'
         )
@@ -17,7 +17,7 @@
         +b.BUTTON.main-btn--bg-green.--w100.--h100.--dflex(
           type='submit'
           @click.prevent='submit'
-        ) SUBSCRIBE
+        ) {{ $getTranslation('Subscribe') }}
 
 </template>
 

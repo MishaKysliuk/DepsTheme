@@ -2,17 +2,17 @@
   include ../../pug/mixins/bem
 
   +b.chips.mb-2
-    +e.SPAN.title Active Filters:
+    +e.SPAN.title {{ $getTranslation('Active Filters') }}:
     +e.items(v-if="chipsFilter.length")
       +e.SPAN.bonus.--clear-all
         +e.I.remove.icon-remove(@click="$emit('removeBonuse', chipsFilter)")
-        span Clear all
+        span {{ $getTranslation('Clear All') }}
       +e.SPAN.bonus(
         v-for="bonus in chipsFilter"
-      ) 
+      )
         +e.I.remove.icon-remove(@click="$emit('removeBonuse', [bonus])")
         span {{ bonus.name }}
-    +e.SPAN.title.--no-items(v-else) No items
+    +e.SPAN.title.--no-items(v-else) {{ $getTranslation('No Items') }}
 
 </template>
 
@@ -35,7 +35,7 @@ export default {
       })
       return arrayFiltered
     }
-  },  
+  },
 
 }
 </script>

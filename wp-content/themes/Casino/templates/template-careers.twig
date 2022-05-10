@@ -28,7 +28,7 @@
 	{% if post.meta('vacancies') %}
 		<div class="block-wrapper pv-4">
 			<div class="container">
-				<h2 class='blue-title tac mb-1'>{{ __('Why to Work with Us?', 'casinos') }}</h2>
+				<h2 class='blue-title tac mb-1'>{{ __('Why to Work with Us?', 'casino') }}</h2>
 				{% for item in post.meta('vacancies') %}
 					<div class="accordion accordion--vacancies js-accordion">
 						<div class="accordion__header">
@@ -39,7 +39,7 @@
 									<span class='accordion__subtitle-item'>{{ __('Department', 'casino') }}: {{ item.department }}</span>
 									<span class='accordion__subtitle-item'>{{ __('Experience', 'casino') }}: {{ item.experience }}</span>
 									<span class='accordion__subtitle-item'>{{ __('Salary', 'casino') }}: {{ item.salary }}</span>
-								</div>	
+								</div>
 							</div>
 							<button class='accordion__btn js-open-accordion'>
 								<span class='accordion__btn-name accordion__btn-name--read-more'>{{ __('Read more', 'casino') }}</span>
@@ -54,7 +54,7 @@
 								<span class='accordion__subtitle-item'>{{ __('Salary', 'casino') }}: {{ item.salary }}</span>
 							</div>
 							{{ item.text }}
-							<a class='accordion__apply-btn' href='mailto:{{item.mailto}}'>{{ __('APPLY FOR THIS ROLE', 'casino') }}</a>
+							<a class='accordion__apply-btn' href='mailto:{{item.mailto}}'>{{ __('Apply For This Role', 'casino') }}</a>
 						</div>
 						<button class='accordion__btn accordion__btn--mobail js-open-accordion'>
 							<span class='accordion__btn-name accordion__btn-name--read-more'>{{ __('Read more', 'casino') }}</span>

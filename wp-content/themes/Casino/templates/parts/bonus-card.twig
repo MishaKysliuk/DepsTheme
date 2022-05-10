@@ -35,7 +35,7 @@
   <div class='brands-item__tooltip-line'>
     {% if bonus.meta('t&cs').text  %}
       <div class='tooltip' v-open-tooltip="">
-        <span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+        <span class='tooltip__open-btn js-tooltip-open-btn'>{{ __("T&C Apply", 'casino') }}</span>
         <div class='tooltip__container js-tooltip'>
           <span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
           {% if bonus.meta('t&cs').title %}
@@ -44,7 +44,7 @@
           <div class='tooltip__text'>{{ bonus.meta('t&cs').text }}</div>
           {% if bonus.meta('t&cs').link %}
             <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} -  T&Cs'">
-              <button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{bonus.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+              <button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{bonus.id}}">{{ __("Check Full T&C", 'casino') }}</button>
               <input name='t&cs' type='hidden' value="">
             </form>
           {% endif %}
@@ -72,7 +72,7 @@
     <div class='brands-item__buttons'>
       <form method="POST" target="_blank" v-send-gtag="'{{bonus.title}} - button'" >
         <button class='main-btn main-btn--bg-orange main-btn--w100 main-btn--h50' type="submit" name="prgpattern" value="{{ bonus.id }}" target="_blank" >
-          {{ __('claim now', 'casino') }}
+          {{__('Claim Now', 'casino')}}
         </button>
         {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
       </form>

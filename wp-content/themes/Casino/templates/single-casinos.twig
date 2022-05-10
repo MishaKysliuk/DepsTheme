@@ -47,7 +47,7 @@
 						</div>
 						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-3">
 							<div class="brend-suggestions brend-suggestions--pros">
-								<h3 class="brend-suggestions__title">{{ __("What we like", 'casino') }}</h3>
+								<h3 class="brend-suggestions__title">{{ __("What We Like", 'casino') }}</h3>
 								<ul class="brend-suggestions__items">
 									{% for item in post.meta('pros') %}
 										<li class="brend-suggestions__item">{{ item.item }}</li>
@@ -57,7 +57,7 @@
 						</div>
 						<div class="custom-row-flex__el custom-row-flex__el--col-sm-12 custom-row-flex__el--col-md-6 custom-row-flex__el--col-lg-3">
 							<div class="brend-suggestions brend-suggestions--cons">
-								<h3 class="brend-suggestions__title">{{ __("What we Don't like", 'casino') }}</h3>
+								<h3 class="brend-suggestions__title">{{ __("What We Don't Like", 'casino') }}</h3>
 								<ul class="brend-suggestions__items">
 									{% for item in post.meta('cons') %}
 										<li class="brend-suggestions__item">{{ item.item }}</li>
@@ -72,7 +72,7 @@
 									<span class="one-game__light">{{ post.meta('casino_bonus_block').additional_bonus }}</span>
 									{% if post.meta('t&cs').text  %}
 										<div class='tooltip'>
-											<span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+											<span class='tooltip__open-btn js-tooltip-open-btn'>{{ __("T&C Apply", 'casino') }}</span>
 											<div class='tooltip__container js-tooltip'>
 												<span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
 												{% if post.meta('t&cs').title %}
@@ -81,7 +81,7 @@
 												<div class='tooltip__text'>{{ post.meta('t&cs').text }}</div>
 												{% if post.meta('t&cs').link %}
 													<form method="POST" target="_blank" v-send-gtag="'{{post.title}} -  T&Cs'">
-														<button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{post.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+														<button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{post.id}}">{{ __("Check Full T&C", 'casino') }}</button>
 														<input name='t&cs' type='hidden' value="">
 													</form>
 												{% endif %}
@@ -103,7 +103,7 @@
 				
 				{% if post.meta('website_adress') %}
 					<tr>
-						<td>{{ __('Site:', 'casino') }}</td>
+						<td>{{ __('Site', 'casino') }}</td>
 						<td>
 								<form method="POST" target="_blank" v-send-gtag="'{{post.title}} - website-review'">
 									<button class="btn-link-inline" type="submit" name="prgpattern" value="{{ post.ID }}">{{ post.meta('website_adress') }}</button>
@@ -114,28 +114,28 @@
 			
 				{% if post.meta('general_information').launched_in %}
 					<tr>
-						<td>{{ __('Launched in:', 'casino') }}</td>
+						<td>{{ __('Launched in', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').launched_in }}</div></td>
 					</tr>
 				{% endif %}
 				
 				{% if post.meta('general_information').minimum_deposit %}
 					<tr>
-						<td>{{ __('Minimum Deposit:', 'casino') }} </td>
+						<td>{{ __('Minimum Deposit', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').minimum_deposit }}</div></td>
 					</tr>
 				{% endif %}
 				
 				{% if post.meta('general_information').payout_rate %}
 					<tr>
-						<td>{{ __('Payout Rate:', 'casino') }} </td>
+						<td>{{ __('Payout Rate', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').payout_rate }}</div></td>
 					</tr>
 				{% endif %}
 				
 				{% if post.meta('general_information').withdrawal_times %}
 					<tr>
-						<td>{{ __('Withdrawal Times:', 'casino') }} </td>
+						<td>{{ __('Withdrawal Times', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').withdrawal_times }}</div></td>
 					</tr>
 				{% endif %}
@@ -143,7 +143,7 @@
 				{% set casino_games = post.meta('general_information').casino_games ? post.meta('general_information').casino_games : post.terms( {query:{taxonomy:'casino-games', orderby:'name', order: 'ASC'}} )|join(', ') %}
 				{% if casino_games %}
 					<tr>
-						<td>{{ __('Casino Games:', 'casino') }} </td>
+						<td>{{ __('Casino Games', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ casino_games }}</div></td>
 					</tr>
 				{% endif %}
@@ -151,7 +151,7 @@
 				{% set deposit_methods = post.meta('general_information').deposit_methods ? post.meta('general_information').deposit_methods : post.terms( {query:{taxonomy:'payment-methods', orderby:'name', order: 'ASC'}} )|join(', ') %}
 				{% if deposit_methods %}
 					<tr>
-						<td>{{ __('Deposit Methods:', 'casino') }} </td>
+						<td>{{ __('Deposit Methods', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ deposit_methods }}</div></td>
 					</tr>
 				{% endif %}
@@ -159,7 +159,7 @@
 				{% set software_providers = post.meta('general_information').software_providers ? post.meta('general_information').software_providers : post.terms( {query:{taxonomy:'casino-softwares', orderby:'name', order: 'ASC'}} )|join(', ') %}
 				{% if software_providers %}
 					<tr>
-						<td>{{ __('Software Providers:', 'casino') }} </td>
+						<td>{{ __('Software Providers', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ software_providers }}</div></td>
 					</tr>
 				{% endif %}
@@ -167,21 +167,21 @@
 				{% set currencies = post.meta('general_information').currencies ? post.meta('general_information').currencies : post.terms( {query:{taxonomy:'currencies', orderby:'name', order: 'ASC'}} )|join(', ') %}
 				{% if currencies %}
 					<tr>
-						<td>{{ __('Currencies:', 'casino') }} </td>
+						<td>{{ __('Currencies', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ currencies }}</div></td>
 					</tr>
 				{% endif %}
 
 				{% if post.meta('general_information').casino_owner %}
 					<tr>
-						<td>{{ __('Casino Owner:', 'casino') }} </td>
+						<td>{{ __('Casino Owner', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').casino_owner }}</div></td>
 					</tr>
 				{% endif %}
 				
 				{% if post.meta('general_information').gambling_licences %}
 					<tr>
-						<td>{{ __('Gambling Licences:', 'casino') }} </td>
+						<td>{{ __('Gambling Licence', 'casino') }}</td>
 						<td><div class='table-line-content js-line-content'>{{ post.meta('general_information').gambling_licences }}</div></td>
 					</tr>
 				{% endif %}

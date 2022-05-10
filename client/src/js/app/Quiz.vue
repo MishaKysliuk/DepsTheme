@@ -8,7 +8,7 @@
           +b.A.control-btn--arrow(
             v-if="prevLink"
             @click.prevent='getQuestion(prevLink, true)',
-          ) Back
+          ) {{ $getTranslation('Back') }}
           +e.big-btn(
               v-if="questionData.casinos"
             )
@@ -26,12 +26,12 @@
           +b.A.control-btn--restart(
             v-if="prevLink",
             @click.prevent="getQuestion(firstLink); setPrevLink('');"
-          ) Restart
+          ) {{ $getTranslation('Restart') }}
         +e.content
           +e.P.question {{ questionData.questions || questionData.last_title }}
           +e.P.check(
             v-if="questionData.casinos"
-          ) CHECK TOP-3 CASINOS WITH IT
+          ) {{ $getTranslation('Check Top-3 Casinos With It') }}
           transition(name="slide",
                     mode="out-in")
             +e.row--jf-center(
@@ -112,7 +112,7 @@
                             name="prgpattern",
                             :value="item.id",
                             target="_blank"
-                            ) Play now
+                            ) {{ $getTranslation('Play Now') }}
                         form(method="POST" target="_blank" @submit='onFormSubmit(item.title, "- website")')
                           +e.BUTTON.link(
                             type="submit",
@@ -157,7 +157,7 @@ export default {
       axios.get(link)
         .then( ( {data} ) => {
           this.questionData = data
-          minus ? this.counter-- : this.counter++ 
+          minus ? this.counter-- : this.counter++
           this.checkPrevLink(link, minus)
           // console.log(data)
           this.loading = false

@@ -35,25 +35,25 @@
 				<div class="author-info__col author-info__col--one" style="background-color:{{ post.meta('first_column_color') }}">
 					{% if post.meta('born') %}
 						<div class="author-info__item">
-							<span class="author-info__item-title">{{__('Born:','casino')}}</span>
+							<span class="author-info__item-title">{{ __('Born','casino') ~ ':' }}</span>
 							<p class="author-info__item-text">{{post.meta('born')}}</p>
 						</div>
 					{% endif %}
 					{% if post.meta('education') %}
 						<div class="author-info__item">
-							<span class="author-info__item-title">{{__('Education:','casino')}}</span>
+							<span class="author-info__item-title">{{ __('Education','casino') ~ ':' }}</span>
 							<p class="author-info__item-text">{{post.meta('education')}}</p>
 						</div>
 					{% endif %}
 					{% if post.meta('job') %}
 						<div class="author-info__item">
-							<span class="author-info__item-title">{{__('Job:','casino')}}</span>
+							<span class="author-info__item-title">{{ __('Job','casino') ~ ':' }}</span>
 							<p class="author-info__item-text">{{post.meta('job')}}</p>
 						</div>
 					{% endif %}
 					{% if post.meta('favorite_thought') %}
 						<div class="author-info__item">
-							<span class="author-info__item-title">{{__('Favorite thought:','casino')}}</span>
+							<span class="author-info__item-title">{{ __('Favourite Thought','casino') ~ ':' }}</span>
 							<p class="author-info__item-text">{{post.meta('favorite_thought')}}</p>
 						</div>
 					{% endif %}
@@ -61,7 +61,7 @@
 				<div class="author-info__col author-info__col--two" style="background-color:{{ post.meta('second_column_color') }}">
 					{% if post.meta('top_articles') %}
 						<div class="author-info__item">
-							<span class="author-info__item-title">{{__('Top articles:','casino')}}</span>
+							<span class="author-info__item-title">{{ __('Top Articles','casino') ~ ':' }}</span>
 							{% for item in post.meta('top_articles') %}
 								<a class="author-info__item-text author-info__item-text--link" href="{{item.link}}">{{item.name}}</a>
 							{% endfor %}

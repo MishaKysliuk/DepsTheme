@@ -40,6 +40,30 @@ function sites_scripts_and_styles()
     wp_enqueue_script('vendor', get_template_directory_uri() . '/build/static/js/vendor.js', array('manifest'), '', true);
     wp_enqueue_script('main-js', get_template_directory_uri() . '/build/static/js/main.js', array('vendor'), '', true);
 
+    wp_localize_script('main-js', 'TRANSLATIONS',
+        array(
+            'Search' => esc_html__( 'Search', 'casino' ),
+            'Nothing Found' => esc_html__( 'Nothing Found', 'casino' ),
+            'Show More' => esc_html__( 'Show More', 'casino' ),
+            'Play Now' => esc_html__( 'Play Now', 'casino' ),
+            'players voted' => esc_html__( 'players voted', 'casino' ),
+            'readers voted' => esc_html__( 'readers voted', 'casino' ),
+            'Downvoted' => esc_html__( 'Downvoted', 'casino' ),
+            'times' => esc_html__( 'times', 'casino' ),
+            'Subscribe' => esc_html__( 'Subscribe', 'casino' ),
+            'Enter your email' => esc_html__( 'Enter your email', 'casino' ),
+            'Back' => esc_html__( 'Back', 'casino' ),
+            'Restart' => esc_html__( 'Restart', 'casino' ),
+            'No Items' => esc_html__( 'No Items', 'casino' ),
+            'Clear All' => esc_html__( 'Clear All', 'casino' ),
+            'Active Filters' => esc_html__( 'Active Filters', 'casino' ),
+            'Open Filters' => esc_html__( 'Open Filters', 'casino' ),
+            'Close Filters' => esc_html__( 'Close Filters', 'casino' ),
+            'Casino Bonuses' => esc_html__( 'Casino Bonuses', 'casino' ),
+            'Check Top-3 Casinos With It' => esc_html__( 'Check Top-3 Casinos With It', 'casino' )
+        )
+    );
+
     if (is_post_type_archive('blog')) {
         global $malinky_ajax_pagination;
         $malinky_ajax_pagination->malinky_ajax_pagination_styles();

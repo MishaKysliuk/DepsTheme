@@ -25,7 +25,7 @@
       +b.A.main-btn--bg-white-green.--spiner.--w300(
         v-if="showPagination"
         @click.prevent="getNextPage"
-      ) Show more
+      ) {{ $getTranslation('Show More') }}
 
 
 </template>

@@ -14,14 +14,14 @@
       :rounded-corners="true",
       :style="{ 'justify-content': 'center' }"
       )
-    p.star-rating-caption(v-if="starsType === 'page'") ({{ myCounter }} players voted)
-    p.star-rating-caption(v-else-if="starsType === 'casinos'") {{ myCounter }} players voted
-    p.star-rating-caption(v-else-if="starsType === 'bonuses'") {{ myCounter }} players voted
-    p.star-rating-caption(v-else-if="starsType === 'brands-table'") {{ myCounter }} players voted
-    p.star-rating-caption(v-else-if="starsType === 'brands'") Claimed {{ myCounter }} times
-    p.star-rating-caption(v-else-if="starsType === 'worst_casino'") Downvoted {{ myCounter }} times
-    p.star-rating-caption(v-else-if="starsType === 'term'") ({{myCounter}} players voted)
-    p.star-rating-caption(v-else-if="starsType === 'blog'") ({{myCounter}} readers voted)
+    p.star-rating-caption(v-if="starsType === 'page'") ({{ myCounter }} {{ $getTranslation('players voted') }})
+    p.star-rating-caption(v-else-if="starsType === 'casinos'") {{ myCounter }} {{ $getTranslation('players voted') }}
+    p.star-rating-caption(v-else-if="starsType === 'bonuses'") {{ myCounter }} {{ $getTranslation('players voted') }}
+    p.star-rating-caption(v-else-if="starsType === 'brands-table'") {{ myCounter }} {{ $getTranslation('players voted') }}
+    p.star-rating-caption(v-else-if="starsType === 'brands'") {{ $getTranslation('Claimed') }} {{ myCounter }} {{ $getTranslation('times') }}
+    p.star-rating-caption(v-else-if="starsType === 'worst_casino'") {{ $getTranslation('Downvoted') }} {{ myCounter }} {{ $getTranslation('times') }}
+    p.star-rating-caption(v-else-if="starsType === 'term'") ({{myCounter}} {{ $getTranslation('players voted') }})
+    p.star-rating-caption(v-else-if="starsType === 'blog'") ({{myCounter}} {{ $getTranslation('readers voted') }})
 </template>
 
 <script>
@@ -98,12 +98,12 @@ export default {
     getSize() {
       let smallSize = 14
       let defaultSize = 20
-      if ('term' === this.starsType 
-          || 'blog' === this.starsType 
-          || 'page' === this.starsType 
-          || 'brands' === this.starsType 
-          || 'worst_casino' === this.starsType 
-          || 'bonuses' === this.starsType 
+      if ('term' === this.starsType
+          || 'blog' === this.starsType
+          || 'page' === this.starsType
+          || 'brands' === this.starsType
+          || 'worst_casino' === this.starsType
+          || 'bonuses' === this.starsType
           || 'brands-table' === this.starsType) {
         return smallSize
       }

@@ -2,7 +2,7 @@
   include ../../pug/mixins/bem
 
   .mv-2
-    
+
     TABLE.one-game.one-game--table
 
       slot
@@ -12,7 +12,7 @@
       //-   mode="out-in"
       //-   tag='tbody'
       //- )
-        
+
       template(
         v-for="(item, index) in brands"
         v-if="brands.length > 0"
@@ -29,7 +29,7 @@
     )
       +b.A.main-btn--bg-white-green.--spiner.--w300(
         @click.prevent="getCards"
-      ) Show more
+      ) {{ $getTranslation('Show More') }}
 
 </template>
 

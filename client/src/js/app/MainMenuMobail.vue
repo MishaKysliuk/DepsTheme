@@ -1,9 +1,9 @@
 <template lang="pug">
-  
+
   div
     .back-btn(v-if='level > 0' @click="showPrevLvl()")
       i.back-btn__arrow.icon-left-arrow
-      span BACK
+      span {{ $getTranslation('Back') }}
     ul.mobile-menu
       transition-group(
         :name="transitionName",

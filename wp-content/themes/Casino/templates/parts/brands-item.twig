@@ -11,9 +11,7 @@
     </div>
     <div class='brands-item__info'>
       <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - title-allreviews'" >
-        <button class='brands-item__title' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
-          {{ brand.title }}
-        </button>
+        <button class='brands-item__title' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank">{{ brand.title }}</button>
         {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
       </form>
       <div class='brands-item__stars'>
@@ -28,14 +26,12 @@
       </div>
     </div>
   </div>
-  <span class='brands-item__bonuses'>
-    {% set bonus_block = fn('get_aff_key_bonuses', brand.id, aff_key) %}
-    {{ bonus_block.bonus_percent }}   {{ bonus_block.bonus }}
-  </span>
+  {% set bonus_block = fn('get_aff_key_bonuses', brand.id, aff_key) %}
+  <span class='brands-item__bonuses'>{{ bonus_block.bonus_percent }} {{ bonus_block.bonus }}</span>
   <div class='brands-item__tooltip-line'>
     {% if brand.meta('t&cs').text  %}
       <div class='tooltip' v-open-tooltip="">
-        <span class='tooltip__open-btn js-tooltip-open-btn'>T&Cs Apply</span>
+        <span class='tooltip__open-btn js-tooltip-open-btn'>{{ __("T&C Apply", 'casino') }}</span>
         <div class='tooltip__container js-tooltip'>
           <span class='tooltip__close js-tooltip-close'><i class='icon icon-close'></i></span>
           {% if brand.meta('t&cs').title %}
@@ -44,7 +40,7 @@
           <div class='tooltip__text'>{{ brand.meta('t&cs').text }}</div>
           {% if brand.meta('t&cs').link %}
             <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} -  T&Cs'">
-              <button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{brand.id}}">{{ __("Check Full T&Cs", 'casino') }}</button>
+              <button class="main-btn main-btn--bg-blue main-btn--tooltip" type="submit" name="prgpattern" :value="{{brand.id}}">{{ __("Check Full T&C", 'casino') }}</button>
               <input name='t&cs' type='hidden' value="">
             </form>
           {% endif %}
@@ -53,13 +49,13 @@
     {% endif %}
   </div>
   <div class='brands-item__buttons'>
-    <a href="{{ brand.link }}" class='brands-item__btn--reviews main-btn main-btn main-btn--border-orange main-btn--w100 main-btn--h50'>
-      {{ __('Read Review', 'casino') }}
-    </a>
+    <a href="{{ brand.link }}" class='brands-item__btn--reviews main-btn main-btn--border-orange main-btn--w100 main-btn--h50'>{{
+      __('Read Review', 'casino')
+    }}</a>
     <form method="POST" target="_blank" v-send-gtag="'{{brand.title}} - button-allreviews'">
-      <button class='main-btn main-btn--bg-orange main-btn--w100 main-btn--h50' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >
-        {{ __('Visit Site', 'casino') }}
-      </button>
+      <button class='main-btn main-btn--bg-orange main-btn--w100 main-btn--h50' type="submit" name="prgpattern" value="{{ brand.id }}" target="_blank" >{{
+        __('Visit Site', 'casino')
+      }}</button>
       {% if aff_key %}<input name='aff_key' type='hidden' value="{{ aff_key }}">{% endif %}
     </form>
   </div>

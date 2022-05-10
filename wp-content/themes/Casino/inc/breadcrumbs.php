@@ -75,7 +75,7 @@ function get_breadcrumb()
     if (is_404()) {
         $breadcrumb[] = [
             'link'  => '',
-            'title' => __('Page not found', 'casino'),
+            'title' => __('Page Not Found', 'casino'),
         ];
     }
 

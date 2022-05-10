@@ -253,7 +253,7 @@ add_action( 'init', 'create_main_bonus_types_taxonomy');
 function create_main_bonus_types_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Main Bonus Types' ),
+    'name' => __( 'Main Bonus Types', 'casino' ),
     'singular_name' => __( 'Main Bonus Types' ),
     'search_items' =>  __( 'Search Main Bonus Types' ),
     'all_items' => __( 'All Main Bonus Types' ),
@@ -283,7 +283,7 @@ add_action( 'init', 'create_welcome_match_bonuses_taxonomy');
 function create_welcome_match_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Welcome Match Bonuses' ),
+    'name' => __( 'Welcome Match Bonuses', 'casino' ),
     'singular_name' => __( 'Welcome Match Bonuses' ),
     'search_items' =>  __( 'Search Welcome Match Bonuses' ),
     'all_items' => __( 'All Welcome Match Bonuses' ),
@@ -313,7 +313,7 @@ add_action( 'init', 'create_no_deposit_bonuses_taxonomy');
 function create_no_deposit_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'No Deposit Bonuses' ),
+    'name' => __( 'No Deposit Bonuses', 'casino' ),
     'singular_name' => __( 'No Deposit Bonuses' ),
     'search_items' =>  __( 'Search No Deposit Bonuses' ),
     'all_items' => __( 'All No Deposit Bonuses' ),
@@ -343,7 +343,7 @@ add_action( 'init', 'create_free_spins_bonuses_taxonomy');
 function create_free_spins_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Free Spins Bonuses' ),
+    'name' => __( 'Free Spins Bonuses', 'casino' ),
     'singular_name' => __( 'Free Spins Bonuses' ),
     'search_items' =>  __( 'Search Free Spins Bonuses' ),
     'all_items' => __( 'All Free Spins Bonuses' ),
@@ -373,7 +373,7 @@ add_action( 'init', 'create_minimum_deposit_bonuses_taxonomy');
 function create_minimum_deposit_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Minimum Deposit Bonuses' ),
+    'name' => __( 'Minimum Deposit Bonuses', 'casino' ),
     'singular_name' => __( 'Minimum Deposit Bonuses' ),
     'search_items' =>  __( 'Search Minimum Deposit Bonuses' ),
     'all_items' => __( 'All Minimum Deposit Bonuses' ),
@@ -403,7 +403,7 @@ add_action( 'init', 'create_software_bonuses_bonuses_taxonomy');
 function create_software_bonuses_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Software Bonuses' ),
+    'name' => __( 'Software Bonuses', 'casino' ),
     'singular_name' => __( 'Software Bonuses' ),
     'search_items' =>  __( 'Search Software Bonuses' ),
     'all_items' => __( 'All Software Bonuses' ),
@@ -433,7 +433,7 @@ add_action( 'init', 'create_game_bonuses_bonuses_taxonomy');
 function create_game_bonuses_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Game Bonuses' ),
+    'name' => __( 'Game Bonuses', 'casino' ),
     'singular_name' => __( 'Game Bonuses' ),
     'search_items' =>  __( 'Search Game Bonuses' ),
     'all_items' => __( 'All Game Bonuses' ),
@@ -463,7 +463,7 @@ add_action( 'init', 'create_pokies_bonuses_taxonomy');
 function create_pokies_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Pokies Bonuses' ),
+    'name' => __( 'Pokies Bonuses', 'casino' ),
     'singular_name' => __( 'Pokies Bonuses' ),
     'search_items' =>  __( 'Search Pokies Bonuses' ),
     'all_items' => __( 'All Pokies Bonuses' ),
@@ -493,7 +493,7 @@ add_action( 'init', 'create_wagering_requirements_taxonomy');
 function create_wagering_requirements_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Wagering Requirements' ),
+    'name' => __( 'Wagering Requirements', 'casino' ),
     'singular_name' => __( 'Wagering Requirements' ),
     'search_items' =>  __( 'Search Wagering Requirements' ),
     'all_items' => __( 'All Wagering Requirements' ),
@@ -523,7 +523,7 @@ add_action( 'init', 'create_brands_bonuses_taxonomy');
 function create_brands_bonuses_taxonomy() {
 
   $labels = array(
-    'name' => __( 'Brands Bonuses' ),
+    'name' => __( 'Brands Bonuses', 'casino' ),
     'singular_name' => __( 'Brands Bonuses' ),
     'search_items' =>  __( 'Search Brands Bonuses' ),
     'all_items' => __( 'All Brands Bonuses' ),

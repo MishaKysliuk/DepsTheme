@@ -11,7 +11,7 @@
           span.icon-search
         +e.INPUT.input(name="search",
           type="text",
-          placeholder="Please search",
+          :placeholder="$getTranslation('Search')",
           ref="inp"
           @keyup="checkLength",
           v-model="search",
@@ -37,7 +37,7 @@
                 ) {{ item.name }}
           +b.UL.list-search(v-if="!loading && empty && results.length === 0")
             +e.LI.item
-              +e.P.empty Nothing  Found
+              +e.P.empty {{ $getTranslation('Nothing Found') }}
 </template>
 <script>
 import ClickOutside from './ClickOutside'

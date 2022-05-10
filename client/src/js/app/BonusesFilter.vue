@@ -6,18 +6,18 @@
     div
       +b.filters-block(:class="{ 'is-open': isOpenFilters }")
         +e.el.--header
-          +e.SPAN.el-title casino bonuses
+          +e.SPAN.el-title {{ $getTranslation('Casino Bonuses') }}
           +e.SPAN.el-title.--mob(@click="isOpenFilters = !isOpenFilters" :class="{ 'is-open': isOpenFilters }")
 
             +b.BUTTON.hamburger.--spin(type="button" :class="{ 'is-active': isOpenFilters }" )
               +b.SPAN.hamburger-box
                 +b.SPAN.hamburger-inner
-        
-            +e.SPAN.mob-title(v-if="!isOpenFilters") open filters
-            +e.SPAN.mob-title(v-if="isOpenFilters") close filters
+
+            +e.SPAN.mob-title(v-if="!isOpenFilters") {{ $getTranslation('Open Filters') }}
+            +e.SPAN.mob-title(v-if="isOpenFilters") {{ $getTranslation('Close Filters') }}
             +e.I.el-title-arrow.icon-caret-right
         +e.el(v-for="(el, index) in filtersList" :class="{'is-active': openCategory.includes(el.taxonomy_name)}" :key="index")
-          +e.DIV.el-title.--caption(@click="toggleCategory(el.taxonomy_name)") 
+          +e.DIV.el-title.--caption(@click="toggleCategory(el.taxonomy_name)")
             span {{ el.taxonomy_label }}
             +e.I.el-title-arrow.icon-caret-right
           +e.el-body
@@ -45,7 +45,7 @@
                     v-model="checkedFilters[index][el.taxonomy_name]"
                   )
                   +e.category-item-name {{ item.name }}
-            +e.SPAN.category-item-name(v-if="filteresCategories(index).length == 0") Nothing to found!
+            +e.SPAN.category-item-name(v-if="filteresCategories(index).length == 0") {{ $getTranslation('Nothing Found') }}
 
 
     +b.filters-body
@@ -83,7 +83,7 @@
           +b.A.main-btn--bg-white-green.--spiner.--w300(
             v-if="showPagination"
             @click.prevent="getNextPage"
-          ) Show more
+          ) {{ $getTranslation('Show More') }}
 
 </template>
 
@@ -166,7 +166,7 @@ export default {
     removeBonuse(e) {
       for (let key in e ) {
         let one = 1
-        let minusOne = -1 
+        let minusOne = -1
         let checkedFiltersItems = this.checkedFilters[e[key].index][e[key].taxonomy]
         let index = checkedFiltersItems.indexOf(e[key].term_id)
         if (minusOne < index) {
@@ -177,7 +177,7 @@ export default {
       this.filtreredBonuses()
     },
   },
-  
+
   computed: {
     filteresCategories() {
       return (idx) => {
@@ -195,7 +195,7 @@ export default {
         return newArray
       }
     },
-    
+
   }
 }
 </script>

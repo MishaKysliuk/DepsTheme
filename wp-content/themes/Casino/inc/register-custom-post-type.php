@@ -178,18 +178,18 @@ function casino_bonuses() {
     $bonus_slug = $bonuses_page_id ? get_post_field('post_name', $bonuses_page_id) : 'best-casino-bonuses';
 
 	$labels = array(
-		'name'               => __( 'Casino Bonuses', 'casino' ),
-		'singular_name'      => __( 'Casino Bonuses', 'casino' ),
-		'add_new'            => _x( 'Add New Casino Bonuses', 'casino', 'casino' ),
-		'add_new_item'       => __( 'Add New Casino Bonuses', 'casino' ),
-		'edit_item'          => __( 'Edit Casino Bonuses', 'casino' ),
-		'new_item'           => __( 'New Casino Bonuses', 'casino' ),
-		'view_item'          => __( 'View Casino Bonuses', 'casino' ),
-		'search_items'       => __( 'Search Casino Bonuses', 'casino' ),
-		'not_found'          => __( 'No Casino Bonuses found', 'casino' ),
-		'not_found_in_trash' => __( 'No Casino Bonuses found in Trash', 'casino' ),
-		'parent_item_colon'  => __( 'Parent Casino Bonuses:', 'casino' ),
-		'menu_name'          => __( 'Casino Bonuses', 'casino' ),
+		'name'               => __( 'Casino Bonuses' ),
+		'singular_name'      => __( 'Casino Bonuses' ),
+		'add_new'            => _x( 'Add New Casino Bonuses', 'casino' ),
+		'add_new_item'       => __( 'Add New Casino Bonuses' ),
+		'edit_item'          => __( 'Edit Casino Bonuses' ),
+		'new_item'           => __( 'New Casino Bonuses' ),
+		'view_item'          => __( 'View Casino Bonuses' ),
+		'search_items'       => __( 'Search Casino Bonuses' ),
+		'not_found'          => __( 'No Casino Bonuses found' ),
+		'not_found_in_trash' => __( 'No Casino Bonuses found in Trash' ),
+		'parent_item_colon'  => __( 'Parent Casino Bonuses:' ),
+		'menu_name'          => __( 'Casino Bonuses' ),
 	);
 	
 	$args = array(

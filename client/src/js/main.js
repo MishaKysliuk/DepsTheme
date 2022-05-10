@@ -13,7 +13,9 @@ import BonusesFilter from './app/BonusesFilter'
 import BonusesShortcode from './app/BonusesShortcode'
 import VeeValidate from 'vee-validate'
 import VModal from 'vue-js-modal'
+import getTranslation from './inclusions/getTranslation'
 
+Vue.use(getTranslation)
 Vue.use(VModal, {dynamic: true})
 Vue.use(VeeValidate, {
   classes: true,

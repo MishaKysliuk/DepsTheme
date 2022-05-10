@@ -1,0 +1,253 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CasinoDeps\n"
+"POT-Creation-Date: 2022-04-12 16:15+0300\n"
+"PO-Revision-Date: 2022-05-10 14:48+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html;esc_html__;esc_html_e;esc_attr;"
+"esc_attr__;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: inc/breadcrumbs.php:23 inc/breadcrumbs.php:58
+msgid "Blog"
+msgstr "Blog"
+
+#: inc/breadcrumbs.php:33
+msgid "Casino Bonuses"
+msgstr "Bonus Casinò"
+
+#: inc/breadcrumbs.php:53
+msgid "Authors"
+msgstr "Autore"
+
+#: inc/breadcrumbs.php:63
+msgid "Reviews"
+msgstr "Recensioni"
+
+#: inc/breadcrumbs.php:78
+msgid "Page Not Found"
+msgstr "Pagina Non Trovata"
+
+msgid "Last Updated on"
+msgstr "Ultimo Aggiornamento"
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Online Casino"
+msgstr "Sito"
+
+msgid "Casino Bonus"
+msgstr "Bonus"
+
+msgid "Features"
+msgstr "Caratteristiche"
+
+msgid "Safe Link"
+msgstr "Link Sicuro"
+
+msgid "Visit Casino"
+msgstr "Visita il Casinò"
+
+msgid "Visit Site"
+msgstr "Visita il Sito"
+
+msgid "Read Review"
+msgstr "Leggere la Recensione"
+
+msgid "What We Like"
+msgstr "Quello che ci Piace"
+
+msgid "What We Don't Like"
+msgstr "Quello che Non ci Piace"
+
+msgid "General Information"
+msgstr "Informazioni Generali"
+
+msgid "Site"
+msgstr "Sito"
+
+msgid "Launched in"
+msgstr "Lanciato nel"
+
+msgid "Minimum Deposit"
+msgstr "Deposito Minimo"
+
+msgid "Payout Rate"
+msgstr "RTP"
+
+msgid "Withdrawal Times"
+msgstr "Tempi di Prelievo"
+
+msgid "Casino Games"
+msgstr "Giochi di Casinò"
+
+msgid "Deposit Methods"
+msgstr "Metodi di Deposito"
+
+msgid "Software Providers"
+msgstr "Fornitori di Software"
+
+msgid "Currencies"
+msgstr "Valute"
+
+msgid "Casino Owner"
+msgstr "Proprietario"
+
+msgid "Gambling Licence"
+msgstr "Licenza"
+
+msgid "Search"
+msgstr "Cerca"
+
+msgid "Nothing Found"
+msgstr "Niente Trovato"
+
+msgid "Downvoted"
+msgstr "Negativo"
+
+msgid "times"
+msgstr "voto"
+
+msgid "Subscribe"
+msgstr "Iscriviti"
+
+msgid "Back"
+msgstr "Indietro"
+
+msgid "Restart"
+msgstr "Restart"
+
+msgid "No Items"
+msgstr "Nessun Oggetto"
+
+msgid "Clear All"
+msgstr "Cancella tutto"
+
+msgid "Active Filters"
+msgstr "Filtri Attivi"
+
+msgid "Open Filters"
+msgstr "Aprire Filtri"
+
+msgid "Close Filters"
+msgstr "Chiudere Filtri"
+
+msgid "readers voted"
+msgstr "lettori hanno votato"
+
+msgid "players voted"
+msgstr "voti dei giocatori"
+
+msgid "Enter your email"
+msgstr "Inserisci la tua email"
+
+msgid "Check Top-3 Casinos With It"
+msgstr "Ecco Top-3 Casino Per Te"
+
+msgid "Show More"
+msgstr "Mostra di più"
+
+msgid "Play Now"
+msgstr "Visita il Sito"
+
+msgid "by"
+msgstr "di"
+
+msgid "article by"
+msgstr "articolo di"
+
+msgid "Check Full T&C"
+msgstr "Mostra Tutti T&C"
+
+msgid "T&C Apply"
+msgstr "Applicare T&C"
+
+msgid "Claim Bonus"
+msgstr "Richiedi il Bonus"
+
+msgid "Born"
+msgstr "Nato"
+
+msgid "Education"
+msgstr "Formazione"
+
+msgid "Job"
+msgstr "Lavoro"
+
+msgid "Favourite Thought"
+msgstr "Citazione Preferita"
+
+msgid "Top Articles"
+msgstr "Migliori Articoli"
+
+msgid "Our Principles"
+msgstr "I nostri Principi"
+
+msgid "Why to Work with Us?"
+msgstr "Perché Lavorare con Noi?"
+
+msgid "Department"
+msgstr "Dipartimento"
+
+msgid "Experience"
+msgstr "Esperienza"
+
+msgid "Salary"
+msgstr "Stipendio"
+
+msgid "View Job"
+msgstr "Visualizza Offerte di Lavoro"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Apply For This Role"
+msgstr "Fare Domanda Di Lavoro"
+
+msgid "Read more"
+msgstr "Per saperne di più"
+
+msgid "No Spam"
+msgstr "Niente Spam"
+
+msgid "Only Top Offers Once a Week"
+msgstr "Solo Le Migliore Offerte Ogni Settimana"
+
+msgid "Main Bonus Types"
+msgstr "Tipi di Bonus Principali"
+
+msgid "Welcome Match Bonuses"
+msgstr "Bonus di Benvenuto"
+
+msgid "No Deposit Bonuses"
+msgstr "Bonus senza Deposito"
+
+msgid "Free Spins Bonuses"
+msgstr "Bonus Giri Gratis"
+
+msgid "Minimum Deposit Bonuses"
+msgstr "Bonus sul Deposito Minimo"
+
+msgid "Software Bonuses"
+msgstr "Bonus Software"
+
+msgid "Game Bonuses"
+msgstr "Bonus sui Giochi"
+
+msgid "Pokies Bonuses"
+msgstr "Bonus sulle Slot"
+
+msgid "Wagering Requirements"
+msgstr "Requisiti di Scommessa"
+
+msgid "Brands Bonuses"
+msgstr "Bonus dei Brand"
